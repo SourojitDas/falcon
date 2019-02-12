@@ -1,5 +1,6 @@
 package ie.tcd.scss.ase.activites
 
+import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -20,6 +21,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     lateinit var gso: GoogleSignInOptions
     lateinit var mGoogleSignInClient: GoogleSignInClient
     lateinit var googleSignInButton: SignInButton
+    var account: GoogleSignInAccount? = null
     val RC_SIGN_IN = 1001
 
 
@@ -30,10 +32,11 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             .requestEmail()
             .build()
 
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
+
         googleSignInButton = findViewById(R.id.googleSignInButton)
 
-        val account = GoogleSignIn.getLastSignedInAccount(this)
-        loginCheck(account)
+        checkSignIn()
 
         googleSignInButton.setOnClickListener(this);
 
@@ -41,9 +44,19 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         // updateUI(account)
     }
 
-    private fun loginCheck(account: GoogleSignInAccount?): Boolean {
+    private fun checkSignIn() {
+        account = GoogleSignIn.getLastSignedInAccount(this)
+        loginCheck()
+    }
 
-        Toast.makeText(this,account?.idToken,Toast.LENGTH_LONG)
+     private fun loginCheck(): Boolean {
+
+
+        //Toast.makeText(this,account?.idToken,Toast.LENGTH_LONG)
+        if(account != null){
+            Toast.makeText(this,account?.id,Toast.LENGTH_LONG)
+            return true
+        }
         return false
     }
 
@@ -72,10 +85,10 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         try {
 
             val account = accountData.getResult(ApiException::class.java)
-            loginCheck(account)
+            loginCheck()
 
         } catch (e: ApiException) {
-            loginCheck(null)
+            loginCheck()
         }
 
     }
