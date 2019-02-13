@@ -53,16 +53,16 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun checkSignIn() {
-        val pref = getApplicationContext().getSharedPreferences("myPref", 0)
+        /*val pref = getApplicationContext().getSharedPreferences("myPref", 0)
        val is_logged_in= pref.getBoolean(getString(R.string.is_logged_in), false)
        val firebase_id = pref.getString(getString(R.string.firebase_id),null)
         if(is_logged_in.equals(true) && firebase_id!=null){
             val intent = Intent(this, PreferencesActivity::class.java)
             startActivity(intent)
-        }else{
+        }else{*/
             account = GoogleSignIn.getLastSignedInAccount(this)
             loginCheck()
-        }
+        //}
 
     }
 
