@@ -13,7 +13,7 @@ import org.mockito.Mock
 import org.mockito.junit.MockitoJUnitRunner
 
 @RunWith(MockitoJUnitRunner::class)
-class PreferencesActivityUnitTest {
+class PreferencesUnitTest {
 
 //    private val context: Context = RuntimeEnvironment.application.getApplicationContext()
 
