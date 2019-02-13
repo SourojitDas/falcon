@@ -18,13 +18,14 @@ class PreferencesActivity : AppCompatActivity() {
         var wl = findViewById<EditText>(R.id.workLocationEditView);
         var hl = findViewById<EditText>(R.id.homeLocationEditView);
         val sharedPref = getSharedPreferences("myPref", 0)
-        if (sharedPref.contains("wLoc")) {
-            wl.setText(sharedPref.getString("wLoc", ""));
+        if (sharedPref.contains(getString(R.string.wLoc))) {
+            wl.setText(sharedPref.getString(getString(R.string.wLoc), ""));
         }
-        if (sharedPref.contains("hLoc")) {
-            hl.setText(sharedPref.getString("hLoc", ""));
+        if (sharedPref.contains(getString(R.string.hLoc))) {
+            hl.setText(sharedPref.getString(getString(R.string.hLoc), ""));
         }
     }
+
 
     data class Lat_Lng(val lat: Double, val lng: Double)
 
@@ -42,12 +43,12 @@ class PreferencesActivity : AppCompatActivity() {
         val editor = pref.edit();
         val wStr = worLoc.text.toString();
         val hStr = homeLoc.text.toString();
-        editor.putString("wLoc", wStr);
-        editor.putString("wLoc_Lat", getLocFromAddress(wStr)?.lat.toString());
-        editor.putString("wLoc_Lng", getLocFromAddress(wStr)?.lng.toString());
-        editor.putString("hLoc", hStr)
-        editor.putString("hLoc_Lat", getLocFromAddress(hStr)?.lat.toString());
-        editor.putString("hLoc_Lng", getLocFromAddress(hStr)?.lng.toString())
+        editor.putString(getString(R.string.wLoc), wStr);
+        editor.putString(getString(R.string.wLoc_Lat), getLocFromAddress(wStr)?.lat.toString());
+        editor.putString(getString(R.string.wLoc_Lng), getLocFromAddress(wStr)?.lng.toString());
+        editor.putString(getString(R.string.hLoc), hStr)
+        editor.putString(getString(R.string.hLoc_Lat), getLocFromAddress(hStr)?.lat.toString());
+        editor.putString(getString(R.string.hLoc_Lng), getLocFromAddress(hStr)?.lng.toString())
         editor.commit();
         val toast = Toast.makeText(applicationContext, "Preferences Saved", Toast.LENGTH_LONG);
         toast.show();
