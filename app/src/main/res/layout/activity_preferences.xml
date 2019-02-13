@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activites.PreferencesActivity" android:padding="12dp">
+    <TextView android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:text="Preferences"
+              android:id="@+id/preferenceLabelTextView" android:padding="10dp" android:layout_alignParentStart="true"
+              android:layout_marginStart="12dp" android:layout_alignParentEnd="true" android:layout_marginEnd="12dp"/>
+
+    <TextView
+            android:text="Work Location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/workLocationTextView" android:layout_below="@id/preferenceLabelTextView"
+            android:layout_marginTop="19dp"/>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="Location"
+            android:ems="10"
+            android:id="@+id/workLocationEditView"
+            android:layout_alignRight="@id/workLocationTextView"
+            android:layout_marginTop="42dp" android:layout_alignParentEnd="true" android:layout_marginEnd="26dp"
+            android:layout_marginRight="-283dp"/>
+    <TextView
+            android:text="Home Location"
+            android:layout_width="wrap_content"
+            android:layout_below="@id/workLocationTextView"
+            android:layout_height="wrap_content" android:id="@+id/homeLocationTextView"
+            android:layout_marginTop="34dp"/>
+    <EditText
+            android:layout_width="224dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="Location"
+            android:ems="10"
+            android:layout_below="@id/workLocationEditView"
+            android:id="@+id/homeLocationEditView" android:layout_marginTop="14dp" android:layout_alignParentEnd="true"
+            android:layout_marginEnd="24dp" android:layout_alignParentStart="true" android:layout_marginStart="151dp"/>
+    <Button
+            android:text="Set Preferences"
+            android:layout_width="169dp"
+            android:onClick="readValues"
+            android:layout_below="@id/homeLocationTextView"
+            android:layout_height="wrap_content" android:id="@+id/button"
+            android:layout_marginTop="36dp"/>
+    <Button
+            android:text="Reset Pref"
+            android:onClick="resetView"
+            android:layout_below="@id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/button3"/>
+
+
+    }
+</RelativeLayout>
