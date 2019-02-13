@@ -19,7 +19,6 @@ import org.robolectric.annotation.Config
  */
 
 @RunWith(RobolectricTestRunner::class)
-@Config(constants = BuildConfig::class, sdk = intArrayOf(25))
 class ExampleUnitTest {
 
 
@@ -33,7 +32,7 @@ class ExampleUnitTest {
 //    }
 
 
-    @Test
+
     fun loginTest(){
 
 
