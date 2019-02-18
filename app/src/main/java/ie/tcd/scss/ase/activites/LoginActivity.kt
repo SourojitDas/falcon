@@ -16,6 +16,9 @@ import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.iid.FirebaseInstanceId
+import com.google.firebase.iid.FirebaseInstanceIdService
+import com.google.firebase.messaging.FirebaseMessagingService
 import ie.tcd.scss.ase.MapsActivity
 import ie.tcd.scss.ase.R
 
@@ -82,6 +85,9 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             editor.putString(getString(R.string.email), account?.email)
             val status = editor.commit()
             Log.e("login-debug", status.toString())
+
+            var token = FirebaseInstanceId.getInstance().getToken()
+            Log.e("login-debug-token", token)
             return status
 //            Toast.makeText(this,account?.id,Toast.LENGTH_LONG)
 //            return true
