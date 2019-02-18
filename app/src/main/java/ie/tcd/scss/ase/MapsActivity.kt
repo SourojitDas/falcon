@@ -1,5 +1,6 @@
 package ie.tcd.scss.ase
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 
@@ -9,6 +10,8 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import ie.tcd.scss.ase.activites.LoginActivity
+import ie.tcd.scss.ase.activites.PreferencesActivity
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
@@ -21,6 +24,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+        val intent = Intent(this, LoginActivity::class.java).apply {
+
+        }
+        startActivity(intent);
     }
 
     /**
