@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">Falcon</string>
     <string name="title_activity_maps">Map</string>
+    <string name="pref_name">my_pref</string>
+    <string name="work_loc"/>
+    <string name="home_loc">home_loc</string>
+    <string name="work_loc_lat">work_loc_lat</string>
+    <string name="work_loc_lng">work_loc_lng</string>
+    <string name="home_loc_lat">home_loc_lat</string>
+    <string name="home_loc_lng">home_loc_lng</string>
 </resources>
