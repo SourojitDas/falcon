@@ -7,10 +7,10 @@
     <string name="web_config_id">AIzaSyCq9ZKWxgRWlbNbg5d7GNbzSOoc0Xy2Yvg</string>
     <string name="email">email</string>
     <string name="name">name</string>
-    <string name="wLoc">wLoc</string>
-    <string name="wLoc_Lat">wLoc_Lat</string>
-    <string name="wLoc_Lng">wLoc_Lng</string>
-    <string name="hLoc">hLoc</string>
-    <string name="hLoc_Lat">hLoc_Lat</string>
-    <string name="hLoc_Lng">hLoc_Lng</string>
+    <string name="work_location">work_location</string>
+    <string name="work_location_lat">work_location_lat</string>
+    <string name="work_location_long">work_location_long</string>
+    <string name="home_location">home_location</string>
+    <string name="home_location_lat">home_location_lat</string>
+    <string name="home_location_long">home_location_long</string>
 </resources>

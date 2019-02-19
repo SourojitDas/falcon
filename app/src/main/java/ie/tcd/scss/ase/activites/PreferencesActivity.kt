@@ -17,11 +17,11 @@ open class PreferencesActivity : AppCompatActivity() {
         val wl = findViewById<EditText>(R.id.workLocationEditView)
         val hl = findViewById<EditText>(R.id.homeLocationEditView)
         val sharedPref = getSharedPreferences("myPref", 0)
-        if (sharedPref.contains("wLoc")) {
-            wl.setText(sharedPref.getString("wLoc", ""))
+        if (sharedPref.contains(getString(R.string.work_location))) {
+            wl.setText(sharedPref.getString(getString(R.string.work_location), ""))
         }
-        if (sharedPref.contains("hLoc")) {
-            hl.setText(sharedPref.getString("hLoc", ""))
+        if (sharedPref.contains(getString(R.string.home_location))) {
+            hl.setText(sharedPref.getString(getString(R.string.home_location), ""))
         }
     }
 
@@ -43,13 +43,13 @@ open class PreferencesActivity : AppCompatActivity() {
     fun setPreferences(wStr: String, hStr: String) {
         val pref = applicationContext.getSharedPreferences("myPref", 0)
         val editor = pref.edit()
-        editor.putString("work_location", wStr)
-        editor.putString("home_location", hStr)
+        editor.putString(getString(R.string.work_location), wStr)
+        editor.putString(getString(R.string.home_location), hStr)
 
-        editor.putString("work_location_lat", getLocFromAddress(wStr)?.lat.toString())
-        editor.putString("work_location_long", getLocFromAddress(wStr)?.lng.toString())
-        editor.putString("home_location_lat", getLocFromAddress(hStr)?.lat.toString())
-        editor.putString("home_location_long", getLocFromAddress(hStr)?.lng.toString())
+        editor.putString(getString(R.string.work_location_lat), getLocFromAddress(wStr)?.lat.toString())
+        editor.putString(getString(R.string.work_location_long), getLocFromAddress(wStr)?.lng.toString())
+        editor.putString(getString(R.string.home_location_lat), getLocFromAddress(hStr)?.lat.toString())
+        editor.putString(getString(R.string.home_location_long), getLocFromAddress(hStr)?.lng.toString())
         editor.apply()
         showNotification()
     }
