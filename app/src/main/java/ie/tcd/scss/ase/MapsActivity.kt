@@ -1,9 +1,8 @@
 package ie.tcd.scss.ase
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-
+import android.support.v7.app.AppCompatActivity
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -11,7 +10,6 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import ie.tcd.scss.ase.activites.LoginActivity
-import ie.tcd.scss.ase.activites.PreferencesActivity
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
