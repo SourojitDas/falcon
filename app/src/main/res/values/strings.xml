@@ -8,9 +8,18 @@
     <string name="email">email</string>
     <string name="name">name</string>
     <string name="wLoc">wLoc</string>
+
     <string name="wLoc_Lat">wLoc_Lat</string>
     <string name="wLoc_Lng">wLoc_Lng</string>
     <string name="hLoc">hLoc</string>
     <string name="hLoc_Lat">hLoc_Lat</string>
     <string name="hLoc_Lng">hLoc_Lng</string>
+
+    <string name="pref_name">my_pref</string>
+    <string name="home_loc">home_loc</string>
+    <string name="work_loc_lat">work_loc_lat</string>
+    <string name="work_loc_lng">work_loc_lng</string>
+    <string name="home_loc_lat">home_loc_lat</string>
+    <string name="home_loc_lng">home_loc_lng</string>
+    <string name="work_loc">work_loc</string>
 </resources>

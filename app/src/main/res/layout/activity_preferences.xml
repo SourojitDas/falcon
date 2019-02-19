@@ -32,7 +32,8 @@
             android:text="Home Location"
             android:layout_width="wrap_content"
             android:layout_below="@id/workLocationTextView"
-            android:layout_height="wrap_content" android:id="@+id/homeLocationTextView"
+            android:layout_height="wrap_content"
+            android:id="@+id/homeLocationTextView"
             android:layout_marginTop="34dp"/>
     <EditText
             android:layout_width="224dp"
@@ -41,22 +42,33 @@
             android:text="Location"
             android:ems="10"
             android:layout_below="@id/workLocationEditView"
-            android:id="@+id/homeLocationEditView" android:layout_marginTop="14dp" android:layout_alignParentEnd="true"
-            android:layout_marginEnd="24dp" android:layout_alignParentStart="true" android:layout_marginStart="151dp"/>
+            android:id="@+id/homeLocationEditView"
+            android:layout_marginTop="14dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="24dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="151dp"/>
+
+    <android.support.v7.widget.RecyclerView
+            android:id="@+id/preference_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:paddingTop="10dp"
+            android:layout_below="@+id/homeLocationTextView"
+            tools:itemCount="6"/>
+
     <Button
             android:text="Set Preferences"
             android:layout_width="169dp"
-            android:onClick="readValues"
-            android:layout_below="@id/homeLocationTextView"
-            android:layout_height="wrap_content" android:id="@+id/button"
+            android:layout_below="@id/preference_recycler"
+            android:layout_height="wrap_content"
+            android:id="@+id/button"
             android:layout_marginTop="36dp"/>
     <Button
             android:text="Reset Pref"
-            android:onClick="resetView"
             android:layout_below="@id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/button3"/>
 
-
-    }
 </RelativeLayout>
