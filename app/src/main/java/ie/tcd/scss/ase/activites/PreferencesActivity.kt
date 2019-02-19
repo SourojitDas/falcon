@@ -2,13 +2,12 @@ package ie.tcd.scss.ase.activites
 
 import android.location.Address
 import android.location.Geocoder
-import android.net.wifi.hotspot2.pps.HomeSp
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
+import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import ie.tcd.scss.ase.R
-import java.lang.Exception
 
 open class PreferencesActivity : AppCompatActivity() {
 
@@ -28,14 +27,14 @@ open class PreferencesActivity : AppCompatActivity() {
 
     data class Lat_Lng(val lat: Double, val lng: Double)
 
-    fun resetView() {
+    fun resetView(view: View) {
         val wl = findViewById<EditText>(R.id.workLocationEditView)
         val hl = findViewById<EditText>(R.id.homeLocationEditView)
         wl.setText("")
         hl.setText("")
     }
 
-    fun readValues() {
+    fun readValues(view: View) {
         val worLoc = findViewById<EditText>(R.id.workLocationEditView)
         val homeLoc = findViewById<EditText>(R.id.homeLocationEditView)
         setPreferences(worLoc.text.toString(), homeLoc.text.toString())

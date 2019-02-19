@@ -1,4 +1,16 @@
 <resources>
     <string name="app_name">Falcon</string>
     <string name="title_activity_maps">Map</string>
+    <string name="token">firebase_token</string>
+    <string name="is_logged_in">is_logged_in</string>
+    <string name="firebase_id">firebase_id</string>
+    <string name="web_config_id">AIzaSyCq9ZKWxgRWlbNbg5d7GNbzSOoc0Xy2Yvg</string>
+    <string name="email">email</string>
+    <string name="name">name</string>
+    <string name="wLoc">wLoc</string>
+    <string name="wLoc_Lat">wLoc_Lat</string>
+    <string name="wLoc_Lng">wLoc_Lng</string>
+    <string name="hLoc">hLoc</string>
+    <string name="hLoc_Lat">hLoc_Lat</string>
+    <string name="hLoc_Lng">hLoc_Lng</string>
 </resources>
