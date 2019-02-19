@@ -26,11 +26,11 @@ android {
     useLibrary 'android.test.base'
     useLibrary 'android.test.mock'
 
-    testOptions {
-        unitTests {
-            includeAndroidResources = true
-        }
-    }
+//    testOptions {
+//        unitTests {
+//            includeAndroidResources = true
+//        }
+//    }
 }
 
 repositories {
