@@ -1,5 +1,6 @@
 package ie.tcd.scss.ase.activites
 
+import android.content.Intent
 import android.location.Address
 import android.location.Geocoder
 import android.os.Bundle
@@ -7,6 +8,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
+import ie.tcd.scss.ase.MapsActivity
 import ie.tcd.scss.ase.R
 
 open class PreferencesActivity : AppCompatActivity() {
@@ -52,6 +54,8 @@ open class PreferencesActivity : AppCompatActivity() {
         editor.putString(getString(R.string.home_location_long), getLocFromAddress(hStr)?.lng.toString())
         editor.apply()
         showNotification()
+        val intent = Intent(this, MapsActivity::class.java)
+        startActivity(intent)
     }
 
     fun showNotification() {
