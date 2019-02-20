@@ -4,17 +4,25 @@ import android.location.Address
 import android.location.Geocoder
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.util.Log
+import android.view.View
 import android.widget.EditText
+import android.widget.Switch
 import android.widget.Toast
 import ie.tcd.scss.ase.R
 import ie.tcd.scss.ase.adapters.PreferenceRecyclerViewAdapter
+import ie.tcd.scss.ase.poko.PreferedMode
+import ie.tcd.scss.ase.utilities.ModePreferenceInterface
 import java.lang.Exception
 
-open class PreferencesActivity : AppCompatActivity() {
+open class PreferencesActivity : AppCompatActivity(),ModePreferenceInterface {
 
     private lateinit var preferenceRecyclerView:RecyclerView
     private lateinit var preferencerecycelerViewAdapter: PreferenceRecyclerViewAdapter
+    private lateinit var res:Array<String>
+    private lateinit var prefModes: ArrayList<PreferedMode>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,20 +36,37 @@ open class PreferencesActivity : AppCompatActivity() {
         if (sharedPref.contains(getString(R.string.home_loc))) {
             hl.setText(sharedPref.getString(getString(R.string.home_loc), ""))
         }
+
+        prefModes = ArrayList()
+        res = resources.getStringArray(R.array.pref_mode)
+        for (key in res){
+            var pref = PreferedMode()
+            pref.mode = key
+            pref.seleceted = false
+            prefModes.add(pref)
+        }
+
+        //Bind RecyclerView
+        preferenceRecyclerView = findViewById<RecyclerView>(R.id.preference_recycle_view)
+        preferenceRecyclerView.layoutManager = LinearLayoutManager(this)
+        preferencerecycelerViewAdapter = PreferenceRecyclerViewAdapter(prefModes,this,this)
+        preferenceRecyclerView.adapter = preferencerecycelerViewAdapter
+
     }
 
     data class Lat_Lng(val lat: Double, val lng: Double)
 
-    fun resetView() {
+    fun resetView(view:View) {
         val wl = findViewById<EditText>(R.id.workLocationEditView)
         val hl = findViewById<EditText>(R.id.homeLocationEditView)
         wl.setText("")
         hl.setText("")
     }
 
-    fun readValues() {
+    fun readValues(view:View) {
         val worLoc = findViewById<EditText>(R.id.workLocationEditView)
         val homeLoc = findViewById<EditText>(R.id.homeLocationEditView)
+        val modePref = findViewById<Switch>(R.id.preference_recycle_view)
         setPreferences(worLoc.text.toString(), homeLoc.text.toString())
     }
 
@@ -77,5 +102,14 @@ open class PreferencesActivity : AppCompatActivity() {
             println("Error")
             return null
         }
+    }
+
+
+    override fun selectedPrefernceMode(list: ArrayList<PreferedMode>) {
+        //TODO("not implemented")
+        //To change body of created functions use File | Settings | File Templates.
+
+
+        Log.d("CHECK",prefModes[0].mode +" : "+prefModes[0].seleceted);
     }
 }
