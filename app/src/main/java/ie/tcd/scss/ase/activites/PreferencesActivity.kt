@@ -14,32 +14,40 @@ import android.widget.Toast
 import ie.tcd.scss.ase.R
 import ie.tcd.scss.ase.adapters.PreferenceRecyclerViewAdapter
 import ie.tcd.scss.ase.poko.PreferedMode
+import ie.tcd.scss.ase.poko.SharedPreferenceDataClass
 import ie.tcd.scss.ase.utilities.ModePreferenceInterface
+import ie.tcd.scss.ase.utilities.SharedPreferenceHelper
 import java.lang.Exception
 
-open class PreferencesActivity : AppCompatActivity(),ModePreferenceInterface {
+open class PreferencesActivity : AppCompatActivity(), ModePreferenceInterface {
 
-    private lateinit var preferenceRecyclerView:RecyclerView
+    private lateinit var preferenceRecyclerView: RecyclerView
     private lateinit var preferencerecycelerViewAdapter: PreferenceRecyclerViewAdapter
-    private lateinit var res:Array<String>
+    private lateinit var res: Array<String>
     private lateinit var prefModes: ArrayList<PreferedMode>
+    private lateinit var sharedPreferenceHelper: SharedPreferenceHelper
+    private lateinit var sharedPreferenceDataClass: SharedPreferenceDataClass
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_preferences)
         val wl = findViewById<EditText>(R.id.workLocationEditView)
         val hl = findViewById<EditText>(R.id.homeLocationEditView)
+
         val sharedPref = getSharedPreferences(getString(R.string.pref_name), 0)
-        if (sharedPref.contains(getString(R.string.work_loc))) {
-            wl.setText(sharedPref.getString(getString(R.string.work_loc), ""))
+
+        sharedPreferenceHelper = SharedPreferenceHelper(sharedPref)
+
+        if (sharedPreferenceHelper.containPreference(getString(R.string.work_loc))) {
+            wl.setText(sharedPreferenceHelper.getPreference(getString(R.string.work_loc)))
         }
-        if (sharedPref.contains(getString(R.string.home_loc))) {
-            hl.setText(sharedPref.getString(getString(R.string.home_loc), ""))
+        if (sharedPreferenceHelper.containPreference(getString(R.string.home_loc))) {
+            hl.setText(sharedPreferenceHelper.getPreference(getString(R.string.home_loc)))
         }
 
         prefModes = ArrayList()
         res = resources.getStringArray(R.array.pref_mode)
-        for (key in res){
+        for (key in res) {
             var pref = PreferedMode()
             pref.mode = key
             pref.seleceted = false
@@ -49,21 +57,21 @@ open class PreferencesActivity : AppCompatActivity(),ModePreferenceInterface {
         //Bind RecyclerView
         preferenceRecyclerView = findViewById<RecyclerView>(R.id.preference_recycle_view)
         preferenceRecyclerView.layoutManager = LinearLayoutManager(this)
-        preferencerecycelerViewAdapter = PreferenceRecyclerViewAdapter(prefModes,this,this)
+        preferencerecycelerViewAdapter = PreferenceRecyclerViewAdapter(prefModes, this, this)
         preferenceRecyclerView.adapter = preferencerecycelerViewAdapter
 
     }
 
     data class Lat_Lng(val lat: Double, val lng: Double)
 
-    fun resetView(view:View) {
+    fun resetView(view: View) {
         val wl = findViewById<EditText>(R.id.workLocationEditView)
         val hl = findViewById<EditText>(R.id.homeLocationEditView)
         wl.setText("")
         hl.setText("")
     }
 
-    fun readValues(view:View) {
+    fun readValues(view: View) {
         val worLoc = findViewById<EditText>(R.id.workLocationEditView)
         val homeLoc = findViewById<EditText>(R.id.homeLocationEditView)
         val modePref = findViewById<Switch>(R.id.preference_recycle_view)
@@ -71,16 +79,24 @@ open class PreferencesActivity : AppCompatActivity(),ModePreferenceInterface {
     }
 
     fun setPreferences(wStr: String, hStr: String) {
-        val pref = applicationContext.getSharedPreferences(getString(R.string.pref_name), 0)
-        val editor = pref.edit()
-        editor.putString(getString(R.string.work_loc), wStr)
-        editor.putString(getString(R.string.home_loc), hStr)
+//        val pref = applicationContext.getSharedPreferences(getString(R.string.pref_name), 0)
+//        val editor = pref.edit()
+//        editor.putString(getString(R.string.work_loc), wStr)
+//        editor.putString(getString(R.string.home_loc), hStr)
+//
+//        editor.putString(getString(R.string.work_loc_lat), getLocFromAddress(wStr)?.lat.toString())
+//        editor.putString(getString(R.string.work_loc_lng), getLocFromAddress(wStr)?.lng.toString())
+//        editor.putString(getString(R.string.home_loc_lat), getLocFromAddress(hStr)?.lat.toString())
+//        editor.putString(getString(R.string.home_loc_lng), getLocFromAddress(hStr)?.lng.toString())
+//        editor.apply()
 
-        editor.putString(getString(R.string.work_loc_lat), getLocFromAddress(wStr)?.lat.toString())
-        editor.putString(getString(R.string.work_loc_lng), getLocFromAddress(wStr)?.lng.toString())
-        editor.putString(getString(R.string.home_loc_lat), getLocFromAddress(hStr)?.lat.toString())
-        editor.putString(getString(R.string.home_loc_lng), getLocFromAddress(hStr)?.lng.toString())
-        editor.apply()
+        sharedPreferenceHelper.savePreference(SharedPreferenceDataClass(getString(R.string.work_loc), wStr))
+        sharedPreferenceHelper.savePreference(SharedPreferenceDataClass(getString(R.string.home_loc), hStr))
+        sharedPreferenceHelper.savePreference(SharedPreferenceDataClass(getString(R.string.work_loc_lat), getLocFromAddress(wStr)?.lat.toString()))
+        sharedPreferenceHelper.savePreference(SharedPreferenceDataClass(getString(R.string.work_loc_lng), getLocFromAddress(wStr)?.lng.toString()))
+        sharedPreferenceHelper.savePreference(SharedPreferenceDataClass(getString(R.string.home_loc_lat), getLocFromAddress(hStr)?.lat.toString()))
+        sharedPreferenceHelper.savePreference(SharedPreferenceDataClass(getString(R.string.home_loc_lng), getLocFromAddress(hStr)?.lng.toString()))
+
         showNotification()
     }
 
@@ -110,6 +126,6 @@ open class PreferencesActivity : AppCompatActivity(),ModePreferenceInterface {
         //To change body of created functions use File | Settings | File Templates.
 
 
-        Log.d("CHECK",prefModes[0].mode +" : "+prefModes[0].seleceted);
+        Log.d("CHECK", prefModes[0].mode + " : " + prefModes[0].seleceted)
     }
 }
