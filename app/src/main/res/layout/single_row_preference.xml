@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="wrap_content"
+android:minHeight="?attr/actionBarSize">
+
+<LinearLayout android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:minHeight="?attr/actionBarSize"
+              android:layout_margin="8dp"
+              android:gravity="center"
+              android:orientation="horizontal"
+              android:layout_centerVertical="true">
+    <TextView android:layout_width="0dp"
+              android:text="Dummy Text"
+              android:gravity="center_vertical"
+              android:layout_height="match_parent" android:id="@+id/single_row_preference_mode"
+    android:layout_weight="1"/>
+    <Switch android:layout_width="0dp" android:layout_height="match_parent" android:id="@+id/single_row_preference_toggle"
+    android:layout_weight=".2"/>
+</LinearLayout>
+
+</RelativeLayout>
