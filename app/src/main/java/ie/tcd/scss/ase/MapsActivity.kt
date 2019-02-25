@@ -12,6 +12,9 @@ import android.support.design.widget.FloatingActionButton
 import android.support.v4.app.ActivityCompat
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import android.view.View
+import android.widget.Button
+import android.widget.Toast
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException
 import com.google.android.gms.common.GooglePlayServicesRepairableException
 import com.google.android.gms.common.api.ResolvableApiException
@@ -24,6 +27,9 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
+import ie.tcd.scss.ase.interfaces.RetrofitAPI
+import io.reactivex.disposables.Disposable
+import retrofit2.Retrofit
 import java.io.IOException
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
@@ -37,12 +43,17 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
 
     private val PLACE_PICKER_REQUEST = 3
 
+    val retrofitAPI by lazy{
+        RetrofitAPI.create()
+    }
+    var disposable:Disposable? = null;
     // 1
     private lateinit var locationCallback: LocationCallback
     // 2
     private lateinit var locationRequest: LocationRequest
 
     private var locationUpdateState = false
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -64,12 +75,20 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
                 placeMarkerOnMap(LatLng(lastLocation.latitude, lastLocation.longitude))
             }
         }
+        val button = findViewById<Button>(R.id.directionSearchButton)
+        button.setOnClickListener(){
+            Toast.makeText(getApplicationContext(), "Searching.. ", Toast.LENGTH_LONG).show()
+
+           // retrofitAPI.getBikeData("Dublin", "ed91f65214a826cb97c5444a15f25665726b95ae").
+
+        }
+
         createLocationRequest()
 
-        val fab = findViewById<FloatingActionButton>(R.id.fab)
+       /* val fab = findViewById<FloatingActionButton>(R.id.fab)
         fab.setOnClickListener {
             loadPlacePicker()
-        }
+        }*/
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
@@ -260,4 +279,5 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
             e.printStackTrace()
         }
     }
+
 }

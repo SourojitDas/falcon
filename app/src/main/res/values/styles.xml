@@ -8,7 +8,6 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="SplashTheme" parent="Theme.AppCompat.Light.NoActionBar">
-
-    </style>
+    <style name="SplashTheme" parent="Theme.AppCompat.Light.NoActionBar"></style>
+    <style name="AppThemeMapActivity" parent="Base.Theme.MaterialComponents.Light.DarkActionBar"></style>
 </resources>
