@@ -52,8 +52,8 @@ class PreferencesUnitTest {
 
     private fun createSharedPreferenceHelper(): SharedPreferenceHelper {
 
-        given(sharedPreference.getString(eq(mockPref1.key), anyString())).willReturn(mockPref1.value)
-        given(sharedPreference.getString(eq(mockPref2.key), anyString())).willReturn(mockPref2.value)
+        given(sharedPreference.getString(eq(mockPref1.key), anyString())).willReturn(mockPref1.value.toString())
+        given(sharedPreference.getString(eq(mockPref2.key), anyString())).willReturn(mockPref2.value.toString())
 
         given(mockEditor.commit()).willReturn(true)
 
