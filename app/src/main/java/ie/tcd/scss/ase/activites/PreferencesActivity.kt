@@ -1,5 +1,6 @@
 package ie.tcd.scss.ase.activites
 
+import android.content.Intent
 import android.location.Address
 import android.location.Geocoder
 import android.support.v7.app.AppCompatActivity
@@ -12,6 +13,7 @@ import android.widget.EditText
 import android.widget.Switch
 import android.widget.Toast
 import com.google.gson.Gson
+import ie.tcd.scss.ase.MapsActivity
 import ie.tcd.scss.ase.R
 import ie.tcd.scss.ase.adapters.PreferenceRecyclerViewAdapter
 import ie.tcd.scss.ase.poko.PreferedMode
@@ -101,6 +103,9 @@ open class PreferencesActivity : AppCompatActivity(), ModePreferenceInterface {
         sharedPreferenceHelper.savePreference(SharedPreferenceDataClass(getString(R.string.pref_saved),true))
 
         showNotification()
+
+        val intent = Intent(applicationContext, MapsActivity::class.java)
+        startActivity(intent)
     }
 
     fun showNotification() {
