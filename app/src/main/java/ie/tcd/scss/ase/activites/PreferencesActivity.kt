@@ -11,6 +11,7 @@ import android.view.View
 import android.widget.EditText
 import android.widget.Switch
 import android.widget.Toast
+import com.google.gson.Gson
 import ie.tcd.scss.ase.R
 import ie.tcd.scss.ase.adapters.PreferenceRecyclerViewAdapter
 import ie.tcd.scss.ase.poko.PreferedMode
@@ -39,10 +40,10 @@ open class PreferencesActivity : AppCompatActivity(), ModePreferenceInterface {
         sharedPreferenceHelper = SharedPreferenceHelper(sharedPref)
 
         if (sharedPreferenceHelper.containPreference(getString(R.string.work_loc))) {
-            wl.setText(sharedPreferenceHelper.getPreference(getString(R.string.work_loc)))
+            wl.setText(sharedPreferenceHelper.getPreference(getString(R.string.work_loc)).toString())
         }
         if (sharedPreferenceHelper.containPreference(getString(R.string.home_loc))) {
-            hl.setText(sharedPreferenceHelper.getPreference(getString(R.string.home_loc)))
+            hl.setText(sharedPreferenceHelper.getPreference(getString(R.string.home_loc)).toString())
         }
 
         prefModes = ArrayList()
@@ -74,7 +75,7 @@ open class PreferencesActivity : AppCompatActivity(), ModePreferenceInterface {
     fun readValues(view: View) {
         val worLoc = findViewById<EditText>(R.id.workLocationEditView)
         val homeLoc = findViewById<EditText>(R.id.homeLocationEditView)
-        val modePref = findViewById<Switch>(R.id.preference_recycle_view)
+//        val modePref = findViewById<Switch>(R.id.preference_recycle_view)
         setPreferences(worLoc.text.toString(), homeLoc.text.toString())
     }
 
@@ -96,6 +97,8 @@ open class PreferencesActivity : AppCompatActivity(), ModePreferenceInterface {
         sharedPreferenceHelper.savePreference(SharedPreferenceDataClass(getString(R.string.work_loc_lng), getLocFromAddress(wStr)?.lng.toString()))
         sharedPreferenceHelper.savePreference(SharedPreferenceDataClass(getString(R.string.home_loc_lat), getLocFromAddress(hStr)?.lat.toString()))
         sharedPreferenceHelper.savePreference(SharedPreferenceDataClass(getString(R.string.home_loc_lng), getLocFromAddress(hStr)?.lng.toString()))
+
+        sharedPreferenceHelper.savePreference(SharedPreferenceDataClass(getString(R.string.pref_saved),true))
 
         showNotification()
     }
@@ -122,10 +125,24 @@ open class PreferencesActivity : AppCompatActivity(), ModePreferenceInterface {
 
 
     override fun selectedPrefernceMode(list: ArrayList<PreferedMode>) {
-        //TODO("not implemented")
-        //To change body of created functions use File | Settings | File Templates.
 
 
         Log.d("CHECK", prefModes[0].mode + " : " + prefModes[0].seleceted)
+
+//        list.forEach {
+//            lateinit var saveData:SharedPreferenceDataClass
+//            saveData.key = it.mode
+//            saveData.value = it.seleceted.toString()
+//
+//            sharedPreferenceHelper.savePreference(saveData)
+//        }
+
+
+        var gson = Gson()
+        var jsonString = gson.toJson(list)
+        Log.d("JSON",jsonString)
+        var savePreference = SharedPreferenceDataClass(getString(R.string.pref_mode),jsonString)
+        sharedPreferenceHelper.savePreference(savePreference)
+
     }
 }

@@ -22,6 +22,8 @@
     <string name="home_loc_lat">home_loc_lat</string>
     <string name="home_loc_lng">home_loc_lng</string>
     <string name="work_loc">work_loc</string>
+    <string name="pref_saved">pref_saved</string>
+    <string name="pref_mode">pref_mode</string>
 
     <string-array name="pref_mode">
         <item>Cycle</item>
