@@ -29,7 +29,6 @@ open class PreferencesActivity : AppCompatActivity(), ModePreferenceInterface {
     private lateinit var res: Array<String>
     private lateinit var prefModes: ArrayList<PreferedMode>
     private lateinit var sharedPreferenceHelper: SharedPreferenceHelper
-    private lateinit var sharedPreferenceDataClass: SharedPreferenceDataClass
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,9 +36,7 @@ open class PreferencesActivity : AppCompatActivity(), ModePreferenceInterface {
         val wl = findViewById<EditText>(R.id.workLocationEditView)
         val hl = findViewById<EditText>(R.id.homeLocationEditView)
 
-        val sharedPref = getSharedPreferences(getString(R.string.pref_name), 0)
-
-        sharedPreferenceHelper = SharedPreferenceHelper(sharedPref)
+        sharedPreferenceHelper = SharedPreferenceHelper(applicationContext)
 
         if (sharedPreferenceHelper.containPreference(getString(R.string.work_loc))) {
             wl.setText(sharedPreferenceHelper.getPreference(getString(R.string.work_loc)).toString())

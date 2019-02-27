@@ -4,7 +4,7 @@
     <string name="token">firebase_token</string>
     <string name="is_logged_in">is_logged_in</string>
     <string name="firebase_id">firebase_id</string>
-    <string name="web_config_id">AIzaSyCq9ZKWxgRWlbNbg5d7GNbzSOoc0Xy2Yvg</string>
+    <string name="web_config_id">721101212979-d3o2oldunab2lqg7k6k9akm7v251rkc1.apps.googleusercontent.com</string>
     <string name="email">email</string>
     <string name="name">name</string>
     <string name="wLoc">wLoc</string>
@@ -24,6 +24,7 @@
     <string name="work_loc">work_loc</string>
     <string name="pref_saved">pref_saved</string>
     <string name="pref_mode">pref_mode</string>
+    <string name="user_id">user_id</string>
 
     <string-array name="pref_mode">
         <item>Cycle</item>
