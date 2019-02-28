@@ -1,5 +1,6 @@
 package ie.tcd.scss.ase
 
+import android.content.Context
 import android.content.SharedPreferences
 import org.junit.Test
 import ie.tcd.scss.ase.poko.SharedPreferenceDataClass
@@ -11,11 +12,12 @@ import org.mockito.Mockito.*
 import org.mockito.BDDMockito.given
 import org.mockito.Mock
 import org.mockito.junit.MockitoJUnitRunner
+import org.robolectric.RuntimeEnvironment
 
 @RunWith(MockitoJUnitRunner::class)
 class PreferencesUnitTest {
 
-//    private val context: Context = RuntimeEnvironment.application.getApplicationContext()
+    private val context: Context = RuntimeEnvironment.systemContext
 
     var mockPref1 = SharedPreferenceDataClass("worklocation","work")
     var mockPref2 = SharedPreferenceDataClass("homelocation","home")
@@ -59,7 +61,7 @@ class PreferencesUnitTest {
 
         // Return the MockEditor when requesting it.
         given(sharedPreference.edit()).willReturn(mockEditor)
-        return SharedPreferenceHelper(sharedPreference)
+        return SharedPreferenceHelper(context)
 
     }
 

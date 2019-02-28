@@ -10,7 +10,6 @@ import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.View
 import android.widget.EditText
-import android.widget.Switch
 import android.widget.Toast
 import com.google.gson.Gson
 import ie.tcd.scss.ase.MapsActivity
@@ -18,7 +17,7 @@ import ie.tcd.scss.ase.R
 import ie.tcd.scss.ase.adapters.PreferenceRecyclerViewAdapter
 import ie.tcd.scss.ase.poko.PreferedMode
 import ie.tcd.scss.ase.poko.SharedPreferenceDataClass
-import ie.tcd.scss.ase.utilities.ModePreferenceInterface
+import ie.tcd.scss.ase.interfaces.ModePreferenceInterface
 import ie.tcd.scss.ase.utilities.SharedPreferenceHelper
 import java.lang.Exception
 

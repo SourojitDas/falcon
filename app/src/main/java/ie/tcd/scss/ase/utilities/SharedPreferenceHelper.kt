@@ -62,7 +62,7 @@ class SharedPreferenceHelper(context:Context) {
         return editor.commit()
     }
 
-    fun getPreference(key: String): Any {
+    fun getPreference(key: String): String {
         return sharedPreferences.getString(key, "")
     }
 

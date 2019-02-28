@@ -1,4 +1,4 @@
-package ie.tcd.scss.ase.utilities
+package ie.tcd.scss.ase.interfaces
 
 import ie.tcd.scss.ase.poko.PreferedMode
 

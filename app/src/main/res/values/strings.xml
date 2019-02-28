@@ -25,7 +25,7 @@
     <string name="pref_saved">pref_saved</string>
     <string name="pref_mode">pref_mode</string>
     <string name="user_id">user_id</string>
-
+    <!--<string name="address_inputs">ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890, -/()+\\'\\n\\r.</string>-->
     <string-array name="pref_mode">
         <item>Cycle</item>
         <item>Bikes</item>

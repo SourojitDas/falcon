@@ -1,7 +1,6 @@
 package ie.tcd.scss.ase.adapters
 
 import android.content.Context
-import android.preference.Preference
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -9,11 +8,10 @@ import android.view.ViewGroup
 import android.widget.Switch
 import android.widget.TextView
 import ie.tcd.scss.ase.R
-import ie.tcd.scss.ase.activites.PreferencesActivity
 import ie.tcd.scss.ase.poko.PreferedMode
-import ie.tcd.scss.ase.utilities.ModePreferenceInterface
+import ie.tcd.scss.ase.interfaces.ModePreferenceInterface
 
-class PreferenceRecyclerViewAdapter(val prefList: ArrayList<PreferedMode>,val listener:ModePreferenceInterface,
+class PreferenceRecyclerViewAdapter(val prefList: ArrayList<PreferedMode>, val listener: ModePreferenceInterface,
                                     val context: Context): RecyclerView.Adapter<PreferenceRecyclerViewAdapter.ViewHolder>(){
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val preferenceItemVIew=itemView.findViewById<TextView>(R.id.single_row_preference_mode)
