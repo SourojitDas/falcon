@@ -1,6 +1,7 @@
 package models.tests
 
-import models.parseJson
+import models.weather.WeatherModel
+import models.weather.parseJson
 import org.junit.Test
 
 class WeatherTest {

@@ -2,11 +2,11 @@ package services
 
 import getWeatherServiceApiKey
 import getWeatherServiceBaseURL
-import models.parseJson
+import models.weather.parseJson
 
 
 class Weather {
-    fun getByCoordinates(latitude: Int, longitude: Int): models.WeatherModel? {
+    fun getByCoordinates(latitude: Int, longitude: Int): models.weather.WeatherModel? {
         val payload = mapOf(
                 "lat" to latitude.toString(),
                 "lon" to longitude.toString(),

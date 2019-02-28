@@ -1,4 +1,4 @@
-package models
+package models.weather
 
 import com.beust.klaxon.Json
 import com.beust.klaxon.Klaxon
@@ -75,7 +75,7 @@ data class WeatherModel(
         val base: String? = null,
         @Json(name = "main")
         val mainTemperature: MainTemperature? = null,
-        val visibility: String? = null,
+        val visibility: Long? = null,
         @Json(name = "wind")
         val wind: Wind? = null,
         @Json(name = "clouds")
