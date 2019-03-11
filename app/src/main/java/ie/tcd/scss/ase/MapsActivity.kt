@@ -11,7 +11,6 @@ import android.os.Bundle
 import android.support.v4.app.ActivityCompat
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
-import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException
@@ -26,15 +25,11 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
-import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import ie.tcd.scss.ase.interfaces.RetroFitAPIClient
-import ie.tcd.scss.ase.poko.BikeResponse
+import ie.tcd.scss.ase.rest.RetrofitBuilder
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import retrofit2.Callback
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import java.io.IOException
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
@@ -81,27 +76,18 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         button.setOnClickListener(){
             Toast.makeText(getApplicationContext(), "Searching.. ", Toast.LENGTH_LONG).show()
 
-
-            var retroFit = Retrofit.Builder()
-                .baseUrl("https://api.jcdecaux.com")
-                .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(CoroutineCallAdapterFactory())
-                .build()
-            val retroFitAPIClient = retroFit.create(RetroFitAPIClient::class.java)
-
-            // val bikeResponseList:List<BikeResponse>? = responseCall.await()
-            GlobalScope.launch(Dispatchers.Main) {
+            val baseURL:String="https://api.jcdecaux.com"
+            var retrofitBuilder = RetrofitBuilder.retrofitBuilder(baseURL)
+            val retroFitAPIClient = retrofitBuilder.create(RetroFitAPIClient::class.java)
+            GlobalScope.launch(Dispatchers.Default) {
                 val responseCall = retroFitAPIClient.getBikeData("Dublin", "ed91f65214a826cb97c5444a15f25665726b95ae")
                 try{
                     val res = responseCall.await()
                     res.forEach{bike -> println(bike.address)}
                 } catch (e: Exception){
-                    println("Dublin bike API Error")
+                    println("Bike API Error")
                 }
             }
-            //bikeResponseList?.forEach { bikeRes -> println(bikeRes.bikeStands) }
-
-
         }
 
         createLocationRequest()

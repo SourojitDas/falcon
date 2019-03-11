@@ -33,4 +33,5 @@
         <item>Walk</item>
         <item>Luas</item>
     </string-array>
+    <string name="title_activity_test">TestActivity</string>
 </resources>
