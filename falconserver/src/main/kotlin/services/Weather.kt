@@ -1,7 +1,5 @@
 package services
 
-import getWeatherServiceApiKey
-import getWeatherServiceBaseURL
 import models.weather.parseJson
 
 
@@ -10,9 +8,9 @@ class Weather {
         val payload = mapOf(
                 "lat" to latitude.toString(),
                 "lon" to longitude.toString(),
-                "appid" to getWeatherServiceApiKey()
+            "appid" to Configuration.getWeatherServiceApiKey()
         )
-        val r = khttp.get(getWeatherServiceBaseURL(), params = payload)
+        val r = khttp.get(Configuration.getWeatherServiceBaseURL(), params = payload)
         return parseJson(r.text)
     }
 }

@@ -1,7 +1,5 @@
 package services
 
-import getBikeServiceApiKey
-import getBikeServiceBaseUrl
 import models.bikestand.parseJson
 
 
@@ -9,12 +7,11 @@ class BikeStand {
 
     fun getRealTimeStandsInfoByCity(contract: String): List<models.bikestand.BikeStandModel>? {
         val payload = mapOf(
-            "contract" to contract.toString(),
-            "apiKey" to getBikeServiceApiKey()
+            "contract" to contract,
+            "apiKey" to Configuration.getBikeServiceApiKey()
         )
 
-        val r = khttp.get(getBikeServiceBaseUrl(), params = payload)
+        val r = khttp.get(Configuration.getBikeServiceBaseUrl(), params = payload)
         return parseJson(r.text)
     }
-
 }

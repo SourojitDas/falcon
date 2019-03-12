@@ -6,7 +6,7 @@ import io.javalin.security.SecurityUtil.roles
 
 fun main(args: Array<String>) {
     val app = Javalin.create().apply {
-        accessManager(Authentication::accessManager)
+        accessManager(Authorization::accessManager)
     }.start(7000)
 
     app.get("/weather", WeatherController::getWeatherByCoordinates, roles(ApiRole.USER_READ))

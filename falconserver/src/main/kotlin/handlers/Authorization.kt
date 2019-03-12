@@ -7,7 +7,7 @@ import java.util.*
 
 enum class ApiRole : Role { ANYONE, USER_READ, USER_WRITE }
 
-object Authentication {
+object Authorization {
 
     // our access-manager is simple
     // when endpoint has Role.ANYONE, we will always handle the request
