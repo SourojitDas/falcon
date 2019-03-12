@@ -1,9 +1,7 @@
 package ie.tcd.scss.ase
 
-import android.content.Context
 import android.content.Intent
 import android.support.test.espresso.Espresso.onView
-import android.content.res.AssetManager
 import android.support.test.InstrumentationRegistry
 import android.support.test.espresso.assertion.ViewAssertions
 import android.support.test.espresso.matcher.ViewMatchers.*
