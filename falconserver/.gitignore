@@ -6,4 +6,4 @@ local.properties
 out
 gradlew.bat
 gradlew
-src/main/resources/config/application.conf
+src/main/resources/config

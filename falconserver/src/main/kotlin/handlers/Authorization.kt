@@ -4,6 +4,10 @@ import io.javalin.Context
 import io.javalin.Handler
 import io.javalin.security.Role
 import java.util.*
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseToken
+
+
 
 enum class ApiRole : Role { ANYONE, USER_READ, USER_WRITE }
 
@@ -24,13 +28,27 @@ object Authorization {
     // get roles from userRoleMap after extracting username/password from basic-auth header
     private val Context.userRoles: List<ApiRole>?
         get() = this.header("Authorization")?.let { authorizationHeader ->
-            var headerSplit = authorizationHeader.split(" ")
+            val headerSplit = authorizationHeader.split(" ")
             if (headerSplit.size != 2 || !headerSplit[0].equals("Bearer")) {
                 return null
             }
-
-            return userRoleMap[headerSplit[1]] ?: listOf()
+            if (!validateToken(headerSplit[1])) {
+                return userRoleMap["access-token-read-wrong"] ?: listOf()
+            }
+            return userRoleMap["access-token-read"] ?: listOf()
         } ?: listOf()
+
+    private fun validateToken(token: String): Boolean {
+        println(token)
+        try {
+            val decodedToken = FirebaseAuth.getInstance().verifyIdToken(token)
+            val uid = decodedToken.uid
+            return true
+        } catch (ex: Exception) {
+            println(ex)
+        }
+        return false
+    }
 
     // we'll store passwords in clear text (and in memory) for this example, but please don't
     // do this if you have actual users
