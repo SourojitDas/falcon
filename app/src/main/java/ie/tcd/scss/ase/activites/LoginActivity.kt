@@ -68,8 +68,8 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener, OnCompleteListe
             val intent = Intent(this, PreferencesActivity::class.java)
             startActivity(intent)
         }else{*/
-            account = GoogleSignIn.getLastSignedInAccount(this)
-            loginCheck()
+        account = GoogleSignIn.getLastSignedInAccount(this)
+        loginCheck()
         //}
 
     }
@@ -93,9 +93,9 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener, OnCompleteListe
             firebaseAuth.signInWithCredential(credential).addOnCompleteListener(this)
 
 
-        //    Log.d("UID", firebaseAuth.currentUser?.uid as String)
+            //    Log.d("UID", firebaseAuth.currentUser?.uid as String)
 
-            if(account != null) {
+            if (account != null) {
                 val user = firebaseAuth.currentUser
                 dataList.add(SharedPreferenceDataClass(getString(R.string.name), account?.displayName as String))
                 dataList.add(SharedPreferenceDataClass(getString(R.string.firebase_id), account?.id as String))
@@ -140,11 +140,19 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener, OnCompleteListe
             if (account != null && account?.id != null) {
                 // Snackbar.make(window.decorView.rootView, "Login Successfull", Snackbar.LENGTH_LONG).show()
                 if (loginCheck()) {
-                    Snackbar.make(window.decorView.findViewById(android.R.id.content), "Trying to Login", Snackbar.LENGTH_LONG).show()
+                    Snackbar.make(
+                        window.decorView.findViewById(android.R.id.content),
+                        "Trying to Login",
+                        Snackbar.LENGTH_LONG
+                    ).show()
 
 //                    Toast.makeText(getApplicationContext(), "Preferences Saved", Toast.LENGTH_LONG)
                 } else {
-                    Snackbar.make(window.decorView.findViewById(android.R.id.content), "Login Failed", Snackbar.LENGTH_LONG).show()
+                    Snackbar.make(
+                        window.decorView.findViewById(android.R.id.content),
+                        "Login Failed",
+                        Snackbar.LENGTH_LONG
+                    ).show()
                 }
 
             } else {
@@ -162,24 +170,41 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener, OnCompleteListe
 
     override fun onComplete(task: Task<AuthResult>) {
         val result = task.result
-        if(task.isSuccessful){
+        if (task.isSuccessful) {
             val user = firebaseAuth.currentUser
+            user?.getIdToken(true)?.addOnCompleteListener {
+                if (it.isSuccessful) {
+                    it.result?.token as String
+                    Log.d("UID : ", user?.uid)
 
-            Log.d("UID : ",user?.uid)
-
-            val sharedPreferenceHelper = SharedPreferenceHelper(applicationContext)
-
-
-            sharedPreferenceHelper.savePreference(SharedPreferenceDataClass(getString(R.string.is_logged_in),true))
-            sharedPreferenceHelper.savePreference(SharedPreferenceDataClass(getString(R.string.user_id), user?.uid as String))
-
-            val intent = Intent(this, PreferencesActivity::class.java)
-            startActivity(intent)
+                    val sharedPreferenceHelper = SharedPreferenceHelper(applicationContext)
 
 
-        }else{
+                    sharedPreferenceHelper.savePreference(SharedPreferenceDataClass(getString(R.string.idtoken),it.result?.token as String))
+                    sharedPreferenceHelper.savePreference(
+                        SharedPreferenceDataClass(
+                            getString(R.string.is_logged_in),
+                            true
+                        )
+                    )
+                    sharedPreferenceHelper.savePreference(
+                        SharedPreferenceDataClass(
+                            getString(R.string.user_id),
+                            user?.uid as String
+                        )
+                    )
 
-            Snackbar.make(window.decorView.findViewById(android.R.id.content), "Login Failed", Snackbar.LENGTH_LONG).show()
+//            sharedPreferenceHelper.savePreference(SharedPreferenceDataClass(getString(R.string.idtoken),user?. as String))
+
+                    val intent = Intent(this, PreferencesActivity::class.java)
+                    startActivity(intent)
+                }
+            }
+
+        } else {
+
+            Snackbar.make(window.decorView.findViewById(android.R.id.content), "Login Failed", Snackbar.LENGTH_LONG)
+                .show()
 
         }
     }

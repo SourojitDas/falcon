@@ -34,4 +34,5 @@
         <item>Luas</item>
     </string-array>
     <string name="title_activity_test">TestActivity</string>
+    <string name="idtoken">firebas_id_token</string>
 </resources>

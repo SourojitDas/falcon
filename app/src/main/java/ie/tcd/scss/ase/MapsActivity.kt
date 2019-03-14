@@ -76,18 +76,18 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         button.setOnClickListener(){
             Toast.makeText(getApplicationContext(), "Searching.. ", Toast.LENGTH_LONG).show()
 
-            val baseURL:String="https://api.jcdecaux.com"
+            val baseURL:String="https://api.jcdecaux.com/"
             var retrofitBuilder = RetrofitBuilder.retrofitBuilder(baseURL)
             val retroFitAPIClient = retrofitBuilder.create(RetroFitAPIClient::class.java)
-            GlobalScope.launch(Dispatchers.Default) {
-                val responseCall = retroFitAPIClient.getBikeData("Dublin", "ed91f65214a826cb97c5444a15f25665726b95ae")
-                try{
-                    val res = responseCall.await()
-                    res.forEach{bike -> println(bike.address)}
-                } catch (e: Exception){
-                    println("Bike API Error")
-                }
-            }
+//            GlobalScope.launch(Dispatchers.Default) {
+//                val responseCall = retroFitAPIClient.getBikeData("Dublin", "ed91f65214a826cb97c5444a15f25665726b95ae")
+//                try{
+//                    val res = responseCall.await()
+//                    res.forEach{bike -> println(bike.address)}
+//                } catch (e: Exception){
+//                    println("Bike API Error")
+//                }
+//            }
         }
 
         createLocationRequest()

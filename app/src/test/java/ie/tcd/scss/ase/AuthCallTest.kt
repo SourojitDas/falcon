@@ -1,39 +1,31 @@
 package ie.tcd.scss.ase;
 
 import ie.tcd.scss.ase.interfaces.RetroFitAPIClient
+import ie.tcd.scss.ase.rest.RetrofitBuilder
 import junit.framework.TestCase
-import okhttp3.Callback
-import org.junit.Before
+import okhttp3.mockwebserver.MockWebServer
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.mockito.*
 import org.mockito.junit.MockitoJUnitRunner
 
+
 @RunWith(MockitoJUnitRunner::class)
-class AuthCallTest : TestCase() {
-
-    lateinit var authAPI: RetroFitAPIClient
-
-    @Mock
-    lateinit var mockApi : RetroFitAPIClient
-
-    @Captor
-    lateinit var  cb : ArgumentCaptor<Callback<>>
-
-    @Before
-    fun setUp() {
-//        authAPI =  AuthAPI ("username", "password")
-        MockitoAnnotations.initMocks(this)
-    }
+class AuthCallTest {
 
     @Test
-    fun testLogin() {
+    fun retrofitTest() {
+        var mockWebServer: MockWebServer = MockServerKotlin.returnServer()
 
-//        Mockito.verify(mockApi).basicLogin((cb.capture()))
-//
-//        AuthObject authObject = new AuthObject()
-//        cb.getValue().success(authObject, null)
-//
-//        assertEquals(authObject.isError(), false)
+        System.out.println("MOCKSERVER :" + mockWebServer.url("").toString())
+
+        val retrofit = RetrofitBuilder.retrofitBuilder(mockWebServer.url("").toString())
+
+        val service = retrofit.create(RetroFitAPIClient::class.java)
+        val call = service.getBikeData("Dublin", "ed91f65214a826cb97c5444a15f25665726b95ae")
+        TestCase.assertTrue(call.execute().isSuccessful)
+
+        mockWebServer.shutdown()
+
     }
+
 }
