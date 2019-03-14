@@ -39,7 +39,6 @@ object Authorization {
         } ?: listOf()
 
     private fun validateToken(token: String): Boolean {
-        println(token)
         try {
             val decodedToken = FirebaseAuth.getInstance().verifyIdToken(token)
             val uid = decodedToken.uid
