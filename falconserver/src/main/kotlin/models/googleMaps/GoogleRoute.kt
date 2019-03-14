@@ -4,7 +4,7 @@ import com.beust.klaxon.Json
 import com.beust.klaxon.Klaxon
 
 
-data class Response(
+data class GoogleRouteModel(
 
     @Json(name = "geocoded_waypoints")
     val geocodeMembers: Array<GeocodedPoints>? = null,
@@ -138,6 +138,10 @@ data class Step(
     val travelMode: String? = null
 )
 
+
+fun parseJson(raw: String): GoogleRouteModel? {
+    return Klaxon().parse<GoogleRouteModel>(raw)
+}
 
 
 
