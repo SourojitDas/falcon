@@ -46,7 +46,7 @@ class WeatherTest {
         assert(result?.name == "Cairns")
         val fakeId: Long = 2172797
         assert(result?.ID == fakeId)
-        val fakeCod: Int = 200
+        val fakeCod:  Int= 200
         assert(result?.cod == fakeCod)
         val fakeDt = 1435658272
         assert(result?.date?.equals(fakeDt)!!)
@@ -95,12 +95,235 @@ class WeatherTest {
         assert(result?.systemInfo?.country.equals(fakeSystemInfo.country))
         assert(result?.systemInfo?.message == fakeSystemInfo.message)
 
+    }
 
 
+    @Test
+    fun `test parseJson success1`() {
+        val result = parseJson(fakeWeatherData)
+        assert(result?.name == "Cairns")
+        val fakeId: Long = 2172796
+        assert(result?.ID == fakeId)
+        val fakeCod:  Int= 200
+        assert(result?.cod == fakeCod)
+        val fakeDt = 1435658272
+        assert(result?.date?.equals(fakeDt)!!)
+        val fakeRain = Rain(LastThreeHour = 3)
+        assert(result?.rain?.LastThreeHour == fakeRain.LastThreeHour)
+        val fakeWeather =
+            models.weather.WeatherInfo(id = 803, main = "Clouds", description = "broken clouds", icon = "04n")
+        assert(result?.weather?.first()?.id == fakeWeather.id)
+        assert(result?.weather?.first()?.main.equals(fakeWeather.main))
+        assert(result?.weather?.first()?.description.equals(fakeWeather.description))
+        assert(result?.weather?.first()?.icon.equals(fakeWeather.icon))
+        val fakeBase = "cmc stations"
+        assert(result?.base.equals(fakeBase))
+        val fakeMain = models.weather.MainTemperature(
+            temperature = 293.25F,
+            pressure = 1019,
+            humidity = 83,
+            tempMin = 289.82F,
+            tempMax = 295.37F
+        )
+        assert(result?.mainTemperature?.temperature == fakeMain.temperature)
+        assert(result?.mainTemperature?.pressure == fakeMain.pressure)
+        assert(result?.mainTemperature?.tempMin == fakeMain.tempMin)
+        assert(result?.mainTemperature?.tempMax == fakeMain.tempMax)
+        assert(result?.mainTemperature?.humidity == fakeMain.humidity)
+        val fakeWind = models.weather.Wind(speed = 5.1F, degree = 150F)
+        assert(result?.wind?.speed == fakeWind.speed)
+        assert(result?.wind?.degree == fakeWind.degree)
+        val fakeCloud = models.weather.Clouds(all = 75)
+        assert(result?.clouds?.all == fakeCloud.all)
+        val fakeCoord = models.weather.Coordinates(longitude = 145.77F, latitude = -16.92F)
+        assert(result?.coordinates?.latitude == fakeCoord.latitude)
+        assert(result?.coordinates?.latitude == fakeCoord.longitude)
+        val fakeSystemInfo = models.weather.SystemInfo(
+            type = 1,
+            id = 8166,
+            message = 0.0166F,
+            country = "AU",
+            sunrise = 1435610796,
+            sunset = 1435650870
+        )
+        assert(result?.systemInfo?.sunrise?.equals(fakeSystemInfo.sunrise)!!)
+        assert(result?.systemInfo?.sunset?.equals(fakeSystemInfo.sunset)!!)
+        assert(result?.systemInfo?.type?.equals(fakeSystemInfo.type)!!)
+        assert(result?.systemInfo?.id?.equals(fakeSystemInfo.id)!!)
+        assert(result?.systemInfo?.country.equals(fakeSystemInfo.country))
+        assert(result?.systemInfo?.message == fakeSystemInfo.message)
+
+    }
 
 
+    @Test
+    fun `test parseJson success3`() {
+        val result = parseJson(fakeWeatherData)
+        assert(result?.name == "Cairns")
+        val fakeId: Long = 2172797
+        assert(result?.ID == fakeId)
+        val fakeCod:  Int= 200
+        assert(result?.cod == fakeCod)
+        val fakeDt = 1435658277
+        assert(result?.date?.equals(fakeDt)!!)
+        val fakeRain = Rain(LastThreeHour = 3)
+        assert(result?.rain?.LastThreeHour == fakeRain.LastThreeHour)
+        val fakeWeather =
+            models.weather.WeatherInfo(id = 803, main = "Clouds", description = "broken clouds", icon = "04n")
+        assert(result?.weather?.first()?.id == fakeWeather.id)
+        assert(result?.weather?.first()?.main.equals(fakeWeather.main))
+        assert(result?.weather?.first()?.description.equals(fakeWeather.description))
+        assert(result?.weather?.first()?.icon.equals(fakeWeather.icon))
+        val fakeBase = "cmc stations"
+        assert(result?.base.equals(fakeBase))
+        val fakeMain = models.weather.MainTemperature(
+            temperature = 293.25F,
+            pressure = 1019,
+            humidity = 83,
+            tempMin = 289.82F,
+            tempMax = 295.37F
+        )
+        assert(result?.mainTemperature?.temperature == fakeMain.temperature)
+        assert(result?.mainTemperature?.pressure == fakeMain.pressure)
+        assert(result?.mainTemperature?.tempMin == fakeMain.tempMin)
+        assert(result?.mainTemperature?.tempMax == fakeMain.tempMax)
+        assert(result?.mainTemperature?.humidity == fakeMain.humidity)
+        val fakeWind = models.weather.Wind(speed = 5.1F, degree = 150F)
+        assert(result?.wind?.speed == fakeWind.speed)
+        assert(result?.wind?.degree == fakeWind.degree)
+        val fakeCloud = models.weather.Clouds(all = 75)
+        assert(result?.clouds?.all == fakeCloud.all)
+        val fakeCoord = models.weather.Coordinates(longitude = 145.77F, latitude = -16.92F)
+        assert(result?.coordinates?.latitude == fakeCoord.latitude)
+        assert(result?.coordinates?.latitude == fakeCoord.longitude)
+        val fakeSystemInfo = models.weather.SystemInfo(
+            type = 1,
+            id = 8166,
+            message = 0.0166F,
+            country = "AU",
+            sunrise = 1435610796,
+            sunset = 1435650870
+        )
+        assert(result?.systemInfo?.sunrise?.equals(fakeSystemInfo.sunrise)!!)
+        assert(result?.systemInfo?.sunset?.equals(fakeSystemInfo.sunset)!!)
+        assert(result?.systemInfo?.type?.equals(fakeSystemInfo.type)!!)
+        assert(result?.systemInfo?.id?.equals(fakeSystemInfo.id)!!)
+        assert(result?.systemInfo?.country.equals(fakeSystemInfo.country))
+        assert(result?.systemInfo?.message == fakeSystemInfo.message)
 
+    }
 
+    @Test
+    fun `test parseJson success4`() {
+        val result = parseJson(fakeWeatherData)
+        assert(result?.name == "Cairns")
+        val fakeId: Long = 2172797
+        assert(result?.ID == fakeId)
+        val fakeCod: Int= 20
+        assert(result?.cod == fakeCod)
+        val fakeDt = 1435658272
+        assert(result?.date?.equals(fakeDt)!!)
+        val fakeRain = Rain(LastThreeHour = 3)
+        assert(result?.rain?.LastThreeHour == fakeRain.LastThreeHour)
+        val fakeWeather =
+            models.weather.WeatherInfo(id = 803, main = "Clouds", description = "broken clouds", icon = "04n")
+        assert(result?.weather?.first()?.id == fakeWeather.id)
+        assert(result?.weather?.first()?.main.equals(fakeWeather.main))
+        assert(result?.weather?.first()?.description.equals(fakeWeather.description))
+        assert(result?.weather?.first()?.icon.equals(fakeWeather.icon))
+        val fakeBase = "cmc stations"
+        assert(result?.base.equals(fakeBase))
+        val fakeMain = models.weather.MainTemperature(
+            temperature = 293.25F,
+            pressure = 1019,
+            humidity = 83,
+            tempMin = 289.82F,
+            tempMax = 295.37F
+        )
+        assert(result?.mainTemperature?.temperature == fakeMain.temperature)
+        assert(result?.mainTemperature?.pressure == fakeMain.pressure)
+        assert(result?.mainTemperature?.tempMin == fakeMain.tempMin)
+        assert(result?.mainTemperature?.tempMax == fakeMain.tempMax)
+        assert(result?.mainTemperature?.humidity == fakeMain.humidity)
+        val fakeWind = models.weather.Wind(speed = 5.1F, degree = 150F)
+        assert(result?.wind?.speed == fakeWind.speed)
+        assert(result?.wind?.degree == fakeWind.degree)
+        val fakeCloud = models.weather.Clouds(all = 75)
+        assert(result?.clouds?.all == fakeCloud.all)
+        val fakeCoord = models.weather.Coordinates(longitude = 145.77F, latitude = -16.92F)
+        assert(result?.coordinates?.latitude == fakeCoord.latitude)
+        assert(result?.coordinates?.latitude == fakeCoord.longitude)
+        val fakeSystemInfo = models.weather.SystemInfo(
+            type = 1,
+            id = 8166,
+            message = 0.0166F,
+            country = "AU",
+            sunrise = 1435610796,
+            sunset = 1435650870
+        )
+        assert(result?.systemInfo?.sunrise?.equals(fakeSystemInfo.sunrise)!!)
+        assert(result?.systemInfo?.sunset?.equals(fakeSystemInfo.sunset)!!)
+        assert(result?.systemInfo?.type?.equals(fakeSystemInfo.type)!!)
+        assert(result?.systemInfo?.id?.equals(fakeSystemInfo.id)!!)
+        assert(result?.systemInfo?.country.equals(fakeSystemInfo.country))
+        assert(result?.systemInfo?.message == fakeSystemInfo.message)
+
+    }
+
+    @Test
+    fun `test parseJson success6`() {
+        val result = parseJson(fakeWeatherData)
+        assert(result?.name == "Cairns")
+        val fakeId: Long = 2172797
+        assert(result?.ID == fakeId)
+        val fakeCod:  Int= 200
+        assert(result?.cod == fakeCod)
+        val fakeDt = 1435658272
+        assert(result?.date?.equals(fakeDt)!!)
+        val fakeRain = Rain(LastThreeHour = 3)
+        assert(result?.rain?.LastThreeHour == fakeRain.LastThreeHour)
+        val fakeWeather =
+            models.weather.WeatherInfo(id = 803, main = "Clouds", description = "broken clouds", icon = "04n")
+        assert(result?.weather?.first()?.id == fakeWeather.id)
+        assert(result?.weather?.first()?.main.equals(fakeWeather.main))
+        assert(result?.weather?.first()?.description.equals(fakeWeather.description))
+        assert(result?.weather?.first()?.icon.equals(fakeWeather.icon))
+        val fakeBase = "cmc stations"
+        assert(result?.base.equals(fakeBase))
+        val fakeMain = models.weather.MainTemperature(
+            temperature = 23.25F,
+            pressure = 1019,
+            humidity = 83,
+            tempMin = 289.82F,
+            tempMax = 295.37F
+        )
+        assert(result?.mainTemperature?.temperature == fakeMain.temperature)
+        assert(result?.mainTemperature?.pressure == fakeMain.pressure)
+        assert(result?.mainTemperature?.tempMin == fakeMain.tempMin)
+        assert(result?.mainTemperature?.tempMax == fakeMain.tempMax)
+        assert(result?.mainTemperature?.humidity == fakeMain.humidity)
+        val fakeWind = models.weather.Wind(speed = 5.1F, degree = 150F)
+        assert(result?.wind?.speed == fakeWind.speed)
+        assert(result?.wind?.degree == fakeWind.degree)
+        val fakeCloud = models.weather.Clouds(all = 75)
+        assert(result?.clouds?.all == fakeCloud.all)
+        val fakeCoord = models.weather.Coordinates(longitude = 145.77F, latitude = -16.92F)
+        assert(result?.coordinates?.latitude == fakeCoord.latitude)
+        assert(result?.coordinates?.latitude == fakeCoord.longitude)
+        val fakeSystemInfo = models.weather.SystemInfo(
+            type = 1,
+            id = 8166,
+            message = 0.0166F,
+            country = "AU",
+            sunrise = 1435610796,
+            sunset = 1435650870
+        )
+        assert(result?.systemInfo?.sunrise?.equals(fakeSystemInfo.sunrise)!!)
+        assert(result?.systemInfo?.sunset?.equals(fakeSystemInfo.sunset)!!)
+        assert(result?.systemInfo?.type?.equals(fakeSystemInfo.type)!!)
+        assert(result?.systemInfo?.id?.equals(fakeSystemInfo.id)!!)
+        assert(result?.systemInfo?.country.equals(fakeSystemInfo.country))
+        assert(result?.systemInfo?.message == fakeSystemInfo.message)
 
     }
 }
