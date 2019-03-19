@@ -2,6 +2,7 @@ package models.googleMaps
 
 import com.beust.klaxon.Json
 import com.beust.klaxon.Klaxon
+import com.beust.klaxon.Status
 
 
 data class GoogleRouteModel(
@@ -9,9 +10,9 @@ data class GoogleRouteModel(
     @Json(name = "geocoded_waypoints")
     val geocodeMembers: Array<GeocodedPoints>? = null,
     @Json(name = "routes")
-    val routes: routes? = null,
+    val routes: Routes? = null,
     @Json(name = "status")
-    val status: status? = null
+    val status: Status? = null
 )
 
 data class GeocodedPoints(
@@ -44,6 +45,15 @@ data class Routes(
     //val waypointOrder: Array<>? =null
 
 
+
+)
+
+data class Coordinates(
+
+    @Json(name = "lat")
+    val lat: Double? = null,
+    @Json(name = "lng")
+    val lng: Double? = null
 
 )
 
