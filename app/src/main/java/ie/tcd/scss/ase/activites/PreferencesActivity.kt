@@ -11,6 +11,8 @@ import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
+import com.google.android.gms.common.api.Status
+import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment
 import com.google.gson.Gson
 import ie.tcd.scss.ase.MapsActivity
 import ie.tcd.scss.ase.R
@@ -20,11 +22,21 @@ import ie.tcd.scss.ase.poko.SharedPreferenceDataClass
 import ie.tcd.scss.ase.interfaces.ModePreferenceInterface
 import ie.tcd.scss.ase.utilities.SharedPreferenceHelper
 import java.lang.Exception
+import com.google.android.libraries.places.api.Places
+import com.google.android.libraries.places.api.net.PlacesClient
+import com.google.android.libraries.places.api.model.AutocompleteSessionToken
+import com.google.android.libraries.places.api.model.Place
+import com.google.android.libraries.places.widget.AutocompleteSupportFragment
+import com.google.android.libraries.places.widget.listener.PlaceSelectionListener
+import java.util.*
 
-open class PreferencesActivity : AppCompatActivity(), ModePreferenceInterface {
+
+class PreferencesActivity : AppCompatActivity(), ModePreferenceInterface, PlaceSelectionListener {
 
     private lateinit var preferenceRecyclerView: RecyclerView
     private lateinit var preferencerecycelerViewAdapter: PreferenceRecyclerViewAdapter
+    private lateinit var homeLocationFragment: AutocompleteSupportFragment
+    private lateinit var workLocationFragment: AutocompleteSupportFragment
     private lateinit var res: Array<String>
     private lateinit var prefModes: ArrayList<PreferedMode>
     private lateinit var sharedPreferenceHelper: SharedPreferenceHelper
@@ -32,17 +44,27 @@ open class PreferencesActivity : AppCompatActivity(), ModePreferenceInterface {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_preferences)
-        val wl = findViewById<EditText>(R.id.workLocationEditView)
-        val hl = findViewById<EditText>(R.id.homeLocationEditView)
+//        val wl = findViewById<EditText>(R.id.workLocationEditView)
+//        val hl = findViewById<EditText>(R.id.homeLocationEditView)
 
         sharedPreferenceHelper = SharedPreferenceHelper(applicationContext)
+//        val token = AutocompleteSessionToken.newInstance()
 
-        if (sharedPreferenceHelper.containPreference(getString(R.string.work_loc))) {
-            wl.setText(sharedPreferenceHelper.getPreference(getString(R.string.work_loc)).toString())
+        if(!Places.isInitialized()){
+            Places.initialize(applicationContext,getString(R.string.google_maps_key))
         }
-        if (sharedPreferenceHelper.containPreference(getString(R.string.home_loc))) {
-            hl.setText(sharedPreferenceHelper.getPreference(getString(R.string.home_loc)).toString())
-        }
+//        val placesClient = Places.createClient(this)
+
+//        if (sharedPreferenceHelper.containPreference(getString(R.string.work_loc))) {
+//            wl.setText(sharedPreferenceHelper.getPreference(getString(R.string.work_loc)).toString())
+//        }
+//        if (sharedPreferenceHelper.containPreference(getString(R.string.home_loc))) {
+//            hl.setText(sharedPreferenceHelper.getPreference(getString(R.string.home_loc)).toString())
+//        }
+        homeLocationFragment = supportFragmentManager.findFragmentById(R.id.home_location_autocomplete_fragment) as AutocompleteSupportFragment
+        homeLocationFragment.setHint("Home Location")
+        homeLocationFragment.setPlaceFields(Arrays.asList(Place.Field.ID, Place.Field.NAME,Place.Field.LAT_LNG))
+        homeLocationFragment.setOnPlaceSelectedListener(this)
 
         prefModes = ArrayList()
         res = resources.getStringArray(R.array.pref_mode)
@@ -64,17 +86,17 @@ open class PreferencesActivity : AppCompatActivity(), ModePreferenceInterface {
     data class Lat_Lng(val lat: Double, val lng: Double)
 
     fun resetView(view: View) {
-        val wl = findViewById<EditText>(R.id.workLocationEditView)
-        val hl = findViewById<EditText>(R.id.homeLocationEditView)
-        wl.setText("")
-        hl.setText("")
+//        val wl = findViewById<EditText>(R.id.workLocationEditView)
+//        val hl = findViewById<EditText>(R.id.homeLocationEditView)
+//        wl.setText("")
+//        hl.setText("")
     }
 
     fun readValues(view: View) {
-        val worLoc = findViewById<EditText>(R.id.workLocationEditView)
-        val homeLoc = findViewById<EditText>(R.id.homeLocationEditView)
-//        val modePref = findViewById<Switch>(R.id.preference_recycle_view)
-        setPreferences(worLoc.text.toString(), homeLoc.text.toString())
+//        val worLoc = findViewById<EditText>(R.id.workLocationEditView)
+//        val homeLoc = findViewById<EditText>(R.id.homeLocationEditView)
+////        val modePref = findViewById<Switch>(R.id.preference_recycle_view)
+//        setPreferences(worLoc.text.toString(), homeLoc.text.toString())
     }
 
     fun setPreferences(wStr: String, hStr: String) {
@@ -145,5 +167,13 @@ open class PreferencesActivity : AppCompatActivity(), ModePreferenceInterface {
         var savePreference = SharedPreferenceDataClass(getString(R.string.pref_mode),jsonString)
         sharedPreferenceHelper.savePreference(savePreference)
 
+    }
+
+    override fun onError(p0: Status) {
+        // TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun onPlaceSelected(p0: Place) {
+        // TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }

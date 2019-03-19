@@ -2,8 +2,8 @@
 <android.support.v4.widget.NestedScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent" android:layout_height="match_parent"
         tools:context=".activites.PreferencesActivity" android:padding="12dp">
 
     <RelativeLayout
@@ -23,46 +23,97 @@
                   android:layout_alignParentEnd="true"
                   android:layout_marginEnd="2dp"/>
 
-        <android.support.design.widget.TextInputLayout
-                android:id="@+id/workLocationTextView"
+        <!--<android.support.design.widget.TextInputLayout-->
+        <!--android:id="@+id/workLocationTextView"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@id/preferenceLabelTextView"-->
+        <!--android:layout_marginTop="2dp"-->
+        <!--android:layout_alignParentEnd="true"-->
+        <!--android:layout_marginEnd="2dp"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_marginStart="2dp">-->
+        <!--<android.support.design.widget.TextInputEditText-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:inputType="textPostalAddress"-->
+        <!--android:hint="Work Location"-->
+        <!--android:id="@+id/workLocationEditView"/>-->
+        <!--</android.support.design.widget.TextInputLayout>-->
+
+
+        <!--<android.support.design.widget.TextInputLayout-->
+        <!--android:id="@+id/homeLocationTextView"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@id/workLocationTextView"-->
+        <!--android:layout_marginTop="2dp"-->
+        <!--android:layout_alignParentEnd="true"-->
+        <!--android:layout_marginEnd="2dp"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_marginStart="2dp">-->
+        <!--<android.support.design.widget.TextInputEditText-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:inputType="textPostalAddress"-->
+        <!--android:hint="Home Location"-->
+        <!--android:id="@+id/homeLocationEditView"/>-->
+        <!--</android.support.design.widget.TextInputLayout>-->
+
+        <android.support.v7.widget.CardView
+                android:id="@+id/homeLocationCardView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/preferenceLabelTextView"
-                android:layout_marginTop="2dp"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="2dp"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="2dp">
-        <android.support.design.widget.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:inputType="textPostalAddress"
-                android:hint="Work Location"
-                android:id="@+id/workLocationEditView"/>
-        </android.support.design.widget.TextInputLayout>
-        <android.support.design.widget.TextInputLayout
-                android:id="@+id/homeLocationTextView"
+                android:layout_margin="5dp"
+                android:layout_marginTop="5dp"
+                app:cardCornerRadius="4dp">
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Home Location"/>
+                <fragment
+                        android:id="@+id/home_location_autocomplete_fragment"
+                        android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+
+        <android.support.v7.widget.CardView
+                android:id="@+id/workLocationCardView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/workLocationTextView"
-                android:layout_marginTop="2dp"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="2dp"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="2dp">
-        <android.support.design.widget.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:inputType="textPostalAddress"
-                android:hint="Home Location"
-                android:id="@+id/homeLocationEditView"/>
-        </android.support.design.widget.TextInputLayout>
+                android:layout_below="@id/homeLocationCardView"
+                android:layout_margin="5dp"
+                android:layout_marginTop="5dp"
+                app:cardCornerRadius="4dp">
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Work Location"/>
+                <fragment
+                        android:id="@+id/work_location_autocomplete_fragment"
+                        android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="28dp"
-                android:layout_below="@+id/homeLocationTextView"
+                android:layout_below="@+id/workLocationCardView"
                 android:id="@+id/preference_recycle_view"
         />
         <Button

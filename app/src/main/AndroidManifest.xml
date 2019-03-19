@@ -21,11 +21,11 @@
             android:theme="@style/AppTheme">
         <activity android:name=".activites.TestActivity">
         </activity>
-        <activity
-                android:name=".TestActivity"
-                android:label="@string/title_activity_test"
-                android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+        <!--<activity-->
+                <!--android:name=".TestActivity"-->
+                <!--android:label="@string/title_activity_test"-->
+                <!--android:theme="@style/AppTheme.NoActionBar">-->
+        <!--</activity>-->
         <activity
                 android:name=".activites.SplashActivity"
                 android:noHistory="true"
@@ -63,6 +63,10 @@
         -->
         <meta-data
                 android:name="com.google.android.geo.API_KEY"
+                android:value="@string/google_maps_key"/>
+
+        <meta-data
+                android:name="com.google.android.places.API_KEY"
                 android:value="@string/google_maps_key"/>
 
         <activity
