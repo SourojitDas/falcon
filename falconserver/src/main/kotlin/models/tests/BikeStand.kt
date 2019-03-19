@@ -1,7 +1,11 @@
 package models.tests
 
-import  models.bikestand.parseJson
+import  models.bikestand.BikeStandModel
+import models.bikestand.parseJson
+
 import org.junit.Test
+
+
 
 class BikeTest {
 
@@ -32,188 +36,22 @@ class BikeTest {
         assert(result!![0]?.standAddress == "address of the station")
 
         val fakeNumber = 123
-        assert(result?.number?.equals(fakeNumber)!!)
+        assert(result!![0].standNumber == (fakeNumber))
         val fakeContract = "Lyon"
-        assert(result?.contract_name?.equals(fakeContract))
+        assert(result!![0].contractName.equals(fakeContract))
         val fakeName = "stations name"
-        assert(result?.name?.equals(fakeName))
+        assert(result!![0].standName.equals(fakeName))
         val fakeAddress = "address of the station"
-        assert(result?.address?.equals(fakeAddress))
-        val fakePosition = models.bike.GeoPosition()
-        assert(result?.position.lat?.equals(fakePosition.lat))
-        assert(result?.position.lng?.equals(fakePosition.lng))
+        assert(result!![0].standAddress.equals(fakeAddress))
+        val fakePosition = models.bikestand.GeoPosition(lat = 45.77420,lng =4.867512)
+        assert(result!![0].standGeoLocation?.lat == fakePosition.lat)
+        assert(result!![0].standGeoLocation?.lng == fakePosition.lng)
         val fakeStatus = "OPEN"
-        assert(result?.status?.equals(fakeStatus))
+        assert(result!![0].standStatus.equals(fakeStatus))
         val fakeBikeStands = 20
-        assert(result?.bike_stands?.equals(fakeBikeStands))
+        assert(result!![0].bikeStands == fakeBikeStands)
         val fakeAvailableStands = 15
-        assert(result?.available_bike_stands?.equals(fakeAvailableStands))
-
-
-    }
-    @Test
-    fun `test pasrseJson fail1`() {
-        val result = parseJson(stubbedBikeRequest)
-        assert(result!![0]?.contractName == "Lyon")
-        assert(result!![0]?.standAddress == "address of the station")
-
-        val fakeNumber = 123
-        assert(result?.number?.equals(fakeNumber)!!)
-        val fakeContract = "Lyon"
-        assert(result?.contract_name?.equals(fakeContract))
-        val fakeName = "stations name"
-        assert(result?.name?.equals(fakeName))
-        val fakeAddress = "addres of the station"
-        assert(result?.address?.equals(fakeAddress))
-        val fakePosition = models.bike.GeoPosition()
-        assert(result?.position.lat?.equals(fakePosition.lat))
-        assert(result?.position.lng?.equals(fakePosition.lng))
-        val fakeStatus = "OPEN"
-        assert(result?.status?.equals(fakeStatus))
-        val fakeBikeStands = 20
-        assert(result?.bike_stands?.equals(fakeBikeStands))
-        val fakeAvailableStands = 15
-        assert(result?.available_bike_stands?.equals(fakeAvailableStands))
-
-
-    }
-
-
-    @Test
-    fun `test pasrseJson fail2`() {
-        val result = parseJson(stubbedBikeRequest)
-        assert(result!![0]?.contractName == "Lyon")
-        assert(result!![0]?.standAddress == "address of the station")
-
-        val fakeNumber = 123
-        assert(result?.number?.equals(fakeNumber)!!)
-        val fakeContract = "Lyon"
-        assert(result?.contract_name?.equals(fakeContract))
-        val fakeName = "stations name"
-        assert(result?.name?.equals(fakeName))
-        val fakeAddress = "address of the station"
-        assert(result?.address?.equals(fakeAddress))
-        val fakePosition = models.bike.GeoPosition()
-        assert(result?.position.lat?.equals(fakePosition.lat))
-        assert(result?.position.lng?.equals(fakePosition.lng))
-        val fakeStatus = "CLOSE"
-        assert(result?.status?.equals(fakeStatus))
-        val fakeBikeStands = 20
-        assert(result?.bike_stands?.equals(fakeBikeStands))
-        val fakeAvailableStands = 15
-        assert(result?.available_bike_stands?.equals(fakeAvailableStands))
-
-
-    }
-
-
-
-    @Test
-    fun `test pasrseJson fail3`() {
-        val result = parseJson(stubbedBikeRequest)
-        assert(result!![0]?.contractName == "Lyon")
-        assert(result!![0]?.standAddress == "address of the station")
-
-        val fakeNumber = 123
-        assert(result?.number?.equals(fakeNumber)!!)
-        val fakeContract = "Lyon"
-        assert(result?.contract_name?.equals(fakeContract))
-        val fakeName = "stations"
-        assert(result?.name?.equals(fakeName))
-        val fakeAddress = "address of the station"
-        assert(result?.address?.equals(fakeAddress))
-        val fakePosition = models.bike.GeoPosition()
-        assert(result?.position.lat?.equals(fakePosition.lat))
-        assert(result?.position.lng?.equals(fakePosition.lng))
-        val fakeStatus = "CLOSE"
-        assert(result?.status?.equals(fakeStatus))
-        val fakeBikeStands = 20
-        assert(result?.bike_stands?.equals(fakeBikeStands))
-        val fakeAvailableStands = 15
-        assert(result?.available_bike_stands?.equals(fakeAvailableStands))
-
-
-    }
-
-
-    @Test
-    fun `test pasrseJson fail4`() {
-        val result = parseJson(stubbedBikeRequest)
-        assert(result!![0]?.contractName == "Lyon")
-        assert(result!![0]?.standAddress == "address of the station")
-
-        val fakeNumber = 123
-        assert(result?.number?.equals(fakeNumber)!!)
-        val fakeContract = "Lyon"
-        assert(result?.contract_name?.equals(fakeContract))
-        val fakeName = "stations"
-        assert(result?.name?.equals(fakeName))
-        val fakeAddress = "address of the station"
-        assert(result?.address?.equals(fakeAddress))
-        val fakePosition = models.bike.GeoPosition()
-        assert(result?.position.lat?.equals(fakePosition.lat))
-        assert(result?.position.lng?.equals(fakePosition.lng))
-        val fakeStatus = "CLOSE"
-        assert(result?.status?.equals(fakeStatus))
-        val fakeBikeStands = 20
-        assert(result?.bike_stands?.equals(fakeBikeStands))
-        val fakeAvailableStands = 150
-        assert(result?.available_bike_stands?.equals(fakeAvailableStands))
-
-
-    }
-
-
-    @Test
-    fun `test pasrseJson fail5`() {
-        val result = parseJson(stubbedBikeRequest)
-        assert(result!![0]?.contractName == "Lyon")
-        assert(result!![0]?.standAddress == "address of the station")
-
-        val fakeNumber = 567
-        assert(result?.number?.equals(fakeNumber)!!)
-        val fakeContract = "Lyon"
-        assert(result?.contract_name?.equals(fakeContract))
-        val fakeName = "stations"
-        assert(result?.name?.equals(fakeName))
-        val fakeAddress = "address of the station"
-        assert(result?.address?.equals(fakeAddress))
-        val fakePosition = models.bike.GeoPosition()
-        assert(result?.position.lat?.equals(fakePosition.lat))
-        assert(result?.position.lng?.equals(fakePosition.lng))
-        val fakeStatus = "CLOSE"
-        assert(result?.status?.equals(fakeStatus))
-        val fakeBikeStands = 20
-        assert(result?.bike_stands?.equals(fakeBikeStands))
-        val fakeAvailableStands = 150
-        assert(result?.available_bike_stands?.equals(fakeAvailableStands))
-
-
-    }
-
-    @Test
-    fun `test pasrseJson fail6`() {
-        val result = parseJson(stubbedBikeRequest)
-        assert(result!![0]?.contractName == "Lyon")
-        assert(result!![0]?.standAddress == "address of the station")
-
-        val fakeNumber = 567
-        assert(result?.number?.equals(fakeNumber)!!)
-        val fakeContract = "Lyon"
-        assert(result?.contract_name?.equals(fakeContract))
-        val fakeName = "stations"
-        assert(result?.name?.equals(fakeName))
-        val fakeAddress = "address of the station"
-        assert(result?.address?.equals(fakeAddress))
-        val fakePosition = models.bike.GeoPosition()
-        assert(result?.position.lat?.equals(fakePosition.lat))
-        assert(result?.position.lng?.equals(fakePosition.lng))
-        val fakeStatus = "CLOSE"
-        assert(result?.status?.equals(fakeStatus))
-        val fakeBikeStands = 200
-        assert(result?.bike_stands?.equals(fakeBikeStands))
-        val fakeAvailableStands = 150
-        assert(result?.available_bike_stands?.equals(fakeAvailableStands))
+        assert(result!![0].bikesAvailable == fakeAvailableStands)
 
 
     }
