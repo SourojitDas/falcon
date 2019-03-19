@@ -11,7 +11,7 @@ class BikeStand {
             "apiKey" to Configuration.getBikeServiceApiKey()
         )
 
-        val r = khttp.get(Configuration.getBikeServiceBaseUrl(), params = payload)
+        val r = khttp.get(Configuration.getBikeServiceBaseURL(), params = payload)
         return parseJson(r.text)
     }
 }
