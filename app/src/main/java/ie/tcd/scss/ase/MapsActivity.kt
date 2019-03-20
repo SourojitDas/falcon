@@ -12,6 +12,8 @@ import android.support.design.widget.Snackbar
 import android.support.v4.app.ActivityCompat
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
@@ -32,6 +34,7 @@ import com.google.android.libraries.places.api.Places
 import com.google.android.libraries.places.api.model.Place
 import com.google.android.libraries.places.widget.AutocompleteSupportFragment
 import com.google.android.libraries.places.widget.listener.PlaceSelectionListener
+import ie.tcd.scss.ase.activites.PreferencesActivity
 import ie.tcd.scss.ase.interfaces.RetroFitAPIClient
 import ie.tcd.scss.ase.rest.RetrofitBuilder
 import ie.tcd.scss.ase.utilities.SharedPreferenceHelper
@@ -88,9 +91,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
                 super.onLocationResult(p0)
 
                 lastLocation = p0.lastLocation
-                if (::map.isInitialized) {
+                Log.d("LAST LOCATION",lastLocation.latitude.toString())
+//                if (::map.isInitialized) {
                     placeMarkerOnMap(LatLng(lastLocation.latitude, lastLocation.longitude))
-                }
+//                }
             }
         }
 
@@ -343,6 +347,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         }
     }
 
+
+
     private fun loadPlacePicker() {
         val builder = PlacePicker.IntentBuilder()
 
@@ -353,6 +359,20 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         } catch (e: GooglePlayServicesNotAvailableException) {
             e.printStackTrace()
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.mapmenu,menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when(item?.itemId){
+            R.id.setting_menu -> {
+                startActivity(Intent(applicationContext, PreferencesActivity::class.java))
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
 }
