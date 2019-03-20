@@ -5,9 +5,9 @@ import com.beust.klaxon.Klaxon
 
 data class GeoPosition(
     @Json(name = "lng")
-    val lng: Double? = null,
+    val longitude: Double? = null,
     @Json(name = "lat")
-    val lat: Double? = null
+    val latitude: Double? = null
 )
 
 data class BikeStandModel(

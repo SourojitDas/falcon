@@ -1,6 +1,5 @@
 package models.tests
 
-import  models.bikestand.BikeStandModel
 import models.bikestand.parseJson
 
 import org.junit.Test
@@ -43,9 +42,9 @@ class BikeTest {
         assert(result!![0].standName.equals(fakeName))
         val fakeAddress = "address of the station"
         assert(result!![0].standAddress.equals(fakeAddress))
-        val fakePosition = models.bikestand.GeoPosition(lat = 45.77420,lng =4.867512)
-        assert(result!![0].standGeoLocation?.lat == fakePosition.lat)
-        assert(result!![0].standGeoLocation?.lng == fakePosition.lng)
+        val fakePosition = models.bikestand.GeoPosition(latitude = 45.77420, longitude = 4.867512)
+        assert(result!![0].standGeoLocation?.latitude == fakePosition.latitude)
+        assert(result!![0].standGeoLocation?.longitude == fakePosition.longitude)
         val fakeStatus = "OPEN"
         assert(result!![0].standStatus.equals(fakeStatus))
         val fakeBikeStands = 20
