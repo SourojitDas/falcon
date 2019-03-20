@@ -12,9 +12,9 @@ data class Coordinates(
 
 data class Rain(
         @Json(name = "1h")
-        val LastOneHour: Int? = null,
+        val lastOneHour: Int? = null,
         @Json(name = "3h")
-        val LastThreeHour: Int? = null
+        val lastThreeHour: Int? = null
 )
 
 data class WeatherInfo(

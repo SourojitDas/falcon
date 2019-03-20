@@ -2,7 +2,6 @@ package models.googleMaps
 
 import com.beust.klaxon.Json
 import com.beust.klaxon.Klaxon
-import com.beust.klaxon.Status
 
 
 data class GoogleRouteModel(
@@ -10,9 +9,9 @@ data class GoogleRouteModel(
     @Json(name = "geocoded_waypoints")
     val geocodeMembers: List<GeocodedPoints>? = null,
     @Json(name = "routes")
-    val routes: Routes? = null,
+    val routes: List<Route>? = null,
     @Json(name = "status")
-    val status: Status? = null
+    val status: String? = null
 )
 
 data class GeocodedPoints(
@@ -27,7 +26,7 @@ data class GeocodedPoints(
     )
 
 
-data class Routes(
+data class Route(
 
     @Json(name = "bounds")
     val bounds: Bounds? =null,
@@ -38,11 +37,11 @@ data class Routes(
     @Json(name = "overview_polyline")
     val overviewPolyline: Polyline? = null,
     @Json(name = "summary")
-    val summary: String? = null
-    //@Json(name = "warnings")
-    //val warning: List<>? = null
-    //@Json(name = "waypoint_order")
-    //val waypointOrder: List<>? =null
+    val summary: String? = null,
+    @Json(name = "warnings")
+    val warnings: List<String>? = null,
+    @Json(name = "waypoint_order")
+    val waypointOrder: List<Int>? =null
 
 
 
@@ -51,9 +50,9 @@ data class Routes(
 data class Coordinates(
 
     @Json(name = "lat")
-    val lat: Double? = null,
+    val latitude: Double? = null,
     @Json(name = "lng")
-    val lng: Double? = null
+    val longitude: Double? = null
 
 )
 
@@ -76,15 +75,19 @@ data class Leg(
     @Json(name = "duration")
     val duration: Duration? = null,
     @Json(name = "end_location")
-    val endLocation: EndLocation? = null,
+    val endLocation: Coordinates? = null,
     @Json(name = "start_location")
-    val startLocation: StartLocation? = null,
+    val startLocation: Coordinates? = null,
     @Json(name = "steps")
     val steps: List<Step>? = null,
     @Json(name = "end_address")
     val endAddress: String? = null,
     @Json(name = "start_address")
-    val startAddress: String? = null
+    val startAddress: String? = null,
+    @Json(name = "traffic_speed_entry")
+    val trafficSpeedEntry: List<String>? = null,
+    @Json(name = "via_waypoint")
+    val viaWaypoint: List<String>? = null
 
 )
 
@@ -107,22 +110,6 @@ data class Duration(
 
 
 
-data class EndLocation(
-    @Json(name = "lat")
-    val lat: Double? = null,
-    @Json(name = "lng")
-    val lng: Double? = null
-
-)
-
-
-data class StartLocation(
-    @Json(name = "lat")
-    val lat: Double? = null,
-    @Json(name = "lng")
-val lng: Double? = null
-
-)
 
 data class Polyline(
 
@@ -137,15 +124,17 @@ data class Step(
     @Json(name = "duration")
     val duration: Duration? = null,
     @Json(name = "end_location")
-    val endLocation: EndLocation? = null,
+    val endLocation: Coordinates? = null,
     @Json(name = "html_instructions")
-    val htmlInstructionsn: String? = null,
+    val htmlInstructions: String? = null,
     @Json(name = "polyline")
     val polyline: Polyline? = null,
     @Json(name = "start_location")
-    val startLocation: StartLocation? = null,
+    val startLocation: Coordinates? = null,
     @Json(name = "travel_mode")
-    val travelMode: String? = null
+    val travelMode: String? = null,
+    @Json(name = "maneuver")
+    val maneuver: String? = null
 )
 
 
