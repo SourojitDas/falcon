@@ -1,5 +1,6 @@
 package models.tests
 
+import models.googleMaps.parseJson
 import models.googleMaps.*
 import org.junit.Test
 
@@ -312,23 +313,112 @@ class GoogleRouteTest {
     fun `test parseJson success`() {
 
         val result = parseJson(fakeGoogleRouteResp)
-        val fakeGeocoderStatus: String = "OK"
-        assert(result?.geocodeMembers!![0].geocoderStatus!!?.equals(fakeGeocoderStatus))
+        val fakeGeocoderStatus = "OK"
+        assert(result!!.geocodeMembers!![0]?.geocoderStatus.equals(fakeGeocoderStatus))
         val fakePlaceId: String = "ChIJa147K9HX3IAR-lwiGIQv9i4"
-        assert(result?.geocodeMembers!![0].placeId!!?.equals(fakePlaceId))
-//        val faketypes: String = "amusement_park"
-//        assert(result.geocodeMembers!![0].types!![0].equals(faketypes))
-        //val fakeNorthLat: Double?. = 34.1373841
-        //val fakeNorthlng: Double?. = -117.9220826
-        //assert(result?.GoogleRouteModel.Routes.Bounds.northEast.lat?. == fakeNorthLat)
-        //assert(result?.GoogleRouteModel.Routes.Bounds.northEast.lng?. == fakeNorthlng)
-        //val fakeCopyrights: String?. = "Map data ©2019 Google"
-        //assert(result?.GoogleRouteModel.Routes.copyrights?.equals(fakeCopyrights))
-        //val fakeLegDistanceText: String?. = "36.0 mi"
-        //assert(result?.GoogleRouteModel.Routes.Leg.Distance.text.equals(fakeLegDistanceText))
-        //val fakeLegDistanceValue: String?. = "57961"
-        //assert(result?.GoogleRouteModel.Routes.Leg.Distance.value?. == fakeLegDistanceValue)
-        //WIP////////////
+        assert(result!!.geocodeMembers!![0].placeId.equals(fakePlaceId))
+        val faketypes = "amusement_park"
+        assert(result!!.geocodeMembers!![0]?.types!![0].equals(faketypes))
+
+
+        val fakeBoundNorthEast: Coordinates = models.googleMaps.Coordinates(lat = 34.1373841, lng = -117.9220826)
+        val fakeBoundSouthEast: Coordinates = models.googleMaps.Coordinates(lat = 33.8151707, lng = -118.3575556)
+        val fakeBound: Bounds = models.googleMaps.Bounds(northEast = fakeBoundNorthEast, southEast =  fakeBoundSouthEast)
+        val fakeRouteCopyrights: String? = "Map data ©2019 Google"
+        val fakeLegDistance: Distance =  models.googleMaps.Distance(text = "36.0 mi", value = 57961)
+        val fakeLegDuration: Duration =  models.googleMaps.Duration(text = "50 mins", value = 3025)
+        val fakeLegEndAddress: String = "100 Universal City Plaza, Universal City, CA 91608, USA"
+        val fakeLegEndLocation: EndLocation = models.googleMaps.EndLocation(lat = 34.1364887, lng = -118.3569926)
+        val fakeLegStartAddress: String = "1313 Disneyland Dr, Anaheim, CA 92802, USA"
+        val fakeLegStartLocation: StartLocation = models.googleMaps.StartLocation(lat = 33.816221, lng = -117.9224731)
+
+        val fakeStepDistance: Distance = models.googleMaps.Distance(text = "59 ft", value = 18)
+        val fakeStepDuration: Duration = models.googleMaps.Duration(text = "1 min", value = 2)
+        val fakeStepEndLocation: EndLocation = models.googleMaps.EndLocation(lat = 33.8160679, lng = -117.9225314)
+        val fakeStepHTMLInst: String = "Head \\u003cb\\u003esouth\\u003c/b\\u003e"
+        val fakeStepPolyline: Polyline = models.googleMaps.Polyline(points = "kvkmElvvnU\\\\J")
+        val fakeStepStartLocation: StartLocation = models.googleMaps.StartLocation(lat = 33.8162219, lng = 117.9224731)
+        val fakeStepTravelMode: String = "DRIVING"
+
+        val fakeLegStep: Step =  models.googleMaps.Step(distance = fakeStepDistance,
+                                                      duration = fakeStepDuration,
+                                                      endLocation = fakeStepEndLocation,
+                                                      htmlInstructionsn = fakeStepHTMLInst,
+                                                      polyline = fakeStepPolyline,
+                                                      startLocation = fakeStepStartLocation,
+                                                      travelMode = fakeStepTravelMode)
+        val fakeStepList: List<Step> = listOf(fakeLegStep)
+        //yet to check what is coming in the response
+        //val fakeTrafficSpeedHandle: List<Int?>? = null
+        //val fakeViaWaypoints: List<Int?>? = null
+
+
+
+        val fakeLegElement: Leg = models.googleMaps.Leg(distance = fakeLegDistance,
+                                                        duration = fakeLegDuration,
+                                                        endAddress = fakeLegEndAddress,
+                                                        startAddress = fakeLegStartAddress,
+                                                        endLocation = fakeLegEndLocation,
+                                                        startLocation = fakeLegStartLocation,
+                                                        steps = fakeStepList
+                                                        //,trafficSpeedHandle = fakeTrafficSpeedHandle
+                                                        //, viaWayPoints = fakeViaWaypoints)
+        )
+        val fakeListLeg: List<Leg> = listOf(fakeLegElement)
+
+        val fakeRouteOverviewPolyline: Polyline = models.googleMaps.Polyline(points = "    kvkmElvvnU|@Tx@v@\\\\`ABjAF|Zn@?Cc\\\\q@{Aw@}@y@c@kBg@aD]}AD}@JeH`B{Bp@yAd@aAQyDmA_AW_BC_@FuAh@gJ~HeCxB}@nAeCtBgEhEoIbJgPjQk@h@aDnF_B~D{@|Cw@hDcAlHwB|NyAvFaMfYe`@h|@cGjK_BtCuCxGsCtHuH~QeFpMuU|i@yFfJgFbHmHlKeBdEcCxKgGdXoArDoC~GgD`H{HxMiF|K}IjSkE~JoLpWm@pAuIxRaDpG}A`CsF|GeGpI_KtTgLxWqXpn@iK|ReEfKuEhJqBvEeR|d@yGjPaDpHkHjOqR``@_NrYoDzIqDtHoBpD_HpKoH~ImKhKmKlKuE|EmEjGoDlHaDdHmCpFyAzBkG|IgGdGkCtBsRdMwQbLie@nYqPdLaQ|K{D`C{TrMqHfEia@xUa[vQkFlEgD~D{OhVyNzTeZrd@uBnCgCbCcCdBiE|BaFzAoXxFeFfAoEpAeFfCmAp@kQ|L{NpNyVxViCpCyCnEoD~FsAtB{AbBuArA{@x@cg@xe@wIhIeEpCwE~B}CpBwLxKqJ~IsCvCcPxRqC~EwCjFiE~EaGhFwBvBeC~DqEvL}IfW}AdFeCbM}CbHiA~BwA|DqJ~X_BtEaAvDwAtKMpDA`O@xWKxN]lE{@vFgAbEqGvR{O~e@yAnF@h@iAvEeGxQ_Lb\\\\cC|GsBxEmC|EcDhEqFzE{BrAuAl@kDt@}CPsGg@aCGuHXcCM_Dg@wHs@iACcLDiGZ_Fv@qFbBoEjBkCfAgElBkBnBaAvBg@tBQhDiB`R_BxUg@tHGjEJ|BIvDYdBk@jB}FbL_JrPgEjHyCjE}DvEqIfH_IrGyAxAyApB{EnHwGbKsCvFcBvE{A|FkHlYmChKiD`KoH`U{A~EwDrJsCvJuA|G{E`W_C`OgEt[y@zGyAnHsAlEkCbGgFnMsC~HyDfKuAvCwF|JoEnHoFpIuChDqFjEqOfI{BpAqCdC_BrBaBrCcKvQ}DvEkCvBcEfC{PjIiDlB_CtBaBtBqAdCw@zBeAtFYfEExEGxDQbCiAzFmBrEyCxFwNjYgDrGmCpDwDzCkCnAsA`@kEbA}F|AoRpDeErA}FvCqBlAqC~BsDxDi@n@WZgGvHaDzDyBpBiIfF}FvFkEnEw@l@M@aAx@oCbCYNqFhDkCvBeBzCg@`@e@^}@xAq@lCZ~Dm@jFcAjF{AzG_@Km@A{Bb@kBn@e@`@eACMGUeAQq@d@CHCfATl@DJA\n" +
+                "\n")
+        val fakeRouteSummary: String = "I-5 N and US-101 N"
+        //Still to check the response in the Google response
+        //val fakeRouteWayPointOrder: List<Int> = null
+        //val fakeRouteWarnings: List<String> = null
+        val fakeRoute: Routes = models.googleMaps.Routes(bounds = fakeBound,
+                                                         copyrights = fakeRouteCopyrights,
+                                                         legs = fakeListLeg,
+                                                         overviewPolyline = fakeRouteOverviewPolyline,
+                                                         summary = fakeRouteSummary
+                                                         //warning = fakeRouteWarning,
+                                                        // wayPointOrder = fakeRouteWayPointOrder
+                                                         )
+        val fakeListRoute: List<Routes> = listOf(fakeRoute)
+        assert(result!!.routes!![0]?.bounds?.northEast?.lat == fakeBound.northEast?.lat)
+        assert(result!!.routes!![0]?.bounds?.northEast?.lng == fakeBound.northEast?.lng)
+        assert(result!!.routes!![0]?.bounds?.southEast?.lat == fakeBound.southEast?.lat)
+        assert(result!!.routes!![0]?.bounds?.southEast?.lng == fakeBound.southEast?.lng)
+        assert(result!!.routes!![0].copyrights == fakeRouteCopyrights)
+        assert(result!!.routes!![0].legs!![0].distance?.text == fakeLegDistance.text )
+        assert(result!!.routes!![0].legs!![0].distance?.value == fakeLegDistance.value)
+        assert(result!!.routes!![0].legs!![0].duration?.text == fakeLegDuration.text)
+        assert(result!!.routes!![0].legs!![0].duration?.value == fakeLegDuration.value)
+        assert(result!!.routes!![0].legs!![0].endAddress == fakeLegEndAddress)
+        assert(result!!.routes!![0].legs!![0].startAddress == fakeLegStartAddress)
+        assert(result!!.routes!![0].legs!![0].startLocation?.lat == fakeLegStartLocation.lat)
+        assert(result!!.routes!![0].legs!![0].startLocation?.lng == fakeLegStartLocation.lng)
+        assert(result!!.routes!![0].legs!![0].endLocation?.lat == fakeLegEndLocation.lat)
+        assert(result!!.routes!![0].legs!![0].endLocation?.lng == fakeLegEndLocation.lng)
+        assert(result!!.routes!![0].legs!![0].steps!![0].distance?.text == fakeStepDistance.text)
+        assert(result!!.routes!![0].legs!![0].steps!![0].distance?.value == fakeStepDistance.value)
+        assert(result!!.routes!![0].legs!![0].steps!![0].duration?.text == fakeStepDistance.text)
+        assert(result!!.routes!![0].legs!![0].steps!![0].duration?.value == fakeStepDistance.value)
+        assert(result!!.routes!![0].legs!![0].steps!![0].endLocation?.lat == fakeStepEndLocation.lat)
+        assert(result!!.routes!![0].legs!![0].steps!![0].endLocation?.lng == fakeStepEndLocation.lng)
+        assert(result!!.routes!![0].legs!![0].steps!![0].startLocation?.lat == fakeStepStartLocation.lat)
+        assert(result!!.routes!![0].legs!![0].steps!![0].startLocation?.lng == fakeStepStartLocation.lng)
+        assert(result!!.routes!![0].legs!![0].steps!![0].htmlInstructionsn == fakeStepHTMLInst)
+        assert(result!!.routes!![0].legs!![0].steps!![0].polyline?.points == fakeStepPolyline.points)
+        assert(result!!.routes!![0].legs!![0].steps!![0].travelMode == fakeStepTravelMode)
+        //Yet to recieve in the resposne
+        //assert(result!!.routes!![0].legs!![0].trafficSpeedEntry!![0] == fakeLegtrafficSpeedEntry[0])
+        //assert(result!!.routes!![0].legs!![0].viaWayPoint!![0] == fakeLegViaWayPoint[0])
+        assert(result!!.routes!![0].overviewPolyline?.points == fakeRouteOverviewPolyline.points)
+        assert(result!!.routes!![0].summary == fakeRouteSummary)
+        //Yet to recieve in the respose
+        //assert(result!!.routes!![0].warnings = fakeRouteWarnings[0])
+        //assert(result!!.routes!![0].wayPointOrder  = fakeRouteWayPointOrder[0])
+
+        val fakeStatus: String = "OK"
+        assert(result!!.status!!.equals(fakeStatus))
+
 
 
     }
