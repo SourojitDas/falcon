@@ -4,7 +4,7 @@ import models.googleMaps.parseJson
 
 
 class GoogleRoute {
-    fun getRouteByOriginAndDestination(origin: String, destination: String): models.googleMaps.GoogleRouteModel? {
+    fun getRouteByOriginAndDestination(origin: String, destination: String):  models.googleMaps.GoogleRouteModel? {
         val payload = mapOf(
             "origin" to origin,
             "destination" to destination,

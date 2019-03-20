@@ -313,11 +313,11 @@ class GoogleRouteTest {
 
         val result = parseJson(fakeGoogleRouteResp)
         val fakeGeocoderStatus: String = "OK"
-        assert(result?.GoogleRouteModel.geocodeMembers[0].geocoderStatus.equals(fakeGeocoderStatus))
+        assert(result?.geocodeMembers!![0].geocoderStatus!!?.equals(fakeGeocoderStatus))
         val fakePlaceId: String = "ChIJa147K9HX3IAR-lwiGIQv9i4"
-        assert(result?.GoogleRouteModel.geocodeMembers[0].placeId?.equals(fakePlaceId))
-        val faketypes: String = "amusement_park"
-        assert(result?.GoogleRouteModel.geocodeMembers[0].types[0]?.equals(faketypes))
+        assert(result?.geocodeMembers!![0].placeId!!?.equals(fakePlaceId))
+//        val faketypes: String = "amusement_park"
+//        assert(result.geocodeMembers!![0].types!![0].equals(faketypes))
         //val fakeNorthLat: Double?. = 34.1373841
         //val fakeNorthlng: Double?. = -117.9220826
         //assert(result?.GoogleRouteModel.Routes.Bounds.northEast.lat?. == fakeNorthLat)

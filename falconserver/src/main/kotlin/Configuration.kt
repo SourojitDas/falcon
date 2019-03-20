@@ -7,7 +7,7 @@ object Configuration {
     private val BikeServiceApiKeyPath = "bike_service.api_key"
     private val BikeServiceBaseURLPath = "bike_service.base_url"
     private val GoogleMapsServiceBaseURLPath = "map_service.base_url"
-    private val GoogleMapsServiceApiKeyPath = "bike_service.api_key"
+    private val GoogleMapsServiceApiKeyPath = "map_service.api_key"
 
     private var configFile = ConfigFactory.load("config/application")
 

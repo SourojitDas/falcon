@@ -8,7 +8,7 @@ import com.beust.klaxon.Status
 data class GoogleRouteModel(
 
     @Json(name = "geocoded_waypoints")
-    val geocodeMembers: Array<GeocodedPoints>? = null,
+    val geocodeMembers: List<GeocodedPoints>? = null,
     @Json(name = "routes")
     val routes: Routes? = null,
     @Json(name = "status")
@@ -18,11 +18,11 @@ data class GoogleRouteModel(
 data class GeocodedPoints(
 
     @Json(name = "geocoder_status")
-    val geocoderStatus: Double? = null,
+    val geocoderStatus: String? = null,
     @Json(name = "place_id")
-    val placeId: Double? = null,
+    val placeId: String? = null,
     @Json(name = "types")
-    val types: Double? = null
+    val types: List<String>? = null
 
     )
 
@@ -34,15 +34,15 @@ data class Routes(
     @Json(name = "copyrights")
     val copyrights: String? = null,
     @Json(name = "legs")
-    val legs: Leg? = null,
+    val legs: List<Leg>? = null,
     @Json(name = "overview_polyline")
-    val overviewPolyline: Pollyline? = null,
+    val overviewPolyline: Polyline? = null,
     @Json(name = "summary")
     val summary: String? = null
     //@Json(name = "warnings")
-    //val warning: Array<>? = null
+    //val warning: List<>? = null
     //@Json(name = "waypoint_order")
-    //val waypointOrder: Array<>? =null
+    //val waypointOrder: List<>? =null
 
 
 
@@ -80,7 +80,7 @@ data class Leg(
     @Json(name = "start_location")
     val startLocation: StartLocation? = null,
     @Json(name = "steps")
-    val steps: Array<Step>? = null,
+    val steps: List<Step>? = null,
     @Json(name = "end_address")
     val endAddress: String? = null,
     @Json(name = "start_address")
@@ -124,7 +124,7 @@ val lng: Double? = null
 
 )
 
-data class Pollyline(
+data class Polyline(
 
     @Json(name = "points")
     val points: String? = null
@@ -140,8 +140,8 @@ data class Step(
     val endLocation: EndLocation? = null,
     @Json(name = "html_instructions")
     val htmlInstructionsn: String? = null,
-    @Json(name = "distance")
-    val pollyline: Pollyline? = null,
+    @Json(name = "polyline")
+    val polyline: Polyline? = null,
     @Json(name = "start_location")
     val startLocation: StartLocation? = null,
     @Json(name = "travel_mode")
