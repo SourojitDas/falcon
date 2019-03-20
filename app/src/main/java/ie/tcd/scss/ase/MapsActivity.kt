@@ -8,14 +8,17 @@ import android.location.Address
 import android.location.Geocoder
 import android.location.Location
 import android.os.Bundle
+import android.support.design.widget.Snackbar
 import android.support.v4.app.ActivityCompat
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException
 import com.google.android.gms.common.GooglePlayServicesRepairableException
 import com.google.android.gms.common.api.ResolvableApiException
+import com.google.android.gms.common.api.Status
 import com.google.android.gms.location.*
 import com.google.android.gms.location.places.ui.PlacePicker
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -25,12 +28,15 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.libraries.places.api.Places
+import com.google.android.libraries.places.api.model.Place
+import com.google.android.libraries.places.widget.AutocompleteSupportFragment
+import com.google.android.libraries.places.widget.listener.PlaceSelectionListener
 import ie.tcd.scss.ase.interfaces.RetroFitAPIClient
 import ie.tcd.scss.ase.rest.RetrofitBuilder
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
+import ie.tcd.scss.ase.utilities.SharedPreferenceHelper
 import java.io.IOException
+import java.util.*
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
     override fun onMarkerClick(p0: Marker?) = false
@@ -43,6 +49,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
 
     private val PLACE_PICKER_REQUEST = 3
 
+    private lateinit var sharedPreferenceHelper: SharedPreferenceHelper
+
 
     // 1
     private lateinit var locationCallback: LocationCallback
@@ -52,10 +60,21 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
     private var locationUpdateState = false
 
 
+    private lateinit var sourceLocationFragment: AutocompleteSupportFragment
+    private lateinit var destinationLocationFragment: AutocompleteSupportFragment
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+
+        sharedPreferenceHelper = SharedPreferenceHelper(applicationContext)
+
+        if (!Places.isInitialized()) {
+            Places.initialize(applicationContext, getString(R.string.google_maps_key))
+        }
+
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
@@ -69,14 +88,63 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
                 super.onLocationResult(p0)
 
                 lastLocation = p0.lastLocation
-                placeMarkerOnMap(LatLng(lastLocation.latitude, lastLocation.longitude))
+                if (::map.isInitialized) {
+                    placeMarkerOnMap(LatLng(lastLocation.latitude, lastLocation.longitude))
+                }
             }
         }
+
+        sourceLocationFragment =
+            supportFragmentManager.findFragmentById(R.id.source_location_autocomplete_fragment) as AutocompleteSupportFragment
+        sourceLocationFragment.setHint("Source Location")
+        sourceLocationFragment.setPlaceFields(Arrays.asList(Place.Field.ID, Place.Field.NAME, Place.Field.LAT_LNG))
+
+        val sourceLocationFragmentListener = object : PlaceSelectionListener {
+            override fun onError(p0: Status) {
+                Snackbar.make(
+                    window.decorView.findViewById<View>(android.R.id.content),
+                    "Error While Fetching Location",
+                    Snackbar.LENGTH_SHORT
+                ).show()
+            }
+
+            override fun onPlaceSelected(p0: Place) {
+
+            }
+
+        }
+
+        sourceLocationFragment.setOnPlaceSelectedListener(sourceLocationFragmentListener)
+
+
+        destinationLocationFragment =
+            supportFragmentManager.findFragmentById(R.id.destination_location_autocomplete_fragment) as AutocompleteSupportFragment
+        destinationLocationFragment.setHint("Destination Location")
+        destinationLocationFragment.setPlaceFields(Arrays.asList(Place.Field.ID, Place.Field.NAME, Place.Field.LAT_LNG))
+
+        val destinationLocationFragmentListener = object : PlaceSelectionListener {
+            override fun onError(p0: Status) {
+                Snackbar.make(
+                    window.decorView.findViewById<View>(android.R.id.content),
+                    "Error While Fetching Location",
+                    Snackbar.LENGTH_SHORT
+                ).show()
+            }
+
+            override fun onPlaceSelected(p0: Place) {
+
+            }
+
+        }
+
+        destinationLocationFragment.setOnPlaceSelectedListener(destinationLocationFragmentListener)
+
+
         val button = findViewById<Button>(R.id.directionSearchButton)
-        button.setOnClickListener(){
+        button.setOnClickListener() {
             Toast.makeText(getApplicationContext(), "Searching.. ", Toast.LENGTH_LONG).show()
 
-            val baseURL:String="https://api.jcdecaux.com/"
+            val baseURL: String = "https://api.jcdecaux.com/"
             var retrofitBuilder = RetrofitBuilder.retrofitBuilder(baseURL)
             val retroFitAPIClient = retrofitBuilder.create(RetroFitAPIClient::class.java)
 //            GlobalScope.launch(Dispatchers.Default) {

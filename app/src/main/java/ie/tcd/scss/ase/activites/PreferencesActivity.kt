@@ -5,6 +5,7 @@ import android.location.Address
 import android.location.Geocoder
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.design.widget.Snackbar
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
@@ -31,7 +32,7 @@ import com.google.android.libraries.places.widget.listener.PlaceSelectionListene
 import java.util.*
 
 
-class PreferencesActivity : AppCompatActivity(), ModePreferenceInterface, PlaceSelectionListener {
+class PreferencesActivity : AppCompatActivity(), ModePreferenceInterface {
 
     private lateinit var preferenceRecyclerView: RecyclerView
     private lateinit var preferencerecycelerViewAdapter: PreferenceRecyclerViewAdapter
@@ -50,8 +51,8 @@ class PreferencesActivity : AppCompatActivity(), ModePreferenceInterface, PlaceS
         sharedPreferenceHelper = SharedPreferenceHelper(applicationContext)
 //        val token = AutocompleteSessionToken.newInstance()
 
-        if(!Places.isInitialized()){
-            Places.initialize(applicationContext,getString(R.string.google_maps_key))
+        if (!Places.isInitialized()) {
+            Places.initialize(applicationContext, getString(R.string.google_maps_key))
         }
 //        val placesClient = Places.createClient(this)
 
@@ -61,10 +62,84 @@ class PreferencesActivity : AppCompatActivity(), ModePreferenceInterface, PlaceS
 //        if (sharedPreferenceHelper.containPreference(getString(R.string.home_loc))) {
 //            hl.setText(sharedPreferenceHelper.getPreference(getString(R.string.home_loc)).toString())
 //        }
-        homeLocationFragment = supportFragmentManager.findFragmentById(R.id.home_location_autocomplete_fragment) as AutocompleteSupportFragment
+        homeLocationFragment =
+            supportFragmentManager.findFragmentById(R.id.home_location_autocomplete_fragment) as AutocompleteSupportFragment
         homeLocationFragment.setHint("Home Location")
-        homeLocationFragment.setPlaceFields(Arrays.asList(Place.Field.ID, Place.Field.NAME,Place.Field.LAT_LNG))
-        homeLocationFragment.setOnPlaceSelectedListener(this)
+        homeLocationFragment.setPlaceFields(Arrays.asList(Place.Field.ID, Place.Field.NAME, Place.Field.LAT_LNG))
+
+        val homeLocationFragmentListener = object : PlaceSelectionListener {
+            override fun onError(p0: Status) {
+                Snackbar.make(
+                    window.decorView.findViewById<View>(android.R.id.content),
+                    "Error While Fetching Location",
+                    Snackbar.LENGTH_SHORT
+                ).show()
+            }
+
+            override fun onPlaceSelected(p0: Place) {
+                sharedPreferenceHelper.savePreference(
+                    SharedPreferenceDataClass(
+                        getString(R.string.home_loc),
+                        p0.name as String
+                    )
+                )
+                sharedPreferenceHelper.savePreference(
+                    SharedPreferenceDataClass(
+                        getString(R.string.home_loc_lat),
+                        p0.latLng?.latitude.toString()
+                    )
+                )
+                sharedPreferenceHelper.savePreference(
+                    SharedPreferenceDataClass(
+                        getString(R.string.home_loc_lng),
+                        p0.latLng?.longitude.toString()
+                    )
+                )
+            }
+
+        }
+
+        homeLocationFragment.setOnPlaceSelectedListener(homeLocationFragmentListener)
+
+
+        workLocationFragment =
+            supportFragmentManager.findFragmentById(R.id.work_location_autocomplete_fragment) as AutocompleteSupportFragment
+        workLocationFragment.setHint("Work Location")
+        workLocationFragment.setPlaceFields(Arrays.asList(Place.Field.ID, Place.Field.NAME, Place.Field.LAT_LNG))
+
+        val workLocationFragmentListener = object : PlaceSelectionListener {
+            override fun onError(p0: Status) {
+                Snackbar.make(
+                    window.decorView.findViewById<View>(android.R.id.content),
+                    "Error While Fetching Location",
+                    Snackbar.LENGTH_SHORT
+                ).show()
+            }
+
+            override fun onPlaceSelected(p0: Place) {
+                sharedPreferenceHelper.savePreference(
+                    SharedPreferenceDataClass(
+                        getString(R.string.work_loc),
+                        p0.name as String
+                    )
+                )
+                sharedPreferenceHelper.savePreference(
+                    SharedPreferenceDataClass(
+                        getString(R.string.work_loc_lat),
+                        p0.latLng?.latitude.toString()
+                    )
+                )
+                sharedPreferenceHelper.savePreference(
+                    SharedPreferenceDataClass(
+                        getString(R.string.work_loc_lng),
+                        p0.latLng?.longitude.toString()
+                    )
+                )
+            }
+
+        }
+
+        workLocationFragment.setOnPlaceSelectedListener(workLocationFragmentListener)
 
         prefModes = ArrayList()
         res = resources.getStringArray(R.array.pref_mode)
@@ -85,21 +160,21 @@ class PreferencesActivity : AppCompatActivity(), ModePreferenceInterface, PlaceS
 
     data class Lat_Lng(val lat: Double, val lng: Double)
 
-    fun resetView(view: View) {
+//    fun resetView(view: View) {
 //        val wl = findViewById<EditText>(R.id.workLocationEditView)
 //        val hl = findViewById<EditText>(R.id.homeLocationEditView)
 //        wl.setText("")
 //        hl.setText("")
-    }
-
-    fun readValues(view: View) {
+//    }
+//
+//    fun readValues(view: View) {
 //        val worLoc = findViewById<EditText>(R.id.workLocationEditView)
 //        val homeLoc = findViewById<EditText>(R.id.homeLocationEditView)
 ////        val modePref = findViewById<Switch>(R.id.preference_recycle_view)
 //        setPreferences(worLoc.text.toString(), homeLoc.text.toString())
-    }
-
-    fun setPreferences(wStr: String, hStr: String) {
+//    }
+//
+//    fun setPreferences(wStr: String, hStr: String) {
 //        val pref = applicationContext.getSharedPreferences(getString(R.string.pref_name), 0)
 //        val editor = pref.edit()
 //        editor.putString(getString(R.string.work_loc), wStr)
@@ -110,16 +185,39 @@ class PreferencesActivity : AppCompatActivity(), ModePreferenceInterface, PlaceS
 //        editor.putString(getString(R.string.home_loc_lat), getLocFromAddress(hStr)?.lat.toString())
 //        editor.putString(getString(R.string.home_loc_lng), getLocFromAddress(hStr)?.lng.toString())
 //        editor.apply()
+//
+//        sharedPreferenceHelper.savePreference(SharedPreferenceDataClass(getString(R.string.work_loc), wStr))
+//        sharedPreferenceHelper.savePreference(SharedPreferenceDataClass(getString(R.string.home_loc), hStr))
+//        sharedPreferenceHelper.savePreference(
+//            SharedPreferenceDataClass(
+//                getString(R.string.work_loc_lat),
+//                getLocFromAddress(wStr)?.lat.toString()
+//            )
+//        )
+//        sharedPreferenceHelper.savePreference(
+//            SharedPreferenceDataClass(
+//                getString(R.string.work_loc_lng),
+//                getLocFromAddress(wStr)?.lng.toString()
+//            )
+//        )
+//        sharedPreferenceHelper.savePreference(
+//            SharedPreferenceDataClass(
+//                getString(R.string.home_loc_lat),
+//                getLocFromAddress(hStr)?.lat.toString()
+//            )
+//        )
+//        sharedPreferenceHelper.savePreference(
+//            SharedPreferenceDataClass(
+//                getString(R.string.home_loc_lng),
+//                getLocFromAddress(hStr)?.lng.toString()
+//            )
+//        )
+//
+//        sharedPreferenceHelper.savePreference(SharedPreferenceDataClass(getString(R.string.pref_saved), true))
 
-        sharedPreferenceHelper.savePreference(SharedPreferenceDataClass(getString(R.string.work_loc), wStr))
-        sharedPreferenceHelper.savePreference(SharedPreferenceDataClass(getString(R.string.home_loc), hStr))
-        sharedPreferenceHelper.savePreference(SharedPreferenceDataClass(getString(R.string.work_loc_lat), getLocFromAddress(wStr)?.lat.toString()))
-        sharedPreferenceHelper.savePreference(SharedPreferenceDataClass(getString(R.string.work_loc_lng), getLocFromAddress(wStr)?.lng.toString()))
-        sharedPreferenceHelper.savePreference(SharedPreferenceDataClass(getString(R.string.home_loc_lat), getLocFromAddress(hStr)?.lat.toString()))
-        sharedPreferenceHelper.savePreference(SharedPreferenceDataClass(getString(R.string.home_loc_lng), getLocFromAddress(hStr)?.lng.toString()))
+    fun setPreferences(view: View) {
 
-        sharedPreferenceHelper.savePreference(SharedPreferenceDataClass(getString(R.string.pref_saved),true))
-
+        sharedPreferenceHelper.savePreference(SharedPreferenceDataClass(getString(R.string.pref_saved), true))
         showNotification()
 
         val intent = Intent(applicationContext, MapsActivity::class.java)
@@ -163,17 +261,9 @@ class PreferencesActivity : AppCompatActivity(), ModePreferenceInterface, PlaceS
 
         var gson = Gson()
         var jsonString = gson.toJson(list)
-        Log.d("JSON",jsonString)
-        var savePreference = SharedPreferenceDataClass(getString(R.string.pref_mode),jsonString)
+        Log.d("JSON", jsonString)
+        var savePreference = SharedPreferenceDataClass(getString(R.string.pref_mode), jsonString)
         sharedPreferenceHelper.savePreference(savePreference)
 
-    }
-
-    override fun onError(p0: Status) {
-        // TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun onPlaceSelected(p0: Place) {
-        // TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }

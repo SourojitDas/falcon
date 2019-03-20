@@ -121,18 +121,19 @@
                 android:layout_width="169dp"
                 android:layout_below="@id/preference_recycle_view"
                 android:layout_height="wrap_content"
-                android:onClick="readValues"
+                android:onClick="setPreferences"
                 android:id="@+id/button"
+                android:layout_centerHorizontal="true"
                 android:layout_marginTop="50dp"
                 android:layout_marginBottom="0dp" tools:layout_marginTop="20dp"/>
-        <Button
-                android:text="Reset Pref"
-                android:layout_below="@id/button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="resetView"
-                android:id="@+id/button3"
-                android:layout_marginTop="0dp"/>
+        <!--<Button-->
+                <!--android:text="Reset Pref"-->
+                <!--android:layout_below="@id/button"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:onClick="resetView"-->
+                <!--android:id="@+id/button3"-->
+                <!--android:layout_marginTop="0dp"/>-->
 
     </RelativeLayout>
 </android.support.v4.widget.NestedScrollView>
