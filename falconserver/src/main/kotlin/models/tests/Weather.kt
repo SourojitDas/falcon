@@ -50,8 +50,8 @@ class WeatherTest {
         assert(result?.cod == fakeCod)
         val fakeDt = 1435658272
         assert(result?.date?.equals(fakeDt)!!)
-        val fakeRain = Rain(LastThreeHour = 3)
-        assert(result?.rain?.LastThreeHour == fakeRain.LastThreeHour)
+        val fakeRain = Rain(lastThreeHour = 3)
+        assert(result?.rain?.lastThreeHour == fakeRain.lastThreeHour)
         val fakeWeather =
             models.weather.WeatherInfo(id = 803, main = "Clouds", description = "broken clouds", icon = "04n")
         assert(result?.weather?.first()?.id == fakeWeather.id)
@@ -108,8 +108,8 @@ class WeatherTest {
         assert(result?.cod == fakeCod)
         val fakeDt = 1435658272
         assert(result?.date?.equals(fakeDt)!!)
-        val fakeRain = Rain(LastThreeHour = 3)
-        assert(result?.rain?.LastThreeHour == fakeRain.LastThreeHour)
+        val fakeRain = Rain(lastThreeHour = 3)
+        assert(result?.rain?.lastThreeHour == fakeRain.lastThreeHour)
         val fakeWeather =
             models.weather.WeatherInfo(id = 803, main = "Clouds", description = "broken clouds", icon = "04n")
         assert(result?.weather?.first()?.id == fakeWeather.id)
@@ -166,8 +166,8 @@ class WeatherTest {
         assert(result?.cod == fakeCod)
         val fakeDt = 1435658277
         assert(result?.date?.equals(fakeDt)!!)
-        val fakeRain = Rain(LastThreeHour = 3)
-        assert(result?.rain?.LastThreeHour == fakeRain.LastThreeHour)
+        val fakeRain = Rain(lastThreeHour = 3)
+        assert(result?.rain?.lastThreeHour == fakeRain.lastThreeHour)
         val fakeWeather =
             models.weather.WeatherInfo(id = 803, main = "Clouds", description = "broken clouds", icon = "04n")
         assert(result?.weather?.first()?.id == fakeWeather.id)
@@ -223,8 +223,8 @@ class WeatherTest {
         assert(result?.cod == fakeCod)
         val fakeDt = 1435658272
         assert(result?.date?.equals(fakeDt)!!)
-        val fakeRain = Rain(LastThreeHour = 3)
-        assert(result?.rain?.LastThreeHour == fakeRain.LastThreeHour)
+        val fakeRain = Rain(lastThreeHour = 3)
+        assert(result?.rain?.lastThreeHour == fakeRain.lastThreeHour)
         val fakeWeather =
             models.weather.WeatherInfo(id = 803, main = "Clouds", description = "broken clouds", icon = "04n")
         assert(result?.weather?.first()?.id == fakeWeather.id)
@@ -280,8 +280,8 @@ class WeatherTest {
         assert(result?.cod == fakeCod)
         val fakeDt = 1435658272
         assert(result?.date?.equals(fakeDt)!!)
-        val fakeRain = Rain(LastThreeHour = 3)
-        assert(result?.rain?.LastThreeHour == fakeRain.LastThreeHour)
+        val fakeRain = Rain(lastThreeHour = 3)
+        assert(result?.rain?.lastThreeHour == fakeRain.lastThreeHour)
         val fakeWeather =
             models.weather.WeatherInfo(id = 803, main = "Clouds", description = "broken clouds", icon = "04n")
         assert(result?.weather?.first()?.id == fakeWeather.id)
