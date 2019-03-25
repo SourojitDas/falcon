@@ -1,0 +1,20 @@
+version: '3'
+services:
+  falcon-server-n1:
+    build: .
+    restart: always
+    ports:
+      - "8080:7000"
+  falcon-server-n2:
+    build: .
+    restart: always
+    ports:
+      - "8081:7000"
+  falcon-haproxy:
+    build: haproxy
+    restart: always
+    depends_on:
+      - falcon-server-n1
+      - falcon-server-n2
+    ports:
+      - "80:80"
