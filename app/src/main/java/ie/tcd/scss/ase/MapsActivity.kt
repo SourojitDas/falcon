@@ -4,10 +4,12 @@ import android.app.Activity
 import android.content.Intent
 import android.content.IntentSender
 import android.content.pm.PackageManager
+import android.graphics.Color
 import android.location.Address
 import android.location.Geocoder
 import android.location.Location
 import android.os.Bundle
+import android.support.design.button.MaterialButton
 import android.support.design.widget.Snackbar
 import android.support.v4.app.ActivityCompat
 import android.support.v7.app.AppCompatActivity
@@ -27,17 +29,23 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.Marker
-import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.gms.maps.model.*
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.android.gms.tasks.Task
 import com.google.android.libraries.places.api.Places
 import com.google.android.libraries.places.api.model.Place
 import com.google.android.libraries.places.widget.AutocompleteSupportFragment
 import com.google.android.libraries.places.widget.listener.PlaceSelectionListener
+import com.google.firebase.auth.FirebaseAuth
+import com.google.maps.android.PolyUtil
 import ie.tcd.scss.ase.activites.PreferencesActivity
 import ie.tcd.scss.ase.interfaces.RetroFitAPIClient
+import ie.tcd.scss.ase.poko.RouteResponse
 import ie.tcd.scss.ase.rest.RetrofitBuilder
 import ie.tcd.scss.ase.utilities.SharedPreferenceHelper
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.io.IOException
 import java.util.*
 
@@ -53,6 +61,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
     private val PLACE_PICKER_REQUEST = 3
 
     private lateinit var sharedPreferenceHelper: SharedPreferenceHelper
+    private lateinit var directionSearchButton: MaterialButton
+    private lateinit var sourceLatLng: LatLng
+    private lateinit var destinationLatLng: LatLng
 
 
     // 1
@@ -91,9 +102,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
                 super.onLocationResult(p0)
 
                 lastLocation = p0.lastLocation
-                Log.d("LAST LOCATION",lastLocation.latitude.toString())
+                Log.d("LAST LOCATION", lastLocation.latitude.toString())
 //                if (::map.isInitialized) {
-                    placeMarkerOnMap(LatLng(lastLocation.latitude, lastLocation.longitude))
+                placeMarkerOnMap(LatLng(lastLocation.latitude, lastLocation.longitude))
 //                }
             }
         }
@@ -113,7 +124,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
             }
 
             override fun onPlaceSelected(p0: Place) {
-
+                sourceLatLng = p0.latLng as LatLng
             }
 
         }
@@ -136,7 +147,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
             }
 
             override fun onPlaceSelected(p0: Place) {
-
+                destinationLatLng = p0.latLng as LatLng
             }
 
         }
@@ -144,22 +155,18 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         destinationLocationFragment.setOnPlaceSelectedListener(destinationLocationFragmentListener)
 
 
-        val button = findViewById<Button>(R.id.directionSearchButton)
-        button.setOnClickListener() {
-            Toast.makeText(getApplicationContext(), "Searching.. ", Toast.LENGTH_LONG).show()
 
-            val baseURL: String = "https://api.jcdecaux.com/"
-            var retrofitBuilder = RetrofitBuilder.retrofitBuilder(baseURL)
-            val retroFitAPIClient = retrofitBuilder.create(RetroFitAPIClient::class.java)
-//            GlobalScope.launch(Dispatchers.Default) {
-//                val responseCall = retroFitAPIClient.getBikeData("Dublin", "ed91f65214a826cb97c5444a15f25665726b95ae")
-//                try{
-//                    val res = responseCall.await()
-//                    res.forEach{bike -> println(bike.address)}
-//                } catch (e: Exception){
-//                    println("Bike API Error")
-//                }
-//            }
+        directionSearchButton = findViewById(R.id.directionSearchButton)
+        directionSearchButton.setOnClickListener {
+            if (::sourceLatLng.isInitialized && ::destinationLatLng.isInitialized) {
+                getRoute(sourceLatLng, destinationLatLng)
+            } else {
+                Snackbar.make(
+                    window.decorView.findViewById<View>(android.R.id.content),
+                    "Set Source and Destination",
+                    Snackbar.LENGTH_SHORT
+                ).show()
+            }
         }
 
         createLocationRequest()
@@ -168,6 +175,55 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
          fab.setOnClickListener {
              loadPlacePicker()
          }*/
+    }
+
+    private fun getRoute(sourceLatLng: LatLng, destinationLatLng: LatLng) {
+
+        var firebaseApp = FirebaseAuth.getInstance()
+        firebaseApp.currentUser!!.getIdToken(true).addOnCompleteListener {
+            if (it.isSuccessful) {
+                getRouteFromNetwork(sourceLatLng, destinationLatLng, it.result?.token)
+            } else {
+
+            }
+        }
+
+
+    }
+
+    private fun getRouteFromNetwork(sourceLatLng: LatLng, destinationLatLng: LatLng, token: String?) {
+
+
+        var baseURL = "http://34.248.131.131/"
+        var retrofitBuilder = RetrofitBuilder.retrofitBuilder(baseURL.trim())
+        var retroFitAPIClient = retrofitBuilder.create(RetroFitAPIClient::class.java)
+
+        var routeResponseCall = retroFitAPIClient.getRouteDetails("Bearer " + (token as String))
+
+        routeResponseCall.enqueue(object : Callback<RouteResponse> {
+            override fun onFailure(call: Call<RouteResponse>, t: Throwable) {
+
+                Log.d("RETROFIT : ", t.localizedMessage)
+                Snackbar.make(
+                    window.decorView.findViewById(android.R.id.content),
+                    "Unable to fetch Route.",
+                    Snackbar.LENGTH_INDEFINITE
+                ).setAction("RETRY", object : View.OnClickListener {
+                    override fun onClick(v: View?) {
+                        getRouteFromNetwork(sourceLatLng, destinationLatLng, token)
+                    }
+
+                }).show()
+            }
+
+            override fun onResponse(call: Call<RouteResponse>, response: Response<RouteResponse>) {
+                Log.d("RESPONESE ", response.body()!!.geocodeMembers!![0]?.geocoderStatus)
+                Toast.makeText(applicationContext, "GOT RESPONSE", Toast.LENGTH_LONG).show()
+                drawRoute(response.body() as RouteResponse)
+            }
+
+        })
+
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
@@ -214,6 +270,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
             if (location != null) {
                 lastLocation = location
                 val currentLatLng = LatLng(location.latitude, location.longitude)
+                sourceLatLng = currentLatLng
                 placeMarkerOnMap(currentLatLng)
                 map.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 12f))
             }
@@ -348,7 +405,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
     }
 
 
-
     private fun loadPlacePicker() {
         val builder = PlacePicker.IntentBuilder()
 
@@ -362,17 +418,51 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.mapmenu,menu)
+        menuInflater.inflate(R.menu.mapmenu, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        when(item?.itemId){
+        when (item?.itemId) {
             R.id.setting_menu -> {
                 startActivity(Intent(applicationContext, PreferencesActivity::class.java))
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+
+    private fun drawRoute(response: RouteResponse) {
+
+        val path: MutableList<List<LatLng>> = ArrayList()
+        val routes = response.routes!!
+        val legs = routes[0]?.legs!!
+        val steps = legs[0]?.steps!!
+
+        for (i in 0 until steps.size) {
+            val points = steps[i]?.polyline?.points!!
+            path.add(PolyUtil.decode(points))
+        }
+
+        for (i in 0 until path.size) {
+            var polyline = PolylineOptions().jointType(JointType.ROUND)
+            val pattern = Arrays.asList(
+                Dot(), Gap(20f), Dash(30f), Gap(20f)
+            )
+            val pattern1 = Arrays.asList(
+                Dot(), Gap(0f)
+            )
+            var size = 30f
+            var mapColor = Color.BLUE
+
+
+//            polyline.pattern(PATTERN_POLYLINE_DOTTED)
+            polyline.color(mapColor)
+            polyline.width(size)
+
+
+            this.map.addPolyline(polyline.addAll(path[i]).geodesic(true))
+        }
     }
 
 }

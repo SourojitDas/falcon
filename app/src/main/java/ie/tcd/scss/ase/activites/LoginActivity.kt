@@ -175,7 +175,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener, OnCompleteListe
             user?.getIdToken(true)?.addOnCompleteListener {
                 if (it.isSuccessful) {
                     it.result?.token as String
-                    Log.d("UID : ", user?.uid)
+                    Log.d("UID : ", user.uid)
 
                     val sharedPreferenceHelper = SharedPreferenceHelper(applicationContext)
 
@@ -190,7 +190,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener, OnCompleteListe
                     sharedPreferenceHelper.savePreference(
                         SharedPreferenceDataClass(
                             getString(R.string.user_id),
-                            user?.uid as String
+                            user.uid
                         )
                     )
 

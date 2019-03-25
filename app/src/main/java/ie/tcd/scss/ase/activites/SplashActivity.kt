@@ -20,8 +20,8 @@ class SplashActivity : AppCompatActivity() {
 
                     val sharedPreferenceHelper = SharedPreferenceHelper(applicationContext)
                     val is_logged_in = sharedPreferenceHelper.getPreference(getString(R.string.is_logged_in)).toBoolean()
-                    val firebase_id = sharedPreferenceHelper.getPreference(getString(R.string.firebase_id))
-                    if (is_logged_in && firebase_id != null) {
+//                    val firebase_id = sharedPreferenceHelper.getPreference(getString(R.string.firebase_id))
+                    if (is_logged_in) {
                         if(sharedPreferenceHelper.containPreference(getString(R.string.pref_saved))){
                             val intent = Intent(applicationContext, MapsActivity::class.java)
                             startActivity(intent)

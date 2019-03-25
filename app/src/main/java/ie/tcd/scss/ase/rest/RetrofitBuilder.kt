@@ -7,10 +7,13 @@ import retrofit2.converter.gson.GsonConverterFactory
 object RetrofitBuilder {
     fun retrofitBuilder(baseURL: String): Retrofit {
 //        System.out.println(baseURL)
-        var retrofitBuilder = Retrofit.Builder()
-            .baseUrl(baseURL)
+//        var retrofitBuilder = Retrofit.Builder()
+//            .baseUrl(baseURL)
+//            .addConverterFactory(GsonConverterFactory.create())
+//            .build()
+        return Retrofit.Builder()
+            .baseUrl(baseURL+"")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-        return retrofitBuilder
     }
 }

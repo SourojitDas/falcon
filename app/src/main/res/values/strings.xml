@@ -29,6 +29,7 @@
     <string-array name="pref_mode">
         <item>Cycle</item>
         <item>Bikes</item>
+        <item>Bus</item>
         <item>Car</item>
         <item>Walk</item>
         <item>Luas</item>
