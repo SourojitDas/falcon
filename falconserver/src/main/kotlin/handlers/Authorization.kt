@@ -33,6 +33,7 @@ object Authorization {
                 return null
             }
             if (!validateToken(headerSplit[1])) {
+//                return userRoleMap["access-token-read"] ?: listOf()
                 return userRoleMap["access-token-read-wrong"] ?: listOf()
             }
             return userRoleMap["access-token-read"] ?: listOf()

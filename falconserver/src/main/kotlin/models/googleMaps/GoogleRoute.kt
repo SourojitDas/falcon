@@ -7,11 +7,11 @@ import com.beust.klaxon.Klaxon
 data class GoogleRouteModel(
 
     @Json(name = "geocoded_waypoints")
-    val geocodeMembers: List<GeocodedPoints>? = null,
+    var geocodeMembers: List<GeocodedPoints>? = null,
     @Json(name = "routes")
-    val routes: List<Route>? = null,
+    var routes: MutableList<Route>? = null,
     @Json(name = "status")
-    val status: String? = null
+    var status: String? = null
 )
 
 data class GeocodedPoints(
