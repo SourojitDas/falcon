@@ -60,8 +60,8 @@ data class Bounds(
 
     @Json(name = "northeast")
     val northEast: Coordinates? = null,
-    @Json(name = "southeast")
-    val southEast: Coordinates? = null
+    @Json(name = "southwest")
+    val southWest: Coordinates? = null
 )
 
 
