@@ -194,7 +194,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
     private fun getRouteFromNetwork(sourceLatLng: LatLng, destinationLatLng: LatLng, token: String?) {
 
 
-        var baseURL = "http://34.248.131.131/"
+        var baseURL = getString(R.string.server_address)
         var retrofitBuilder = RetrofitBuilder.retrofitBuilder(baseURL.trim())
         var retroFitAPIClient = retrofitBuilder.create(RetroFitAPIClient::class.java)
 
