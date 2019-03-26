@@ -1,0 +1,44 @@
+package services.tests
+
+import getWeatherServiceBaseURL
+import org.junit.AfterClass
+import org.junit.BeforeClass
+import org.junit.Test
+import java.util.concurrent.TimeUnit
+
+import io.mockk.mockkStatic
+import io.mockk.verify
+import khttp.get
+import khttp.responses.GenericResponse
+import khttp.responses.Response
+import org.hamcrest.core.Is.`is`
+import org.hamcrest.core.IsNull.notNullValue
+import org.junit.Assert.assertThat
+import org.mockito.Mockito.*
+import org.mockito.InjectMocks
+import org.mockito.Mock
+import services.Weather
+import java.util.LinkedList
+
+
+
+
+class WeatherTest {
+
+    @Mock
+    var mockedKhttp = mock(khttp)
+
+    @InjectMocks
+    private val weatherService: Weather? = null
+
+    @Test
+    fun `test getWeatherByCoordinates notNull` () {
+        `when`(khttp.get(getWeatherServiceBaseURL())).thenReturn()
+
+        assertThat(weatherService!!.getWeatherByCoordinates(), `is`(notNullValue()))
+    }
+}
+
+private fun Any.thenReturn() {
+    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+}

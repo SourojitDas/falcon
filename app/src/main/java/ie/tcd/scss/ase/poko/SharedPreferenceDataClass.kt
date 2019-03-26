@@ -1,3 +1,3 @@
 package ie.tcd.scss.ase.poko
 
-class SharedPreferenceDataClass (val key:String,val value:String)
+class SharedPreferenceDataClass (var key:String,var value:Any)
