@@ -49,10 +49,6 @@ object Authorization {
         return false
     }
 
-    // we'll store passwords in clear text (and in memory) for this example, but please don't
-    // do this if you have actual users
-    // typically you would store hashed passwords in a database and validate them using using
-    // something like bcrypt (http://www.mindrot.org/projects/jBCrypt/)
     private val userRoleMap = hashMapOf(
         "access-token-read" to listOf(ApiRole.USER_READ),
         "access-token-write" to listOf(ApiRole.USER_READ, ApiRole.USER_WRITE)

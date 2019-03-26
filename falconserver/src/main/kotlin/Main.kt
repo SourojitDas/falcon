@@ -17,9 +17,9 @@ fun main(/*args: Array<String>*/) {
 }
 
 fun bootstrapRoutes(server: Javalin) {
-    server.get("/weather", WeatherController::getWeatherByCoordinates, roles(ApiRole.USER_READ))
-    server.get("/bikestand", BikeStandController::getRealTimeStandsInfoByCity, roles(ApiRole.USER_READ))
-    server.get("/route", GoogleRouteController::getRouteByOriginAndDestination, roles(ApiRole.USER_READ))
+//    server.get("/weather", WeatherController::getWeatherByCoordinates, roles(ApiRole.USER_READ))
+//    server.get("/bikestand", BikeStandController::getRealTimeStandsInfoByCity, roles(ApiRole.USER_READ))
+    server.post("/route", GoogleRouteController::getRouteByOriginAndDestination, roles(ApiRole.USER_READ))
 }
 
 fun bootstrapFirebaseSDK() {
