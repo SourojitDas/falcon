@@ -3,18 +3,16 @@ package models.googleMaps
 import com.beust.klaxon.Json
 import com.beust.klaxon.Klaxon
 
-
-data class GoogleRouteModel(
-
+data class GoogleDirectionsModel(
     @Json(name = "geocoded_waypoints")
-    var geocodeMembers: List<GeocodedPoints>? = null,
+    var geocodeMembers: List<GeocodedWayoints>? = null,
     @Json(name = "routes")
-    var routes: MutableList<Route>? = null,
+    var routes: MutableList<GoogleRouteModel>? = null,
     @Json(name = "status")
     var status: String? = null
 )
 
-data class GeocodedPoints(
+data class GeocodedWayoints(
 
     @Json(name = "geocoder_status")
     val geocoderStatus: String? = null,
@@ -26,35 +24,42 @@ data class GeocodedPoints(
     )
 
 
-data class Route(
+interface RouteModel {
 
+    val bounds: Bounds?
+    val copyrights: String?
+    val legs: List<Leg>?
+    val overviewPolyline: Polyline?
+    val summary: String?
+    val warnings: List<String>?
+    val waypointOrder: List<Int>?
+}
+
+data class GoogleRouteModel(
     @Json(name = "bounds")
-    val bounds: Bounds? =null,
+    override val bounds: Bounds? = null,
     @Json(name = "copyrights")
-    val copyrights: String? = null,
+    override val copyrights: String? = null,
     @Json(name = "legs")
-    val legs: List<Leg>? = null,
+    override val legs: List<Leg>? = null,
     @Json(name = "overview_polyline")
-    val overviewPolyline: Polyline? = null,
+    override val overviewPolyline: Polyline? = null,
     @Json(name = "summary")
-    val summary: String? = null,
+    override val summary: String? = null,
     @Json(name = "warnings")
-    val warnings: List<String>? = null,
+    override val warnings: List<String>? = null,
     @Json(name = "waypoint_order")
-    val waypointOrder: List<Int>? =null
-
-
-
-)
+    override val waypointOrder: List<Int>? = null
+) : RouteModel
 
 data class Coordinates(
 
     @Json(name = "lat")
-    val latitude: Double? = null,
+    override val latitude: Double,
     @Json(name = "lng")
-    val longitude: Double? = null
+    override val longitude: Double
 
-)
+) : models.falcon.CoordinatesModel
 
 data class Bounds(
 
@@ -138,8 +143,8 @@ data class Step(
 )
 
 
-fun parseJson(raw: String): GoogleRouteModel? {
-    return Klaxon().parse<GoogleRouteModel>(raw)
+fun parseJson(raw: String): GoogleDirectionsModel? {
+    return Klaxon().parse<GoogleDirectionsModel>(raw)
 }
 
 

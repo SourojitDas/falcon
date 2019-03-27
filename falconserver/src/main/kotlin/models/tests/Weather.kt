@@ -76,7 +76,7 @@ class WeatherTest {
         assert(result?.wind?.degree == fakeWind.degree)
         val fakeCloud = models.weather.Clouds(all = 75)
         assert(result?.clouds?.all == fakeCloud.all)
-        val fakeCoord = models.weather.Coordinates(longitude = 145.77F, latitude = -16.92F)
+        val fakeCoord = models.weather.Coordinates(longitude = 145.77, latitude = -16.92)
         assert(result?.coordinates?.latitude == fakeCoord.latitude)
         assert(result?.coordinates?.latitude == fakeCoord.longitude)
         val fakeSystemInfo = models.weather.SystemInfo(
@@ -134,7 +134,7 @@ class WeatherTest {
         assert(result?.wind?.degree == fakeWind.degree)
         val fakeCloud = models.weather.Clouds(all = 75)
         assert(result?.clouds?.all == fakeCloud.all)
-        val fakeCoord = models.weather.Coordinates(longitude = 145.77F, latitude = -16.92F)
+        val fakeCoord = models.weather.Coordinates(longitude = 145.77F as Double, latitude = -16.92F as Double)
         assert(result?.coordinates?.latitude == fakeCoord.latitude)
         assert(result?.coordinates?.latitude == fakeCoord.longitude)
         val fakeSystemInfo = models.weather.SystemInfo(
@@ -192,7 +192,7 @@ class WeatherTest {
         assert(result?.wind?.degree == fakeWind.degree)
         val fakeCloud = models.weather.Clouds(all = 75)
         assert(result?.clouds?.all == fakeCloud.all)
-        val fakeCoord = models.weather.Coordinates(longitude = 145.77F, latitude = -16.92F)
+        val fakeCoord = models.weather.Coordinates(longitude = 145.77, latitude = -16.92)
         assert(result?.coordinates?.latitude == fakeCoord.latitude)
         assert(result?.coordinates?.latitude == fakeCoord.longitude)
         val fakeSystemInfo = models.weather.SystemInfo(
@@ -249,7 +249,7 @@ class WeatherTest {
         assert(result?.wind?.degree == fakeWind.degree)
         val fakeCloud = models.weather.Clouds(all = 75)
         assert(result?.clouds?.all == fakeCloud.all)
-        val fakeCoord = models.weather.Coordinates(longitude = 145.77F, latitude = -16.92F)
+        val fakeCoord = models.weather.Coordinates(longitude = 145.77, latitude = -16.92)
         assert(result?.coordinates?.latitude == fakeCoord.latitude)
         assert(result?.coordinates?.latitude == fakeCoord.longitude)
         val fakeSystemInfo = models.weather.SystemInfo(
@@ -306,7 +306,7 @@ class WeatherTest {
         assert(result?.wind?.degree == fakeWind.degree)
         val fakeCloud = models.weather.Clouds(all = 75)
         assert(result?.clouds?.all == fakeCloud.all)
-        val fakeCoord = models.weather.Coordinates(longitude = 145.77F, latitude = -16.92F)
+        val fakeCoord = models.weather.Coordinates(longitude = 145.77, latitude = -16.92)
         assert(result?.coordinates?.latitude == fakeCoord.latitude)
         assert(result?.coordinates?.latitude == fakeCoord.longitude)
         val fakeSystemInfo = models.weather.SystemInfo(

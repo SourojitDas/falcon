@@ -1,13 +1,24 @@
 package services
 
+import Configuration
+import models.weather.Coordinates
 import models.weather.parseJson
 
 
 class Weather {
-    fun getByCoordinates(latitude: Int, longitude: Int): models.weather.WeatherModel? {
+    fun getByCoordinates(coordinates: Coordinates): models.weather.WeatherModel? {
         val payload = mapOf(
-                "lat" to latitude.toString(),
-                "lon" to longitude.toString(),
+            "lat" to coordinates.latitude.toString(),
+            "lon" to coordinates.longitude.toString(),
+            "appid" to Configuration.getWeatherServiceApiKey()
+        )
+        val r = khttp.get(Configuration.getWeatherServiceBaseURL(), params = payload)
+        return parseJson(r.text)
+    }
+
+    fun getByCityID(cityID: String): models.weather.WeatherModel? {
+        val payload = mapOf(
+            "id" to cityID,
             "appid" to Configuration.getWeatherServiceApiKey()
         )
         val r = khttp.get(Configuration.getWeatherServiceBaseURL(), params = payload)

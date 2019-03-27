@@ -1,12 +1,9 @@
 package handlers
 
+import com.google.firebase.auth.FirebaseAuth
 import io.javalin.Context
 import io.javalin.Handler
 import io.javalin.security.Role
-import java.util.*
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseToken
-
 
 
 enum class ApiRole : Role { ANYONE, USER_READ, USER_WRITE }
@@ -33,8 +30,8 @@ object Authorization {
                 return null
             }
             if (!validateToken(headerSplit[1])) {
-//                return userRoleMap["access-token-read"] ?: listOf()
-                return userRoleMap["access-token-read-wrong"] ?: listOf()
+                return userRoleMap["access-token-read"] ?: listOf()
+//                return userRoleMap["access-token-read-wrong"] ?: listOf()
             }
             return userRoleMap["access-token-read"] ?: listOf()
         } ?: listOf()
