@@ -21,10 +21,10 @@ class MapInstrumentationTest {
     @Test
     fun checkMap(){
 
-        onView(withId(R.id.sourceTextView)).check(matches(isDisplayed()))
-        onView(withId(R.id.destinationTextView)).check(matches(isDisplayed()))
+        onView(withId(R.id.source_location_autocomplete_fragment)).check(matches(isDisplayed()))
+        onView(withId(R.id.destination_location_autocomplete_fragment)).check(matches(isDisplayed()))
         onView(withId(R.id.directionSearchButton)).check(matches(isDisplayed()))
-        onView(withId(R.id.map)).check(matches(isDisplayed()));
+        onView(withId(R.id.map)).check(matches(isDisplayed()))
         //text fields missing
     }
 
