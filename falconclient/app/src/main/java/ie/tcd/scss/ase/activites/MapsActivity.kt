@@ -1,4 +1,4 @@
-package ie.tcd.scss.ase
+package ie.tcd.scss.ase.activites
 
 import android.app.Activity
 import android.content.Intent
@@ -17,7 +17,6 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.Button
 import android.widget.Toast
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException
 import com.google.android.gms.common.GooglePlayServicesRepairableException
@@ -30,17 +29,19 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.*
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.android.gms.tasks.Task
 import com.google.android.libraries.places.api.Places
 import com.google.android.libraries.places.api.model.Place
 import com.google.android.libraries.places.widget.AutocompleteSupportFragment
 import com.google.android.libraries.places.widget.listener.PlaceSelectionListener
 import com.google.firebase.auth.FirebaseAuth
+import com.google.gson.Gson
 import com.google.maps.android.PolyUtil
-import ie.tcd.scss.ase.activites.PreferencesActivity
+import ie.tcd.scss.ase.R
 import ie.tcd.scss.ase.interfaces.RetroFitAPIClient
-import ie.tcd.scss.ase.poko.RouteResponse
+import ie.tcd.scss.ase.dataclasses.Coordinates
+import ie.tcd.scss.ase.dataclasses.Preferences
+import ie.tcd.scss.ase.dataclasses.RouteBody
+import ie.tcd.scss.ase.dataclasses.RouteResponse
 import ie.tcd.scss.ase.rest.RetrofitBuilder
 import ie.tcd.scss.ase.utilities.SharedPreferenceHelper
 import retrofit2.Call
@@ -101,11 +102,13 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
             override fun onLocationResult(p0: LocationResult) {
                 super.onLocationResult(p0)
 
-                lastLocation = p0.lastLocation
-                Log.d("LAST LOCATION", lastLocation.latitude.toString())
+                if(::lastLocation.isInitialized && lastLocation != p0.lastLocation) {
+                    lastLocation = p0.lastLocation
+//                Log.d("LAST LOCATION", lastLocation.latitude.toString())
 //                if (::map.isInitialized) {
-                placeMarkerOnMap(LatLng(lastLocation.latitude, lastLocation.longitude))
+                    placeMarkerOnMap(LatLng(lastLocation.latitude, lastLocation.longitude))
 //                }
+                }
             }
         }
 
@@ -124,7 +127,13 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
             }
 
             override fun onPlaceSelected(p0: Place) {
-                sourceLatLng = p0.latLng as LatLng
+                if (p0.name?.toLowerCase().equals("my location")) {
+
+                    sourceLatLng = LatLng(lastLocation.latitude, lastLocation.longitude)
+
+                } else {
+                    sourceLatLng = p0.latLng as LatLng
+                }
             }
 
         }
@@ -147,7 +156,13 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
             }
 
             override fun onPlaceSelected(p0: Place) {
-                destinationLatLng = p0.latLng as LatLng
+                if (p0.name?.toLowerCase().equals("my location")) {
+
+                    destinationLatLng = LatLng(lastLocation.latitude, lastLocation.longitude)
+
+                } else {
+                    destinationLatLng = p0.latLng as LatLng
+                }
             }
 
         }
@@ -194,11 +209,21 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
     private fun getRouteFromNetwork(sourceLatLng: LatLng, destinationLatLng: LatLng, token: String?) {
 
 
+        val prefmode = sharedPreferenceHelper.getPreference(getString(R.string.pref_mode))
+
+        val preferedMode = Gson().fromJson(prefmode, Array<Preferences>::class.java).toList()
+        val orgin = Coordinates(sourceLatLng.latitude, sourceLatLng.longitude)
+        val destination = Coordinates(destinationLatLng.latitude, destinationLatLng.longitude)
+
         var baseURL = getString(R.string.server_address)
         var retrofitBuilder = RetrofitBuilder.retrofitBuilder(baseURL.trim())
         var retroFitAPIClient = retrofitBuilder.create(RetroFitAPIClient::class.java)
 
-        var routeResponseCall = retroFitAPIClient.getRouteDetails("Bearer " + (token as String))
+        var routeBody = RouteBody(preferedMode, orgin, destination)
+
+        Log.d("Call Test","Request : "+Gson().toJson(routeBody) +"\ntoken : Bearer "+token)
+
+        var routeResponseCall = retroFitAPIClient.getRouteDetails(routeBody, "Bearer " + (token as String))
 
         routeResponseCall.enqueue(object : Callback<RouteResponse> {
             override fun onFailure(call: Call<RouteResponse>, t: Throwable) {
@@ -217,9 +242,24 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
             }
 
             override fun onResponse(call: Call<RouteResponse>, response: Response<RouteResponse>) {
-                Log.d("RESPONESE ", response.body()!!.geocodeMembers!![0]?.geocoderStatus)
-                Toast.makeText(applicationContext, "GOT RESPONSE", Toast.LENGTH_LONG).show()
-                drawRoute(response.body() as RouteResponse)
+                if (call.isExecuted && response.isSuccessful) {
+//                    Log.d("RESPONESE ", response.body()!!.geocodeMembers!![0]?.geocoderStatus)
+//                    Log.d("RESPONSE STRING : ", Gson().toJson(response.body()))
+                    Toast.makeText(applicationContext, "GOT RESPONSE", Toast.LENGTH_LONG).show()
+                    drawRoute(response.body() as RouteResponse)
+                } else {
+                    Log.d("RETROFIT : ", response.errorBody()?.string())
+                    Snackbar.make(
+                        window.decorView.findViewById(android.R.id.content),
+                        "Unable to fetch Route.",
+                        Snackbar.LENGTH_INDEFINITE
+                    ).setAction("RETRY", object : View.OnClickListener {
+                        override fun onClick(v: View?) {
+                            getRouteFromNetwork(sourceLatLng, destinationLatLng, token)
+                        }
+
+                    }).show()
+                }
             }
 
         })
@@ -258,7 +298,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         ) {
             ActivityCompat.requestPermissions(
                 this,
-                arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION), LOCATION_PERMISSION_REQUEST_CODE
+                arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),
+                LOCATION_PERMISSION_REQUEST_CODE
             )
             return
         }
@@ -271,6 +312,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
                 lastLocation = location
                 val currentLatLng = LatLng(location.latitude, location.longitude)
                 sourceLatLng = currentLatLng
+
+
+                if (::sourceLocationFragment.isInitialized) {
+                    sourceLocationFragment.setText("My Location")
+                }
                 placeMarkerOnMap(currentLatLng)
                 map.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 12f))
             }
@@ -434,6 +480,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
 
     private fun drawRoute(response: RouteResponse) {
 
+        moveCamera(sourceLatLng)
+
         val path: MutableList<List<LatLng>> = ArrayList()
         val routes = response.routes!!
         val legs = routes[0]?.legs!!
@@ -463,6 +511,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
 
             this.map.addPolyline(polyline.addAll(path[i]).geodesic(true))
         }
+    }
+
+    private fun moveCamera(sourceLatLng: LatLng) {
+
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(sourceLatLng, 20.0f))
+
     }
 
 }

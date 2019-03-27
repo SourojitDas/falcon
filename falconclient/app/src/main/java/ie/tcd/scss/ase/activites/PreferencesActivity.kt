@@ -9,28 +9,21 @@ import android.support.design.widget.Snackbar
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
-import android.view.Menu
-import android.view.MenuItem
 import android.view.View
-import android.widget.EditText
 import android.widget.Toast
 import com.google.android.gms.common.api.Status
-import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment
 import com.google.gson.Gson
-import ie.tcd.scss.ase.MapsActivity
 import ie.tcd.scss.ase.R
 import ie.tcd.scss.ase.adapters.PreferenceRecyclerViewAdapter
-import ie.tcd.scss.ase.poko.PreferedMode
-import ie.tcd.scss.ase.poko.SharedPreferenceDataClass
+import ie.tcd.scss.ase.dataclasses.SharedPreferenceDataClass
 import ie.tcd.scss.ase.interfaces.ModePreferenceInterface
 import ie.tcd.scss.ase.utilities.SharedPreferenceHelper
 import java.lang.Exception
 import com.google.android.libraries.places.api.Places
-import com.google.android.libraries.places.api.net.PlacesClient
-import com.google.android.libraries.places.api.model.AutocompleteSessionToken
 import com.google.android.libraries.places.api.model.Place
 import com.google.android.libraries.places.widget.AutocompleteSupportFragment
 import com.google.android.libraries.places.widget.listener.PlaceSelectionListener
+import ie.tcd.scss.ase.dataclasses.Preferences
 import java.util.*
 
 
@@ -41,7 +34,7 @@ class PreferencesActivity : AppCompatActivity(), ModePreferenceInterface {
     private lateinit var homeLocationFragment: AutocompleteSupportFragment
     private lateinit var workLocationFragment: AutocompleteSupportFragment
     private lateinit var res: Array<String>
-    private lateinit var prefModes: ArrayList<PreferedMode>
+    private lateinit var prefModes: ArrayList<Preferences>
     private lateinit var sharedPreferenceHelper: SharedPreferenceHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -146,9 +139,9 @@ class PreferencesActivity : AppCompatActivity(), ModePreferenceInterface {
         prefModes = ArrayList()
         res = resources.getStringArray(R.array.pref_mode)
         for (key in res) {
-            var pref = PreferedMode()
-            pref.mode = key
-            pref.seleceted = false
+            var pref = Preferences(key, false)
+//            pref.mode = key
+//            pref.selected = false
             prefModes.add(pref)
         }
 
@@ -224,6 +217,7 @@ class PreferencesActivity : AppCompatActivity(), ModePreferenceInterface {
 
         val intent = Intent(applicationContext, MapsActivity::class.java)
         startActivity(intent)
+        finish()
     }
 
     fun showNotification() {
@@ -247,10 +241,10 @@ class PreferencesActivity : AppCompatActivity(), ModePreferenceInterface {
     }
 
 
-    override fun selectedPrefernceMode(list: ArrayList<PreferedMode>) {
+    override fun selectedPrefernceMode(list: ArrayList<Preferences>) {
 
 
-        Log.d("CHECK", prefModes[0].mode + " : " + prefModes[0].seleceted)
+        Log.d("CHECK", prefModes[0].mode + " : " + prefModes[0].selected)
 
 //        list.forEach {
 //            lateinit var saveData:SharedPreferenceDataClass

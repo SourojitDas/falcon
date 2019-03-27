@@ -8,21 +8,22 @@ import android.view.ViewGroup
 import android.widget.Switch
 import android.widget.TextView
 import ie.tcd.scss.ase.R
-import ie.tcd.scss.ase.poko.PreferedMode
 import ie.tcd.scss.ase.interfaces.ModePreferenceInterface
+import ie.tcd.scss.ase.dataclasses.Preferences
 
-class PreferenceRecyclerViewAdapter(val prefList: ArrayList<PreferedMode>, val listener: ModePreferenceInterface,
-                                    val context: Context): RecyclerView.Adapter<PreferenceRecyclerViewAdapter.ViewHolder>(){
-    class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        val preferenceItemVIew=itemView.findViewById<TextView>(R.id.single_row_preference_mode)
-        val preferenceItemSwitch=itemView.findViewById<Switch>(R.id.single_row_preference_toggle)
+class PreferenceRecyclerViewAdapter(
+    val prefList: ArrayList<Preferences>, val listener: ModePreferenceInterface,
+    val context: Context) : RecyclerView.Adapter<PreferenceRecyclerViewAdapter.ViewHolder>() {
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val preferenceItemVIew = itemView.findViewById<TextView>(R.id.single_row_preference_mode)
+        val preferenceItemSwitch = itemView.findViewById<Switch>(R.id.single_row_preference_toggle)
 //        var selectedMode: MutableList<String> = mutableListOf<String>()
 
     }
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): PreferenceRecyclerViewAdapter.ViewHolder {
 
-        val view = LayoutInflater.from(context).inflate(R.layout.single_row_preference,p0,false)
+        val view = LayoutInflater.from(context).inflate(R.layout.single_row_preference, p0, false)
         return ViewHolder(view)
 
     }
@@ -34,7 +35,7 @@ class PreferenceRecyclerViewAdapter(val prefList: ArrayList<PreferedMode>, val l
     override fun onBindViewHolder(viewHolder: PreferenceRecyclerViewAdapter.ViewHolder, i: Int) {
         viewHolder.preferenceItemVIew.text = prefList[i].mode
         viewHolder.preferenceItemSwitch.setOnClickListener {
-            prefList[i].seleceted = viewHolder.preferenceItemSwitch.isChecked
+            prefList[i].selected = viewHolder.preferenceItemSwitch.isChecked
             listener.selectedPrefernceMode(prefList)
         }
 

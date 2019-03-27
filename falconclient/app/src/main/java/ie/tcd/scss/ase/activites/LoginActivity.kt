@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
 import android.widget.Toast
-import com.google.android.gms.auth.api.credentials.IdToken
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -18,11 +17,9 @@ import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.GetTokenResult
-import com.google.firebase.iid.FirebaseInstanceId
 import ie.tcd.scss.ase.R
 import com.google.firebase.auth.GoogleAuthProvider
-import ie.tcd.scss.ase.poko.SharedPreferenceDataClass
+import ie.tcd.scss.ase.dataclasses.SharedPreferenceDataClass
 import ie.tcd.scss.ase.utilities.SharedPreferenceHelper
 
 
@@ -54,7 +51,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener, OnCompleteListe
         firebaseAuth = FirebaseAuth.getInstance()
         checkSignIn()
 
-        googleSignInButton.setOnClickListener(this);
+        googleSignInButton.setOnClickListener(this)
 
 
         // updateUI(account)
@@ -120,6 +117,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener, OnCompleteListe
 
     override fun onClick(v: View?) {
         if (v == googleSignInButton) {
+            googleSignInButton.isClickable = false
             signIn()
         }
     }
@@ -153,9 +151,12 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener, OnCompleteListe
                         "Login Failed",
                         Snackbar.LENGTH_LONG
                     ).show()
+
+                    googleSignInButton.isClickable = true
                 }
 
             } else {
+                googleSignInButton.isClickable = true
                 Toast.makeText(applicationContext, "Error", Toast.LENGTH_LONG)
             }
 //            Log.e("Account ID", account.displayName)
@@ -180,7 +181,12 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener, OnCompleteListe
                     val sharedPreferenceHelper = SharedPreferenceHelper(applicationContext)
 
 
-                    sharedPreferenceHelper.savePreference(SharedPreferenceDataClass(getString(R.string.idtoken),it.result?.token as String))
+                    sharedPreferenceHelper.savePreference(
+                        SharedPreferenceDataClass(
+                            getString(R.string.idtoken),
+                            it.result?.token as String
+                        )
+                    )
                     sharedPreferenceHelper.savePreference(
                         SharedPreferenceDataClass(
                             getString(R.string.is_logged_in),
@@ -198,6 +204,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener, OnCompleteListe
 
                     val intent = Intent(this, PreferencesActivity::class.java)
                     startActivity(intent)
+                    finish()
                 }
             }
 
@@ -205,6 +212,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener, OnCompleteListe
 
             Snackbar.make(window.decorView.findViewById(android.R.id.content), "Login Failed", Snackbar.LENGTH_LONG)
                 .show()
+            googleSignInButton.isClickable = true
 
         }
     }
