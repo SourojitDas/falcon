@@ -7,13 +7,11 @@ import models.googleMaps.GoogleDirectionsModel
 import models.googleMaps.GoogleRouteModel
 import models.googleMaps.parseJson
 
-class GoogleRoute {
-    companion object {
-        val DrivingMode = "driving"
-        val WalkingMode = "walking"
-        val BicyclingMode = "bicycling"
-        val TransitMode = "transit"
-    }
+object GoogleRoute {
+    val DrivingMode = "driving"
+    val WalkingMode = "walking"
+    val BicyclingMode = "bicycling"
+    val TransitMode = "transit"
 
     fun getRouteByEndpointsAndMode(
         origin: String,

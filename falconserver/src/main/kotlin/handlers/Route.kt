@@ -8,6 +8,20 @@ import services.GoogleRoute
 import services.Weather
 
 object GoogleRouteController {
+    private const val LuasMode = "Luas"
+    private const val BusMode = "Bus"
+    private const val CarMode = "Car"
+    private const val WalkMode = "Walk"
+    private const val CycleMode = "Cycle"
+
+    val modeMapping = hashMapOf(
+        LuasMode to services.GoogleRoute.TransitMode,
+        BusMode to services.GoogleRoute.TransitMode,
+        CarMode to services.GoogleRoute.DrivingMode,
+        WalkMode to services.GoogleRoute.WalkingMode,
+        CycleMode to services.GoogleRoute.BicyclingMode
+    )
+
     fun getRouteByOriginAndDestination(ctx: Context) {
         val body = ctx.body<RequestBody>()
         val res = constructCustomRoute(body)
@@ -15,23 +29,19 @@ object GoogleRouteController {
     }
 
     private fun constructCustomRoute(data: RequestBody): models.falcon.FalconDirectionsModel {
-        val googleRouteService = GoogleRoute()
-        val weatherService = Weather()
-        val bikeStandService = BikeStand()
-
         val destination = data.destination!!
         val origin = data.origin!!
         val cityID = data.cityID
         val cityName = data.cityName
         val userPreferences = data.preferences!!
 
-        val multiModeDirections: List<models.falcon.FalconDirectionsModel?> = googleRouteService.getMultiModeRoute(
+        val multiModeDirections: List<models.falcon.FalconDirectionsModel?> = GoogleRoute.getMultiModeRoute(
             "${origin.latitude},${origin.longitude}",
             "${destination.latitude},${destination.longitude}"
         )
 
-        val weather = weatherService.getByCityID(cityID)
-        val bikeStands = bikeStandService.getRealTimeStandsInfoByCity(cityName)
+        val weather = Weather.getByCityID(cityID)
+        val bikeStands = BikeStand.getRealTimeStandsInfoByCity(cityName)
 
         val res: FalconDirectionsModel? = FalconDirectionsModel()
         res?.routes = mutableListOf()

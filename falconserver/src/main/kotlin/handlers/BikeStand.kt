@@ -6,9 +6,8 @@ import services.BikeStand
 
 object BikeStandController {
     fun getRealTimeStandsInfoByCity(ctx: Context) {
-        val bikeStandService = BikeStand()
         val body = ctx.body<RequestBody>()
-        val res = bikeStandService.getRealTimeStandsInfoByCity(body.cityName)
+        val res = BikeStand.getRealTimeStandsInfoByCity(body.cityName)
         ctx.json(res!!)
     }
 }

@@ -1,7 +1,5 @@
 package models.falcon
 
-import models.googleMaps.Coordinates
-
 data class Preferences(
     val mode: String,
     val selected: Boolean

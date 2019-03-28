@@ -5,7 +5,7 @@ import models.weather.Coordinates
 import models.weather.parseJson
 
 
-class Weather {
+object Weather {
     fun getByCoordinates(coordinates: Coordinates): models.weather.WeatherModel? {
         val payload = mapOf(
             "lat" to coordinates.latitude.toString(),
