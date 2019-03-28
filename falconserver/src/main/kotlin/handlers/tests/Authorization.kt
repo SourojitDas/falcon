@@ -1,12 +1,13 @@
 package handlers.tests
 
+import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
 import handlers.ApiRole
 import handlers.Authorization
+import io.javalin.Context
 import io.javalin.security.SecurityUtil
-import org.junit.Assert.assertFalse
-import org.junit.Assert.assertTrue
+import org.junit.Assert.*
 import org.junit.Test
 import services.FirebaseAuthInterface
 
@@ -115,6 +116,62 @@ class AuthorizationTest {
         val fakeUserRoles = listOf(ApiRole.USER_EXEC)
         val result = Authorization.isUserAuthorized(fakePermittedRoles, fakeUserRoles)
         assertFalse(result)
+    }
+
+    @Test
+    fun `test extractUserRoles single case`() {
+        val mockContext = mock<Context>()
+        val result = Authorization.extractUserRoles(mockContext)
+        assertEquals(result, Authorization.userRoleMap["access-token-read"])
+    }
+
+    @Test
+    fun `test extractToken nulll no Authorization header`() {
+        val mockContext = mock<Context>()
+        val result = Authorization.extractToken(mockContext)
+        assertEquals(result, null)
+    }
+
+    @Test
+    fun `test extractToken null Authorization header malformed no space`() {
+        val mockContext = mock<Context>()
+        mockContext.header("Authorization", "Bearer")
+        val result = Authorization.extractToken(mockContext)
+        assertEquals(result, null)
+    }
+
+    @Test
+    fun `test extractToken null Authorization header malformed empty string`() {
+        val mockContext = mock<Context>()
+        mockContext.header("Authorization", "")
+        val result = Authorization.extractToken(mockContext)
+        assertEquals(result, null)
+    }
+
+    @Test
+    fun `test extractToken null Authorization header malformed more than one space`() {
+        val mockContext = mock<Context>()
+        mockContext.header("Authorization", "Bearer 1234 5678")
+        val result = Authorization.extractToken(mockContext)
+        assertEquals(result, null)
+    }
+
+    @Test
+    fun `test extractToken null Authorization header one space but Bearer missing`() {
+        val mockContext = mock<Context>()
+        mockContext.header("Authorization", "1234 5678")
+        val result = Authorization.extractToken(mockContext)
+        assertEquals(result, null)
+    }
+
+    @Test
+    fun `test extractToken non-null Authorization header`() {
+        val mockContext = mock<Context> {
+            on { header("Authorization") } doReturn "Bearer 5678"
+        }
+        println(mockContext.header("Authorization"))
+        val result = Authorization.extractToken(mockContext)
+        assertEquals(result, "5678")
     }
 
 }
