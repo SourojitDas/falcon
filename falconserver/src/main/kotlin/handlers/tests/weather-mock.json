@@ -1,0 +1,40 @@
+{
+  "coordinates": {
+    "longitude": -6.27,
+    "latitude": 53.34
+  },
+  "weather": null,
+  "base": "stations",
+  "mainTemperature": {
+    "temperature": 283.25,
+    "pressure": 1019,
+    "humidity": 71,
+    "tempMin": 281.48,
+    "tempMax": 284.82,
+    "seaLevel": null,
+    "groundLevel": null
+  },
+  "visibility": 10000,
+  "wind": {
+    "speed": 5.1,
+    "degree": 210,
+    "gust": null
+  },
+  "clouds": {
+    "all": 75
+  },
+  "date": 1554116616,
+  "systemInfo": {
+    "type": 1,
+    "id": 1565,
+    "message": 0.0049,
+    "country": "IE",
+    "sunrise": 1554098360,
+    "sunset": 1554145108
+  },
+  "name": "Dublin",
+  "cod": 200,
+  "rain": null,
+  "snow": null,
+  "id": 2964574
+}

@@ -1,0 +1,1923 @@
+[
+  {
+    "standNumber": 42,
+    "standAddress": "Smithfield North",
+    "contractName": "Dublin",
+    "standName": "SMITHFIELD NORTH",
+    "standBanking": true,
+    "standGeoLocation": {
+      "longitude": -6.278198,
+      "latitude": 53.349562
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 30,
+    "standLastUpdate": 1554117015000,
+    "bonus": false,
+    "bikeStands": 30,
+    "bikesAvailable": 0
+  },
+  {
+    "standNumber": 30,
+    "standAddress": "Parnell Square North",
+    "contractName": "Dublin",
+    "standName": "PARNELL SQUARE NORTH",
+    "standBanking": true,
+    "standGeoLocation": {
+      "longitude": -6.265305,
+      "latitude": 53.353462
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 20,
+    "standLastUpdate": 1554116877000,
+    "bonus": false,
+    "bikeStands": 20,
+    "bikesAvailable": 0
+  },
+  {
+    "standNumber": 54,
+    "standAddress": "Clonmel Street",
+    "contractName": "Dublin",
+    "standName": "CLONMEL STREET",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.26298,
+      "latitude": 53.336021
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 0,
+    "standLastUpdate": 1554116993000,
+    "bonus": false,
+    "bikeStands": 33,
+    "bikesAvailable": 32
+  },
+  {
+    "standNumber": 108,
+    "standAddress": "Avondale Road",
+    "contractName": "Dublin",
+    "standName": "AVONDALE ROAD",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.276142,
+      "latitude": 53.359405
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 40,
+    "standLastUpdate": 1554116487000,
+    "bonus": false,
+    "bikeStands": 40,
+    "bikesAvailable": 0
+  },
+  {
+    "standNumber": 56,
+    "standAddress": "Mount Street Lower",
+    "contractName": "Dublin",
+    "standName": "MOUNT STREET LOWER",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.24153,
+      "latitude": 53.33796
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 2,
+    "standLastUpdate": 1554117024000,
+    "bonus": false,
+    "bikeStands": 40,
+    "bikesAvailable": 38
+  },
+  {
+    "standNumber": 6,
+    "standAddress": "Christchurch Place",
+    "contractName": "Dublin",
+    "standName": "CHRISTCHURCH PLACE",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.27012,
+      "latitude": 53.343368
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 19,
+    "standLastUpdate": 1554116935000,
+    "bonus": false,
+    "bikeStands": 20,
+    "bikesAvailable": 1
+  },
+  {
+    "standNumber": 18,
+    "standAddress": "Grantham Street",
+    "contractName": "Dublin",
+    "standName": "GRANTHAM STREET",
+    "standBanking": true,
+    "standGeoLocation": {
+      "longitude": -6.265436,
+      "latitude": 53.334123
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 25,
+    "standLastUpdate": 1554116937000,
+    "bonus": false,
+    "bikeStands": 30,
+    "bikesAvailable": 5
+  },
+  {
+    "standNumber": 32,
+    "standAddress": "Pearse Street",
+    "contractName": "Dublin",
+    "standName": "PEARSE STREET",
+    "standBanking": true,
+    "standGeoLocation": {
+      "longitude": -6.250427,
+      "latitude": 53.344304
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 2,
+    "standLastUpdate": 1554117044000,
+    "bonus": false,
+    "bikeStands": 30,
+    "bikesAvailable": 28
+  },
+  {
+    "standNumber": 52,
+    "standAddress": "York Street East",
+    "contractName": "Dublin",
+    "standName": "YORK STREET EAST",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.262003,
+      "latitude": 53.338755
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 9,
+    "standLastUpdate": 1554116878000,
+    "bonus": false,
+    "bikeStands": 32,
+    "bikesAvailable": 23
+  },
+  {
+    "standNumber": 48,
+    "standAddress": "Excise Walk",
+    "contractName": "Dublin",
+    "standName": "EXCISE WALK",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.244239,
+      "latitude": 53.347777
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 11,
+    "standLastUpdate": 1554116736000,
+    "bonus": false,
+    "bikeStands": 40,
+    "bikesAvailable": 29
+  },
+  {
+    "standNumber": 13,
+    "standAddress": "Fitzwilliam Square West",
+    "contractName": "Dublin",
+    "standName": "FITZWILLIAM SQUARE WEST",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.252825,
+      "latitude": 53.336074
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 1,
+    "standLastUpdate": 1554116805000,
+    "bonus": false,
+    "bikeStands": 30,
+    "bikesAvailable": 29
+  },
+  {
+    "standNumber": 43,
+    "standAddress": "Portobello Road",
+    "contractName": "Dublin",
+    "standName": "PORTOBELLO ROAD",
+    "standBanking": true,
+    "standGeoLocation": {
+      "longitude": -6.268044,
+      "latitude": 53.330091
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 27,
+    "standLastUpdate": 1554116735000,
+    "bonus": false,
+    "bikeStands": 30,
+    "bikesAvailable": 3
+  },
+  {
+    "standNumber": 81,
+    "standAddress": "St. James Hospital (Central)",
+    "contractName": "Dublin",
+    "standName": "ST. JAMES HOSPITAL (CENTRAL)",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.295594,
+      "latitude": 53.339983
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 40,
+    "standLastUpdate": 1554116646000,
+    "bonus": false,
+    "bikeStands": 40,
+    "bikesAvailable": 0
+  },
+  {
+    "standNumber": 31,
+    "standAddress": "Parnell Street",
+    "contractName": "Dublin",
+    "standName": "PARNELL STREET",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.265125,
+      "latitude": 53.350929
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 20,
+    "standLastUpdate": 1554116660000,
+    "bonus": false,
+    "bikeStands": 20,
+    "bikesAvailable": 0
+  },
+  {
+    "standNumber": 98,
+    "standAddress": "Frederick Street South",
+    "contractName": "Dublin",
+    "standName": "FREDERICK STREET SOUTH",
+    "standBanking": true,
+    "standGeoLocation": {
+      "longitude": -6.256853,
+      "latitude": 53.341515
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 20,
+    "standLastUpdate": 1554116486000,
+    "bonus": false,
+    "bikeStands": 40,
+    "bikesAvailable": 20
+  },
+  {
+    "standNumber": 14,
+    "standAddress": "Fownes Street Upper",
+    "contractName": "Dublin",
+    "standName": "FOWNES STREET UPPER",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.263371,
+      "latitude": 53.344603
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 14,
+    "standLastUpdate": 1554116982000,
+    "bonus": false,
+    "bikeStands": 30,
+    "bikesAvailable": 16
+  },
+  {
+    "standNumber": 23,
+    "standAddress": "Custom House",
+    "contractName": "Dublin",
+    "standName": "CUSTOM HOUSE",
+    "standBanking": true,
+    "standGeoLocation": {
+      "longitude": -6.254662,
+      "latitude": 53.348279
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 28,
+    "standLastUpdate": 1554116885000,
+    "bonus": false,
+    "bikeStands": 30,
+    "bikesAvailable": 2
+  },
+  {
+    "standNumber": 106,
+    "standAddress": "Rathdown Road",
+    "contractName": "Dublin",
+    "standName": "RATHDOWN ROAD",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.280337,
+      "latitude": 53.35893
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 40,
+    "standLastUpdate": 1554116623000,
+    "bonus": false,
+    "bikeStands": 40,
+    "bikesAvailable": 0
+  },
+  {
+    "standNumber": 112,
+    "standAddress": "North Circular Road (O'Connell's)",
+    "contractName": "Dublin",
+    "standName": "NORTH CIRCULAR ROAD (O'CONNELL'S)",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.251557,
+      "latitude": 53.357841
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 29,
+    "standLastUpdate": 1554116810000,
+    "bonus": false,
+    "bikeStands": 30,
+    "bikesAvailable": 1
+  },
+  {
+    "standNumber": 68,
+    "standAddress": "Hanover Quay",
+    "contractName": "Dublin",
+    "standName": "HANOVER QUAY",
+    "standBanking": true,
+    "standGeoLocation": {
+      "longitude": -6.237153,
+      "latitude": 53.344115
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 5,
+    "standLastUpdate": 1554116997000,
+    "bonus": false,
+    "bikeStands": 40,
+    "bikesAvailable": 34
+  },
+  {
+    "standNumber": 74,
+    "standAddress": "Oliver Bond Street",
+    "contractName": "Dublin",
+    "standName": "OLIVER BOND STREET",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.280531,
+      "latitude": 53.343893
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 30,
+    "standLastUpdate": 1554116786000,
+    "bonus": false,
+    "bikeStands": 30,
+    "bikesAvailable": 0
+  },
+  {
+    "standNumber": 87,
+    "standAddress": "Collins Barracks Museum",
+    "contractName": "Dublin",
+    "standName": "COLLINS BARRACKS MUSEUM",
+    "standBanking": true,
+    "standGeoLocation": {
+      "longitude": -6.28525,
+      "latitude": 53.347477
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 38,
+    "standLastUpdate": 1554116455000,
+    "bonus": false,
+    "bikeStands": 38,
+    "bikesAvailable": 0
+  },
+  {
+    "standNumber": 84,
+    "standAddress": "Brookfield Road",
+    "contractName": "Dublin",
+    "standName": "BROOKFIELD ROAD",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.300217,
+      "latitude": 53.339005
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 30,
+    "standLastUpdate": 1554116690000,
+    "bonus": false,
+    "bikeStands": 30,
+    "bikesAvailable": 0
+  },
+  {
+    "standNumber": 90,
+    "standAddress": "Benson Street",
+    "contractName": "Dublin",
+    "standName": "BENSON STREET",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.233451,
+      "latitude": 53.344153
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 2,
+    "standLastUpdate": 1554116581000,
+    "bonus": false,
+    "bikeStands": 40,
+    "bikesAvailable": 38
+  },
+  {
+    "standNumber": 11,
+    "standAddress": "Earlsfort Terrace",
+    "contractName": "Dublin",
+    "standName": "EARLSFORT TERRACE",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.258371,
+      "latitude": 53.334019
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 8,
+    "standLastUpdate": 1554116961000,
+    "bonus": false,
+    "bikeStands": 30,
+    "bikesAvailable": 21
+  },
+  {
+    "standNumber": 17,
+    "standAddress": "Golden Lane",
+    "contractName": "Dublin",
+    "standName": "GOLDEN LANE",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.267732,
+      "latitude": 53.340803
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 19,
+    "standLastUpdate": 1554116858000,
+    "bonus": false,
+    "bikeStands": 20,
+    "bikesAvailable": 1
+  },
+  {
+    "standNumber": 45,
+    "standAddress": "Deverell Place",
+    "contractName": "Dublin",
+    "standName": "DEVERELL PLACE",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.255265,
+      "latitude": 53.351464
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 28,
+    "standLastUpdate": 1554116670000,
+    "bonus": false,
+    "bikeStands": 30,
+    "bikesAvailable": 2
+  },
+  {
+    "standNumber": 114,
+    "standAddress": "Wilton Terrace (Park)",
+    "contractName": "Dublin",
+    "standName": "WILTON TERRACE (PARK)",
+    "standBanking": true,
+    "standGeoLocation": {
+      "longitude": -6.248345,
+      "latitude": 53.333653
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 10,
+    "standLastUpdate": 1554117054000,
+    "bonus": false,
+    "bikeStands": 40,
+    "bikesAvailable": 30
+  },
+  {
+    "standNumber": 72,
+    "standAddress": "John Street West",
+    "contractName": "Dublin",
+    "standName": "JOHN STREET WEST",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.277167,
+      "latitude": 53.343105
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 30,
+    "standLastUpdate": 1554116604000,
+    "bonus": false,
+    "bikeStands": 31,
+    "bikesAvailable": 1
+  },
+  {
+    "standNumber": 63,
+    "standAddress": "Fenian Street",
+    "contractName": "Dublin",
+    "standName": "FENIAN STREET",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.24672,
+      "latitude": 53.341428
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 7,
+    "standLastUpdate": 1554116981000,
+    "bonus": false,
+    "bikeStands": 35,
+    "bikesAvailable": 28
+  },
+  {
+    "standNumber": 113,
+    "standAddress": "Merrion Square South",
+    "contractName": "Dublin",
+    "standName": "MERRION SQUARE SOUTH",
+    "standBanking": true,
+    "standGeoLocation": {
+      "longitude": -6.248606,
+      "latitude": 53.338614
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 2,
+    "standLastUpdate": 1554116513000,
+    "bonus": false,
+    "bikeStands": 40,
+    "bikesAvailable": 36
+  },
+  {
+    "standNumber": 91,
+    "standAddress": "South Dock Road",
+    "contractName": "Dublin",
+    "standName": "SOUTH DOCK ROAD",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.231291,
+      "latitude": 53.341833
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 25,
+    "standLastUpdate": 1554117048000,
+    "bonus": false,
+    "bikeStands": 30,
+    "bikesAvailable": 5
+  },
+  {
+    "standNumber": 99,
+    "standAddress": "City Quay",
+    "contractName": "Dublin",
+    "standName": "CITY QUAY",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.246154,
+      "latitude": 53.346637
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 13,
+    "standLastUpdate": 1554116569000,
+    "bonus": false,
+    "bikeStands": 30,
+    "bikesAvailable": 17
+  },
+  {
+    "standNumber": 9,
+    "standAddress": "Exchequer Street",
+    "contractName": "Dublin",
+    "standName": "EXCHEQUER STREET",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.263578,
+      "latitude": 53.343034
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 10,
+    "standLastUpdate": 1554116775000,
+    "bonus": false,
+    "bikeStands": 24,
+    "bikesAvailable": 14
+  },
+  {
+    "standNumber": 67,
+    "standAddress": "The Point",
+    "contractName": "Dublin",
+    "standName": "THE POINT",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.230852,
+      "latitude": 53.346867
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 28,
+    "standLastUpdate": 1554116578000,
+    "bonus": false,
+    "bikeStands": 40,
+    "bikesAvailable": 12
+  },
+  {
+    "standNumber": 55,
+    "standAddress": "Hatch Street",
+    "contractName": "Dublin",
+    "standName": "HATCH STREET",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.260714,
+      "latitude": 53.33403
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 6,
+    "standLastUpdate": 1554116664000,
+    "bonus": false,
+    "bikeStands": 36,
+    "bikesAvailable": 29
+  },
+  {
+    "standNumber": 62,
+    "standAddress": "Lime Street",
+    "contractName": "Dublin",
+    "standName": "LIME STREET",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.243576,
+      "latitude": 53.346026
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 9,
+    "standLastUpdate": 1554116936000,
+    "bonus": false,
+    "bikeStands": 40,
+    "bikesAvailable": 31
+  },
+  {
+    "standNumber": 5,
+    "standAddress": "Charlemont Street",
+    "contractName": "Dublin",
+    "standName": "CHARLEMONT PLACE",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.260177,
+      "latitude": 53.330662
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 23,
+    "standLastUpdate": 1554117053000,
+    "bonus": false,
+    "bikeStands": 40,
+    "bikesAvailable": 17
+  },
+  {
+    "standNumber": 97,
+    "standAddress": "Kilmainham Gaol",
+    "contractName": "Dublin",
+    "standName": "KILMAINHAM GAOL",
+    "standBanking": true,
+    "standGeoLocation": {
+      "longitude": -6.310015,
+      "latitude": 53.342113
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 40,
+    "standLastUpdate": 1554116666000,
+    "bonus": false,
+    "bikeStands": 40,
+    "bikesAvailable": 0
+  },
+  {
+    "standNumber": 61,
+    "standAddress": "Hardwicke Place",
+    "contractName": "Dublin",
+    "standName": "HARDWICKE PLACE",
+    "standBanking": true,
+    "standGeoLocation": {
+      "longitude": -6.263232,
+      "latitude": 53.357043
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 18,
+    "standLastUpdate": 1554116955000,
+    "bonus": false,
+    "bikeStands": 25,
+    "bikesAvailable": 7
+  },
+  {
+    "standNumber": 77,
+    "standAddress": "Wolfe Tone Street",
+    "contractName": "Dublin",
+    "standName": "WOLFE TONE STREET",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.267459,
+      "latitude": 53.348875
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 29,
+    "standLastUpdate": 1554116964000,
+    "bonus": false,
+    "bikeStands": 29,
+    "bikesAvailable": 0
+  },
+  {
+    "standNumber": 73,
+    "standAddress": "Francis Street",
+    "contractName": "Dublin",
+    "standName": "FRANCIS STREET",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.275233,
+      "latitude": 53.342081
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 30,
+    "standLastUpdate": 1554116642000,
+    "bonus": false,
+    "bikeStands": 30,
+    "bikesAvailable": 0
+  },
+  {
+    "standNumber": 4,
+    "standAddress": "Greek Street",
+    "contractName": "Dublin",
+    "standName": "GREEK STREET",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.272976,
+      "latitude": 53.346874
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 20,
+    "standLastUpdate": 1554116985000,
+    "bonus": false,
+    "bikeStands": 20,
+    "bikesAvailable": 0
+  },
+  {
+    "standNumber": 49,
+    "standAddress": "Guild Street",
+    "contractName": "Dublin",
+    "standName": "GUILD STREET",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.240928,
+      "latitude": 53.347932
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 1,
+    "standLastUpdate": 1554117016000,
+    "bonus": false,
+    "bikeStands": 40,
+    "bikesAvailable": 39
+  },
+  {
+    "standNumber": 19,
+    "standAddress": "Herbert Place",
+    "contractName": "Dublin",
+    "standName": "HERBERT PLACE",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.245575,
+      "latitude": 53.334432
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 11,
+    "standLastUpdate": 1554116856000,
+    "bonus": false,
+    "bikeStands": 30,
+    "bikesAvailable": 18
+  },
+  {
+    "standNumber": 7,
+    "standAddress": "High Street",
+    "contractName": "Dublin",
+    "standName": "HIGH STREET",
+    "standBanking": true,
+    "standGeoLocation": {
+      "longitude": -6.275071,
+      "latitude": 53.343565
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 29,
+    "standLastUpdate": 1554116687000,
+    "bonus": false,
+    "bikeStands": 29,
+    "bikesAvailable": 0
+  },
+  {
+    "standNumber": 60,
+    "standAddress": "North Circular Road",
+    "contractName": "Dublin",
+    "standName": "NORTH CIRCULAR ROAD",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.260348,
+      "latitude": 53.359624
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 30,
+    "standLastUpdate": 1554116668000,
+    "bonus": false,
+    "bikeStands": 30,
+    "bikesAvailable": 0
+  },
+  {
+    "standNumber": 102,
+    "standAddress": "Western Way",
+    "contractName": "Dublin",
+    "standName": "WESTERN WAY",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.269425,
+      "latitude": 53.354929
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 40,
+    "standLastUpdate": 1554116968000,
+    "bonus": false,
+    "bikeStands": 40,
+    "bikesAvailable": 0
+  },
+  {
+    "standNumber": 38,
+    "standAddress": "Talbot Street",
+    "contractName": "Dublin",
+    "standName": "TALBOT STREET",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.25294,
+      "latitude": 53.350974
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 39,
+    "standLastUpdate": 1554116957000,
+    "bonus": false,
+    "bikeStands": 40,
+    "bikesAvailable": 1
+  },
+  {
+    "standNumber": 53,
+    "standAddress": "Newman House",
+    "contractName": "Dublin",
+    "standName": "NEWMAN HOUSE",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.26059,
+      "latitude": 53.337132
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 2,
+    "standLastUpdate": 1554116883000,
+    "bonus": false,
+    "bikeStands": 40,
+    "bikesAvailable": 38
+  },
+  {
+    "standNumber": 58,
+    "standAddress": "Sir Patrick's Dun",
+    "contractName": "Dublin",
+    "standName": "SIR PATRICK DUN'S",
+    "standBanking": true,
+    "standGeoLocation": {
+      "longitude": -6.240642,
+      "latitude": 53.339218
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 10,
+    "standLastUpdate": 1554116930000,
+    "bonus": false,
+    "bikeStands": 40,
+    "bikesAvailable": 30
+  },
+  {
+    "standNumber": 66,
+    "standAddress": "New Central Bank",
+    "contractName": "Dublin",
+    "standName": "NEW CENTRAL BANK",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.234749,
+      "latitude": 53.347122
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 3,
+    "standLastUpdate": 1554117014000,
+    "bonus": false,
+    "bikeStands": 40,
+    "bikesAvailable": 37
+  },
+  {
+    "standNumber": 104,
+    "standAddress": "Grangegorman Lower (Central)",
+    "contractName": "Dublin",
+    "standName": "GRANGEGORMAN LOWER (CENTRAL)",
+    "standBanking": true,
+    "standGeoLocation": {
+      "longitude": -6.278424,
+      "latitude": 53.355173
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 40,
+    "standLastUpdate": 1554116849000,
+    "bonus": false,
+    "bikeStands": 40,
+    "bikesAvailable": 0
+  },
+  {
+    "standNumber": 101,
+    "standAddress": "King Street North",
+    "contractName": "Dublin",
+    "standName": "KING STREET NORTH",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.273507,
+      "latitude": 53.350291
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 30,
+    "standLastUpdate": 1554116965000,
+    "bonus": false,
+    "bikeStands": 30,
+    "bikesAvailable": 0
+  },
+  {
+    "standNumber": 115,
+    "standAddress": "Killarney Street",
+    "contractName": "Dublin",
+    "standName": "KILLARNEY STREET",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.247579,
+      "latitude": 53.354845
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 29,
+    "standLastUpdate": 1554116949000,
+    "bonus": false,
+    "bikeStands": 30,
+    "bikesAvailable": 1
+  },
+  {
+    "standNumber": 47,
+    "standAddress": "Herbert Street",
+    "contractName": "Dublin",
+    "standName": "HERBERT STREET",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.24551,
+      "latitude": 53.335742
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 3,
+    "standLastUpdate": 1554116926000,
+    "bonus": false,
+    "bikeStands": 40,
+    "bikesAvailable": 36
+  },
+  {
+    "standNumber": 8,
+    "standAddress": "Custom House Quay",
+    "contractName": "Dublin",
+    "standName": "CUSTOM HOUSE QUAY",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.248048,
+      "latitude": 53.347884
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 11,
+    "standLastUpdate": 1554117032000,
+    "bonus": false,
+    "bikeStands": 30,
+    "bikesAvailable": 19
+  },
+  {
+    "standNumber": 27,
+    "standAddress": "Molesworth Street",
+    "contractName": "Dublin",
+    "standName": "MOLESWORTH STREET",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.258117,
+      "latitude": 53.341288
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 0,
+    "standLastUpdate": 1554116546000,
+    "bonus": false,
+    "bikeStands": 20,
+    "bikesAvailable": 20
+  },
+  {
+    "standNumber": 16,
+    "standAddress": "Georges Quay",
+    "contractName": "Dublin",
+    "standName": "GEORGES QUAY",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.252192,
+      "latitude": 53.347508
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 17,
+    "standLastUpdate": 1554116660000,
+    "bonus": false,
+    "bikeStands": 20,
+    "bikesAvailable": 3
+  },
+  {
+    "standNumber": 96,
+    "standAddress": "Kilmainham Lane",
+    "contractName": "Dublin",
+    "standName": "KILMAINHAM LANE",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.305085,
+      "latitude": 53.341805
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 29,
+    "standLastUpdate": 1554116703000,
+    "bonus": false,
+    "bikeStands": 30,
+    "bikesAvailable": 1
+  },
+  {
+    "standNumber": 82,
+    "standAddress": "Mount Brown",
+    "contractName": "Dublin",
+    "standName": "MOUNT BROWN",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.29719,
+      "latitude": 53.341645
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 22,
+    "standLastUpdate": 1554116520000,
+    "bonus": false,
+    "bikeStands": 22,
+    "bikesAvailable": 0
+  },
+  {
+    "standNumber": 76,
+    "standAddress": "Market Street South",
+    "contractName": "Dublin",
+    "standName": "MARKET STREET SOUTH",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.287661,
+      "latitude": 53.342296
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 38,
+    "standLastUpdate": 1554116572000,
+    "bonus": false,
+    "bikeStands": 38,
+    "bikesAvailable": 0
+  },
+  {
+    "standNumber": 71,
+    "standAddress": "Kevin Street",
+    "contractName": "Dublin",
+    "standName": "KEVIN STREET",
+    "standBanking": true,
+    "standGeoLocation": {
+      "longitude": -6.267699,
+      "latitude": 53.337757
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 38,
+    "standLastUpdate": 1554116782000,
+    "bonus": false,
+    "bikeStands": 40,
+    "bikesAvailable": 2
+  },
+  {
+    "standNumber": 79,
+    "standAddress": "Eccles Street East",
+    "contractName": "Dublin",
+    "standName": "ECCLES STREET EAST",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.265601,
+      "latitude": 53.358115
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 25,
+    "standLastUpdate": 1554116905000,
+    "bonus": false,
+    "bikeStands": 27,
+    "bikesAvailable": 2
+  },
+  {
+    "standNumber": 69,
+    "standAddress": "Grand Canal Dock",
+    "contractName": "Dublin",
+    "standName": "GRAND CANAL DOCK",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.238695,
+      "latitude": 53.342638
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 1,
+    "standLastUpdate": 1554116922000,
+    "bonus": false,
+    "bikeStands": 40,
+    "bikesAvailable": 39
+  },
+  {
+    "standNumber": 25,
+    "standAddress": "Merrion Square East",
+    "contractName": "Dublin",
+    "standName": "MERRION SQUARE EAST",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.246548,
+      "latitude": 53.339434
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 1,
+    "standLastUpdate": 1554116824000,
+    "bonus": false,
+    "bikeStands": 30,
+    "bikesAvailable": 29
+  },
+  {
+    "standNumber": 51,
+    "standAddress": "York Street West",
+    "contractName": "Dublin",
+    "standName": "YORK STREET WEST",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.264699,
+      "latitude": 53.339334
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 26,
+    "standLastUpdate": 1554116997000,
+    "bonus": false,
+    "bikeStands": 40,
+    "bikesAvailable": 14
+  },
+  {
+    "standNumber": 37,
+    "standAddress": "St. Stephen's Green South",
+    "contractName": "Dublin",
+    "standName": "ST. STEPHEN'S GREEN SOUTH",
+    "standBanking": true,
+    "standGeoLocation": {
+      "longitude": -6.26199,
+      "latitude": 53.337494
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 12,
+    "standLastUpdate": 1554116546000,
+    "bonus": false,
+    "bikeStands": 30,
+    "bikesAvailable": 18
+  },
+  {
+    "standNumber": 59,
+    "standAddress": "Denmark Street Great",
+    "contractName": "Dublin",
+    "standName": "DENMARK STREET GREAT",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.261397,
+      "latitude": 53.35561
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 20,
+    "standLastUpdate": 1554116853000,
+    "bonus": false,
+    "bikeStands": 20,
+    "bikesAvailable": 0
+  },
+  {
+    "standNumber": 95,
+    "standAddress": "Royal Hospital",
+    "contractName": "Dublin",
+    "standName": "ROYAL HOSPITAL",
+    "standBanking": true,
+    "standGeoLocation": {
+      "longitude": -6.29706,
+      "latitude": 53.343897
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 40,
+    "standLastUpdate": 1554116643000,
+    "bonus": false,
+    "bikeStands": 40,
+    "bikesAvailable": 0
+  },
+  {
+    "standNumber": 94,
+    "standAddress": "Heuston Station (Car Park)",
+    "contractName": "Dublin",
+    "standName": "HEUSTON STATION (CAR PARK)",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.297804,
+      "latitude": 53.346985
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 40,
+    "standLastUpdate": 1554116596000,
+    "bonus": false,
+    "bikeStands": 40,
+    "bikesAvailable": 0
+  },
+  {
+    "standNumber": 105,
+    "standAddress": "Grangegorman Lower (North)",
+    "contractName": "Dublin",
+    "standName": "GRANGEGORMAN LOWER (NORTH)",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.278378,
+      "latitude": 53.355954
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 36,
+    "standLastUpdate": 1554116588000,
+    "bonus": false,
+    "bikeStands": 36,
+    "bikesAvailable": 0
+  },
+  {
+    "standNumber": 36,
+    "standAddress": "St. Stephen's Green East",
+    "contractName": "Dublin",
+    "standName": "ST. STEPHEN'S GREEN EAST",
+    "standBanking": true,
+    "standGeoLocation": {
+      "longitude": -6.256035,
+      "latitude": 53.337824
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 4,
+    "standLastUpdate": 1554116538000,
+    "bonus": false,
+    "bikeStands": 40,
+    "bikesAvailable": 36
+  },
+  {
+    "standNumber": 93,
+    "standAddress": "Heuston Station (Central)",
+    "contractName": "Dublin",
+    "standName": "HEUSTON STATION (CENTRAL)",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.296924,
+      "latitude": 53.346603
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 40,
+    "standLastUpdate": 1554117025000,
+    "bonus": false,
+    "bikeStands": 40,
+    "bikesAvailable": 0
+  },
+  {
+    "standNumber": 22,
+    "standAddress": "Townsend Street",
+    "contractName": "Dublin",
+    "standName": "TOWNSEND STREET",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.254614,
+      "latitude": 53.345922
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 18,
+    "standLastUpdate": 1554116740000,
+    "bonus": false,
+    "bikeStands": 20,
+    "bikesAvailable": 2
+  },
+  {
+    "standNumber": 50,
+    "standAddress": "George's Lane",
+    "contractName": "Dublin",
+    "standName": "GEORGES LANE",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.279696,
+      "latitude": 53.35023
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 40,
+    "standLastUpdate": 1554116941000,
+    "bonus": false,
+    "bikeStands": 40,
+    "bikesAvailable": 0
+  },
+  {
+    "standNumber": 110,
+    "standAddress": "Phibsborough Road",
+    "contractName": "Dublin",
+    "standName": "PHIBSBOROUGH ROAD",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.273717,
+      "latitude": 53.356307
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 40,
+    "standLastUpdate": 1554116516000,
+    "bonus": false,
+    "bikeStands": 40,
+    "bikesAvailable": 0
+  },
+  {
+    "standNumber": 12,
+    "standAddress": "Eccles Street",
+    "contractName": "Dublin",
+    "standName": "ECCLES STREET",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.269779,
+      "latitude": 53.359246
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 20,
+    "standLastUpdate": 1554116471000,
+    "bonus": false,
+    "bikeStands": 20,
+    "bikesAvailable": 0
+  },
+  {
+    "standNumber": 34,
+    "standAddress": "Portobello Harbour",
+    "contractName": "Dublin",
+    "standName": "PORTOBELLO HARBOUR",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.265163,
+      "latitude": 53.330362
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 23,
+    "standLastUpdate": 1554116749000,
+    "bonus": false,
+    "bikeStands": 30,
+    "bikesAvailable": 7
+  },
+  {
+    "standNumber": 78,
+    "standAddress": "Mater Hospital",
+    "contractName": "Dublin",
+    "standName": "MATER HOSPITAL",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.264828,
+      "latitude": 53.359967
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 40,
+    "standLastUpdate": 1554116820000,
+    "bonus": false,
+    "bikeStands": 40,
+    "bikesAvailable": 0
+  },
+  {
+    "standNumber": 2,
+    "standAddress": "Blessington Street",
+    "contractName": "Dublin",
+    "standName": "BLESSINGTON STREET",
+    "standBanking": true,
+    "standGeoLocation": {
+      "longitude": -6.26814,
+      "latitude": 53.356769
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 15,
+    "standLastUpdate": 1554116878000,
+    "bonus": false,
+    "bikeStands": 20,
+    "bikesAvailable": 5
+  },
+  {
+    "standNumber": 75,
+    "standAddress": "James Street",
+    "contractName": "Dublin",
+    "standName": "JAMES STREET",
+    "standBanking": true,
+    "standGeoLocation": {
+      "longitude": -6.287409,
+      "latitude": 53.343456
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 40,
+    "standLastUpdate": 1554116549000,
+    "bonus": false,
+    "bikeStands": 40,
+    "bikesAvailable": 0
+  },
+  {
+    "standNumber": 111,
+    "standAddress": "Mountjoy Square East",
+    "contractName": "Dublin",
+    "standName": "MOUNTJOY SQUARE EAST",
+    "standBanking": true,
+    "standGeoLocation": {
+      "longitude": -6.256359,
+      "latitude": 53.356717
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 39,
+    "standLastUpdate": 1554117039000,
+    "bonus": false,
+    "bikeStands": 40,
+    "bikesAvailable": 1
+  },
+  {
+    "standNumber": 26,
+    "standAddress": "Merrion Square West",
+    "contractName": "Dublin",
+    "standName": "MERRION SQUARE WEST",
+    "standBanking": true,
+    "standGeoLocation": {
+      "longitude": -6.251988,
+      "latitude": 53.339764
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 0,
+    "standLastUpdate": 1554116964000,
+    "bonus": false,
+    "bikeStands": 20,
+    "bikesAvailable": 20
+  },
+  {
+    "standNumber": 65,
+    "standAddress": "Convention Centre",
+    "contractName": "Dublin",
+    "standName": "CONVENTION CENTRE",
+    "standBanking": true,
+    "standGeoLocation": {
+      "longitude": -6.238523,
+      "latitude": 53.34744
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 10,
+    "standLastUpdate": 1554117055000,
+    "bonus": false,
+    "bikeStands": 40,
+    "bikesAvailable": 30
+  },
+  {
+    "standNumber": 15,
+    "standAddress": "Hardwicke Street",
+    "contractName": "Dublin",
+    "standName": "HARDWICKE STREET",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.264423,
+      "latitude": 53.355473
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 16,
+    "standLastUpdate": 1554117007000,
+    "bonus": false,
+    "bikeStands": 16,
+    "bikesAvailable": 0
+  },
+  {
+    "standNumber": 86,
+    "standAddress": "Parkgate Street",
+    "contractName": "Dublin",
+    "standName": "PARKGATE STREET",
+    "standBanking": true,
+    "standGeoLocation": {
+      "longitude": -6.291804,
+      "latitude": 53.347972
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 38,
+    "standLastUpdate": 1554117000000,
+    "bonus": false,
+    "bikeStands": 38,
+    "bikesAvailable": 0
+  },
+  {
+    "standNumber": 35,
+    "standAddress": "Smithfield",
+    "contractName": "Dublin",
+    "standName": "SMITHFIELD",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.278214,
+      "latitude": 53.347692
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 27,
+    "standLastUpdate": 1554117060000,
+    "bonus": false,
+    "bikeStands": 30,
+    "bikesAvailable": 3
+  },
+  {
+    "standNumber": 10,
+    "standAddress": "Dame Street",
+    "contractName": "Dublin",
+    "standName": "DAME STREET",
+    "standBanking": true,
+    "standGeoLocation": {
+      "longitude": -6.266802,
+      "latitude": 53.344007
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 16,
+    "standLastUpdate": 1554116915000,
+    "bonus": false,
+    "bikeStands": 16,
+    "bikesAvailable": 0
+  },
+  {
+    "standNumber": 100,
+    "standAddress": "Heuston Bridge (South)",
+    "contractName": "Dublin",
+    "standName": "HEUSTON BRIDGE (SOUTH)",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.292041,
+      "latitude": 53.347106
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 25,
+    "standLastUpdate": 1554116982000,
+    "bonus": false,
+    "bikeStands": 25,
+    "bikesAvailable": 0
+  },
+  {
+    "standNumber": 24,
+    "standAddress": "Cathal Brugha Street",
+    "contractName": "Dublin",
+    "standName": "CATHAL BRUGHA STREET",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.260533,
+      "latitude": 53.352149
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 19,
+    "standLastUpdate": 1554117040000,
+    "bonus": false,
+    "bikeStands": 20,
+    "bikesAvailable": 1
+  },
+  {
+    "standNumber": 64,
+    "standAddress": "Sandwith Street",
+    "contractName": "Dublin",
+    "standName": "SANDWITH STREET",
+    "standBanking": true,
+    "standGeoLocation": {
+      "longitude": -6.247163,
+      "latitude": 53.345203
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 11,
+    "standLastUpdate": 1554116955000,
+    "bonus": false,
+    "bikeStands": 40,
+    "bikesAvailable": 29
+  },
+  {
+    "standNumber": 109,
+    "standAddress": "Buckingham Street Lower",
+    "contractName": "Dublin",
+    "standName": "BUCKINGHAM STREET LOWER",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.249319,
+      "latitude": 53.353331
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 27,
+    "standLastUpdate": 1554116735000,
+    "bonus": false,
+    "bikeStands": 29,
+    "bikesAvailable": 2
+  },
+  {
+    "standNumber": 85,
+    "standAddress": "Rothe Abbey",
+    "contractName": "Dublin",
+    "standName": "ROTHE ABBEY",
+    "standBanking": true,
+    "standGeoLocation": {
+      "longitude": -6.30395,
+      "latitude": 53.338776
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 35,
+    "standLastUpdate": 1554116491000,
+    "bonus": false,
+    "bikeStands": 35,
+    "bikesAvailable": 0
+  },
+  {
+    "standNumber": 107,
+    "standAddress": "Charleville Road",
+    "contractName": "Dublin",
+    "standName": "CHARLEVILLE ROAD",
+    "standBanking": true,
+    "standGeoLocation": {
+      "longitude": -6.281866,
+      "latitude": 53.359157
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 40,
+    "standLastUpdate": 1554116869000,
+    "bonus": false,
+    "bikeStands": 40,
+    "bikesAvailable": 0
+  },
+  {
+    "standNumber": 33,
+    "standAddress": "Princes Street / O'Connell Street",
+    "contractName": "Dublin",
+    "standName": "PRINCES STREET / O'CONNELL STREET",
+    "standBanking": true,
+    "standGeoLocation": {
+      "longitude": -6.260311,
+      "latitude": 53.349013
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 16,
+    "standLastUpdate": 1554116883000,
+    "bonus": false,
+    "bikeStands": 23,
+    "bikesAvailable": 7
+  },
+  {
+    "standNumber": 44,
+    "standAddress": "Upper Sherrard Street",
+    "contractName": "Dublin",
+    "standName": "UPPER SHERRARD STREET",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.260641,
+      "latitude": 53.358437
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 30,
+    "standLastUpdate": 1554116489000,
+    "bonus": false,
+    "bikeStands": 30,
+    "bikesAvailable": 0
+  },
+  {
+    "standNumber": 89,
+    "standAddress": "Fitzwilliam Square East",
+    "contractName": "Dublin",
+    "standName": "FITZWILLIAM SQUARE EAST",
+    "standBanking": true,
+    "standGeoLocation": {
+      "longitude": -6.2509,
+      "latitude": 53.335211
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 0,
+    "standLastUpdate": 1554116590000,
+    "bonus": false,
+    "bikeStands": 40,
+    "bikesAvailable": 39
+  },
+  {
+    "standNumber": 57,
+    "standAddress": "Grattan Street",
+    "contractName": "Dublin",
+    "standName": "GRATTAN STREET",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.243778,
+      "latitude": 53.339629
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 0,
+    "standLastUpdate": 1554116704000,
+    "bonus": false,
+    "bikeStands": 23,
+    "bikesAvailable": 23
+  },
+  {
+    "standNumber": 80,
+    "standAddress": "St James Hospital (Luas)",
+    "contractName": "Dublin",
+    "standName": "ST JAMES HOSPITAL (LUAS)",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.292951,
+      "latitude": 53.341359
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 37,
+    "standLastUpdate": 1554116786000,
+    "bonus": false,
+    "bikeStands": 40,
+    "bikesAvailable": 3
+  },
+  {
+    "standNumber": 41,
+    "standAddress": "Harcourt Terrace",
+    "contractName": "Dublin",
+    "standName": "HARCOURT TERRACE",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.257942,
+      "latitude": 53.332763
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 14,
+    "standLastUpdate": 1554116898000,
+    "bonus": false,
+    "bikeStands": 20,
+    "bikesAvailable": 6
+  },
+  {
+    "standNumber": 3,
+    "standAddress": "Bolton Street",
+    "contractName": "Dublin",
+    "standName": "BOLTON STREET",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.269859,
+      "latitude": 53.351182
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 20,
+    "standLastUpdate": 1554116835000,
+    "bonus": false,
+    "bikeStands": 20,
+    "bikesAvailable": 0
+  },
+  {
+    "standNumber": 46,
+    "standAddress": "Strand Street Great",
+    "contractName": "Dublin",
+    "standName": "STRAND STREET GREAT",
+    "standBanking": true,
+    "standGeoLocation": {
+      "longitude": -6.264192,
+      "latitude": 53.347082
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 18,
+    "standLastUpdate": 1554116483000,
+    "bonus": false,
+    "bikeStands": 20,
+    "bikesAvailable": 2
+  },
+  {
+    "standNumber": 40,
+    "standAddress": "Jervis Street",
+    "contractName": "Dublin",
+    "standName": "JERVIS STREET",
+    "standBanking": true,
+    "standGeoLocation": {
+      "longitude": -6.266651,
+      "latitude": 53.3483
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 20,
+    "standLastUpdate": 1554117052000,
+    "bonus": false,
+    "bikeStands": 21,
+    "bikesAvailable": 1
+  },
+  {
+    "standNumber": 29,
+    "standAddress": "Ormond Quay Upper",
+    "contractName": "Dublin",
+    "standName": "ORMOND QUAY UPPER",
+    "standBanking": true,
+    "standGeoLocation": {
+      "longitude": -6.268001,
+      "latitude": 53.346057
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 23,
+    "standLastUpdate": 1554116904000,
+    "bonus": false,
+    "bikeStands": 29,
+    "bikesAvailable": 6
+  },
+  {
+    "standNumber": 70,
+    "standAddress": "Barrow Street",
+    "contractName": "Dublin",
+    "standName": "BARROW STREET",
+    "standBanking": true,
+    "standGeoLocation": {
+      "longitude": -6.236198,
+      "latitude": 53.341655
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 0,
+    "standLastUpdate": 1554116529000,
+    "bonus": false,
+    "bikeStands": 28,
+    "bikesAvailable": 28
+  },
+  {
+    "standNumber": 103,
+    "standAddress": "Grangegorman Lower (South)",
+    "contractName": "Dublin",
+    "standName": "GRANGEGORMAN LOWER (SOUTH)",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.278681,
+      "latitude": 53.354663
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 40,
+    "standLastUpdate": 1554117053000,
+    "bonus": false,
+    "bikeStands": 40,
+    "bikesAvailable": 0
+  },
+  {
+    "standNumber": 28,
+    "standAddress": "Mountjoy Square West",
+    "contractName": "Dublin",
+    "standName": "MOUNTJOY SQUARE WEST",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.258586,
+      "latitude": 53.356299
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 28,
+    "standLastUpdate": 1554116988000,
+    "bonus": false,
+    "bikeStands": 30,
+    "bikesAvailable": 2
+  },
+  {
+    "standNumber": 39,
+    "standAddress": "Wilton Terrace",
+    "contractName": "Dublin",
+    "standName": "WILTON TERRACE",
+    "standBanking": true,
+    "standGeoLocation": {
+      "longitude": -6.252717,
+      "latitude": 53.332383
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 10,
+    "standLastUpdate": 1554116990000,
+    "bonus": false,
+    "bikeStands": 20,
+    "bikesAvailable": 10
+  },
+  {
+    "standNumber": 83,
+    "standAddress": "Emmet Road",
+    "contractName": "Dublin",
+    "standName": "EMMET ROAD",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.308191,
+      "latitude": 53.340714
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 40,
+    "standLastUpdate": 1554116816000,
+    "bonus": false,
+    "bikeStands": 40,
+    "bikesAvailable": 0
+  },
+  {
+    "standNumber": 92,
+    "standAddress": "Heuston Bridge (North)",
+    "contractName": "Dublin",
+    "standName": "HEUSTON BRIDGE (NORTH)",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.292432,
+      "latitude": 53.347802
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 40,
+    "standLastUpdate": 1554117044000,
+    "bonus": false,
+    "bikeStands": 40,
+    "bikesAvailable": 0
+  },
+  {
+    "standNumber": 21,
+    "standAddress": "Leinster Street South",
+    "contractName": "Dublin",
+    "standName": "LEINSTER STREET SOUTH",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.254485,
+      "latitude": 53.34218
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 2,
+    "standLastUpdate": 1554116641000,
+    "bonus": false,
+    "bikeStands": 30,
+    "bikesAvailable": 28
+  },
+  {
+    "standNumber": 88,
+    "standAddress": "Blackhall Place",
+    "contractName": "Dublin",
+    "standName": "BLACKHALL PLACE",
+    "standBanking": false,
+    "standGeoLocation": {
+      "longitude": -6.281637,
+      "latitude": 53.3488
+    },
+    "standStatus": "OPEN",
+    "standsAvailable": 30,
+    "standLastUpdate": 1554116998000,
+    "bonus": false,
+    "bikeStands": 30,
+    "bikesAvailable": 0
+  }
+]

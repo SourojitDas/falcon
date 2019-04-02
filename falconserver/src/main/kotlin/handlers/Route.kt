@@ -3,9 +3,7 @@ package handlers
 import io.javalin.Context
 import models.falcon.FalconDirectionsModel
 import models.falcon.RequestBody
-import services.BikeStand
-import services.GoogleRoute
-import services.Weather
+import services.*
 
 object GoogleRouteController {
     private const val LuasMode = "Luas"
@@ -24,24 +22,26 @@ object GoogleRouteController {
 
     fun getRouteByOriginAndDestination(ctx: Context) {
         val body = ctx.body<RequestBody>()
-        val res = constructCustomRoute(body)
+        val res = constructCustomRoute(body, Weather, BikeStand, GoogleRoute)
         ctx.json(res)
     }
 
-    private fun constructCustomRoute(data: RequestBody): models.falcon.FalconDirectionsModel {
-        val destination = data.destination!!
+    private fun constructCustomRoute(data: RequestBody, weatherInterface: WeatherInterface,
+                                     bikeStandInterface: BikeStandInterface,
+                                     googleRouteInterface: GoogleRouteInterface): models.falcon.FalconDirectionsModel {
+        val destination = data.destination
         val origin = data.origin!!
         val cityID = data.cityID
         val cityName = data.cityName
         val userPreferences = data.preferences!!
 
-        val multiModeDirections: List<models.falcon.FalconDirectionsModel?> = GoogleRoute.getMultiModeRoute(
+        val multiModeDirections: List<models.falcon.FalconDirectionsModel?> = googleRouteInterface.getMultiModeRoute(
             "${origin.latitude},${origin.longitude}",
-            "${destination.latitude},${destination.longitude}"
+            "${destination?.latitude},${destination?.longitude}"
         )
 
-        val weather = Weather.getByCityID(cityID)
-        val bikeStands = BikeStand.getRealTimeStandsInfoByCity(cityName)
+        val weather = weatherInterface.getByCityID(cityID)
+        val bikeStands = bikeStandInterface.getRealTimeStandsInfoByCity(cityName)
 
         val res: FalconDirectionsModel? = FalconDirectionsModel()
         res?.routes = mutableListOf()
