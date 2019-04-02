@@ -150,11 +150,17 @@ object GoogleRoute {
             modifiedDirectionsObjectOrigin.routes = mutableListOf()
 
             var modifiedDirectionsObjectCycling = FalconDirectionsModel()
-            modifiedDirectionsObjectCycling = _updateDirectionsObject(modifiedDirectionsObjectCycling, directionsFromGoogleOrigin!!)
+            modifiedDirectionsObjectCycling = _updateDirectionsObject(
+                modifiedDirectionsObjectCycling,
+                directionsFromGoogleOrigin
+            )
             modifiedDirectionsObjectCycling.routes = mutableListOf()
 
             var modifiedDirectionsObjectDesitination = FalconDirectionsModel()
-            modifiedDirectionsObjectDesitination = _updateDirectionsObject(modifiedDirectionsObjectDesitination, directionsFromGoogleOrigin!!)
+            modifiedDirectionsObjectDesitination = _updateDirectionsObject(
+                modifiedDirectionsObjectDesitination,
+                directionsFromGoogleOrigin
+            )
             modifiedDirectionsObjectDesitination.routes = mutableListOf()
 
             for (route in directionsFromGoogleOrigin.routes!!) {
@@ -189,4 +195,20 @@ object GoogleRoute {
         return res
     }
 
+}
+
+interface GoogleRouteInterface {
+    fun getRouteByEndpointsAndMode(
+        origin: String,
+        destination: String,
+        mode: String
+    ): models.googleMaps.GoogleDirectionsModel?
+
+    fun getMultiModeRoute(origin: String, destination: String): List<FalconDirectionsModel?>
+    fun _updateDirectionsObject(
+        falconObj: FalconDirectionsModel,
+        googleObj: GoogleDirectionsModel
+    ): FalconDirectionsModel
+
+    fun _updateRouteObject(falconObj: FalconRouteModel, googleObj: GoogleRouteModel): FalconRouteModel
 }
