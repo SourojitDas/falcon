@@ -899,8 +899,8 @@
   "bikeStands": [
     {
       "standNumber": 42,
-      "standAddress": "Smithfield North",
-      "contractName": "Dublin",
+      "address": "Smithfield North",
+      "contract_name": "Dublin",
       "standName": "SMITHFIELD NORTH",
       "standBanking": true,
       "standGeoLocation": {
@@ -916,8 +916,8 @@
     },
     {
       "standNumber": 30,
-      "standAddress": "Parnell Square North",
-      "contractName": "Dublin",
+      "address": "Parnell Square North",
+      "contract_name": "Dublin",
       "standName": "PARNELL SQUARE NORTH",
       "standBanking": true,
       "standGeoLocation": {
@@ -933,8 +933,8 @@
     },
     {
       "standNumber": 54,
-      "standAddress": "Clonmel Street",
-      "contractName": "Dublin",
+      "address": "Clonmel Street",
+      "contract_name": "Dublin",
       "standName": "CLONMEL STREET",
       "standBanking": false,
       "standGeoLocation": {
@@ -950,8 +950,8 @@
     },
     {
       "standNumber": 108,
-      "standAddress": "Avondale Road",
-      "contractName": "Dublin",
+      "address": "Avondale Road",
+      "contract_name": "Dublin",
       "standName": "AVONDALE ROAD",
       "standBanking": false,
       "standGeoLocation": {
@@ -967,8 +967,8 @@
     },
     {
       "standNumber": 56,
-      "standAddress": "Mount Street Lower",
-      "contractName": "Dublin",
+      "address": "Mount Street Lower",
+      "contract_name": "Dublin",
       "standName": "MOUNT STREET LOWER",
       "standBanking": false,
       "standGeoLocation": {
@@ -984,8 +984,8 @@
     },
     {
       "standNumber": 6,
-      "standAddress": "Christchurch Place",
-      "contractName": "Dublin",
+      "address": "Christchurch Place",
+      "contract_name": "Dublin",
       "standName": "CHRISTCHURCH PLACE",
       "standBanking": false,
       "standGeoLocation": {
@@ -1001,8 +1001,8 @@
     },
     {
       "standNumber": 18,
-      "standAddress": "Grantham Street",
-      "contractName": "Dublin",
+      "address": "Grantham Street",
+      "contract_name": "Dublin",
       "standName": "GRANTHAM STREET",
       "standBanking": true,
       "standGeoLocation": {
@@ -1018,8 +1018,8 @@
     },
     {
       "standNumber": 32,
-      "standAddress": "Pearse Street",
-      "contractName": "Dublin",
+      "address": "Pearse Street",
+      "contract_name": "Dublin",
       "standName": "PEARSE STREET",
       "standBanking": true,
       "standGeoLocation": {
@@ -1035,8 +1035,8 @@
     },
     {
       "standNumber": 52,
-      "standAddress": "York Street East",
-      "contractName": "Dublin",
+      "address": "York Street East",
+      "contract_name": "Dublin",
       "standName": "YORK STREET EAST",
       "standBanking": false,
       "standGeoLocation": {
@@ -1052,8 +1052,8 @@
     },
     {
       "standNumber": 48,
-      "standAddress": "Excise Walk",
-      "contractName": "Dublin",
+      "address": "Excise Walk",
+      "contract_name": "Dublin",
       "standName": "EXCISE WALK",
       "standBanking": false,
       "standGeoLocation": {
@@ -1069,8 +1069,8 @@
     },
     {
       "standNumber": 13,
-      "standAddress": "Fitzwilliam Square West",
-      "contractName": "Dublin",
+      "address": "Fitzwilliam Square West",
+      "contract_name": "Dublin",
       "standName": "FITZWILLIAM SQUARE WEST",
       "standBanking": false,
       "standGeoLocation": {
@@ -1086,8 +1086,8 @@
     },
     {
       "standNumber": 43,
-      "standAddress": "Portobello Road",
-      "contractName": "Dublin",
+      "address": "Portobello Road",
+      "contract_name": "Dublin",
       "standName": "PORTOBELLO ROAD",
       "standBanking": true,
       "standGeoLocation": {
@@ -1103,8 +1103,8 @@
     },
     {
       "standNumber": 81,
-      "standAddress": "St. James Hospital (Central)",
-      "contractName": "Dublin",
+      "address": "St. James Hospital (Central)",
+      "contract_name": "Dublin",
       "standName": "ST. JAMES HOSPITAL (CENTRAL)",
       "standBanking": false,
       "standGeoLocation": {
@@ -1120,8 +1120,8 @@
     },
     {
       "standNumber": 31,
-      "standAddress": "Parnell Street",
-      "contractName": "Dublin",
+      "address": "Parnell Street",
+      "contract_name": "Dublin",
       "standName": "PARNELL STREET",
       "standBanking": false,
       "standGeoLocation": {
@@ -1137,8 +1137,8 @@
     },
     {
       "standNumber": 98,
-      "standAddress": "Frederick Street South",
-      "contractName": "Dublin",
+      "address": "Frederick Street South",
+      "contract_name": "Dublin",
       "standName": "FREDERICK STREET SOUTH",
       "standBanking": true,
       "standGeoLocation": {
@@ -1154,8 +1154,8 @@
     },
     {
       "standNumber": 14,
-      "standAddress": "Fownes Street Upper",
-      "contractName": "Dublin",
+      "address": "Fownes Street Upper",
+      "contract_name": "Dublin",
       "standName": "FOWNES STREET UPPER",
       "standBanking": false,
       "standGeoLocation": {
@@ -1171,8 +1171,8 @@
     },
     {
       "standNumber": 23,
-      "standAddress": "Custom House",
-      "contractName": "Dublin",
+      "address": "Custom House",
+      "contract_name": "Dublin",
       "standName": "CUSTOM HOUSE",
       "standBanking": true,
       "standGeoLocation": {
@@ -1188,8 +1188,8 @@
     },
     {
       "standNumber": 106,
-      "standAddress": "Rathdown Road",
-      "contractName": "Dublin",
+      "address": "Rathdown Road",
+      "contract_name": "Dublin",
       "standName": "RATHDOWN ROAD",
       "standBanking": false,
       "standGeoLocation": {
@@ -1205,8 +1205,8 @@
     },
     {
       "standNumber": 112,
-      "standAddress": "North Circular Road (O'Connell's)",
-      "contractName": "Dublin",
+      "address": "North Circular Road (O'Connell's)",
+      "contract_name": "Dublin",
       "standName": "NORTH CIRCULAR ROAD (O'CONNELL'S)",
       "standBanking": false,
       "standGeoLocation": {
@@ -1222,8 +1222,8 @@
     },
     {
       "standNumber": 68,
-      "standAddress": "Hanover Quay",
-      "contractName": "Dublin",
+      "address": "Hanover Quay",
+      "contract_name": "Dublin",
       "standName": "HANOVER QUAY",
       "standBanking": true,
       "standGeoLocation": {
@@ -1239,8 +1239,8 @@
     },
     {
       "standNumber": 74,
-      "standAddress": "Oliver Bond Street",
-      "contractName": "Dublin",
+      "address": "Oliver Bond Street",
+      "contract_name": "Dublin",
       "standName": "OLIVER BOND STREET",
       "standBanking": false,
       "standGeoLocation": {
@@ -1256,8 +1256,8 @@
     },
     {
       "standNumber": 87,
-      "standAddress": "Collins Barracks Museum",
-      "contractName": "Dublin",
+      "address": "Collins Barracks Museum",
+      "contract_name": "Dublin",
       "standName": "COLLINS BARRACKS MUSEUM",
       "standBanking": true,
       "standGeoLocation": {
@@ -1273,8 +1273,8 @@
     },
     {
       "standNumber": 84,
-      "standAddress": "Brookfield Road",
-      "contractName": "Dublin",
+      "address": "Brookfield Road",
+      "contract_name": "Dublin",
       "standName": "BROOKFIELD ROAD",
       "standBanking": false,
       "standGeoLocation": {
@@ -1290,8 +1290,8 @@
     },
     {
       "standNumber": 90,
-      "standAddress": "Benson Street",
-      "contractName": "Dublin",
+      "address": "Benson Street",
+      "contract_name": "Dublin",
       "standName": "BENSON STREET",
       "standBanking": false,
       "standGeoLocation": {
@@ -1307,8 +1307,8 @@
     },
     {
       "standNumber": 11,
-      "standAddress": "Earlsfort Terrace",
-      "contractName": "Dublin",
+      "address": "Earlsfort Terrace",
+      "contract_name": "Dublin",
       "standName": "EARLSFORT TERRACE",
       "standBanking": false,
       "standGeoLocation": {
@@ -1324,8 +1324,8 @@
     },
     {
       "standNumber": 17,
-      "standAddress": "Golden Lane",
-      "contractName": "Dublin",
+      "address": "Golden Lane",
+      "contract_name": "Dublin",
       "standName": "GOLDEN LANE",
       "standBanking": false,
       "standGeoLocation": {
@@ -1341,8 +1341,8 @@
     },
     {
       "standNumber": 45,
-      "standAddress": "Deverell Place",
-      "contractName": "Dublin",
+      "address": "Deverell Place",
+      "contract_name": "Dublin",
       "standName": "DEVERELL PLACE",
       "standBanking": false,
       "standGeoLocation": {
@@ -1358,8 +1358,8 @@
     },
     {
       "standNumber": 114,
-      "standAddress": "Wilton Terrace (Park)",
-      "contractName": "Dublin",
+      "address": "Wilton Terrace (Park)",
+      "contract_name": "Dublin",
       "standName": "WILTON TERRACE (PARK)",
       "standBanking": true,
       "standGeoLocation": {
@@ -1375,8 +1375,8 @@
     },
     {
       "standNumber": 72,
-      "standAddress": "John Street West",
-      "contractName": "Dublin",
+      "address": "John Street West",
+      "contract_name": "Dublin",
       "standName": "JOHN STREET WEST",
       "standBanking": false,
       "standGeoLocation": {
@@ -1392,8 +1392,8 @@
     },
     {
       "standNumber": 63,
-      "standAddress": "Fenian Street",
-      "contractName": "Dublin",
+      "address": "Fenian Street",
+      "contract_name": "Dublin",
       "standName": "FENIAN STREET",
       "standBanking": false,
       "standGeoLocation": {
@@ -1409,8 +1409,8 @@
     },
     {
       "standNumber": 113,
-      "standAddress": "Merrion Square South",
-      "contractName": "Dublin",
+      "address": "Merrion Square South",
+      "contract_name": "Dublin",
       "standName": "MERRION SQUARE SOUTH",
       "standBanking": true,
       "standGeoLocation": {
@@ -1426,8 +1426,8 @@
     },
     {
       "standNumber": 91,
-      "standAddress": "South Dock Road",
-      "contractName": "Dublin",
+      "address": "South Dock Road",
+      "contract_name": "Dublin",
       "standName": "SOUTH DOCK ROAD",
       "standBanking": false,
       "standGeoLocation": {
@@ -1443,8 +1443,8 @@
     },
     {
       "standNumber": 99,
-      "standAddress": "City Quay",
-      "contractName": "Dublin",
+      "address": "City Quay",
+      "contract_name": "Dublin",
       "standName": "CITY QUAY",
       "standBanking": false,
       "standGeoLocation": {
@@ -1460,8 +1460,8 @@
     },
     {
       "standNumber": 9,
-      "standAddress": "Exchequer Street",
-      "contractName": "Dublin",
+      "address": "Exchequer Street",
+      "contract_name": "Dublin",
       "standName": "EXCHEQUER STREET",
       "standBanking": false,
       "standGeoLocation": {
@@ -1477,8 +1477,8 @@
     },
     {
       "standNumber": 67,
-      "standAddress": "The Point",
-      "contractName": "Dublin",
+      "address": "The Point",
+      "contract_name": "Dublin",
       "standName": "THE POINT",
       "standBanking": false,
       "standGeoLocation": {
@@ -1494,8 +1494,8 @@
     },
     {
       "standNumber": 55,
-      "standAddress": "Hatch Street",
-      "contractName": "Dublin",
+      "address": "Hatch Street",
+      "contract_name": "Dublin",
       "standName": "HATCH STREET",
       "standBanking": false,
       "standGeoLocation": {
@@ -1511,8 +1511,8 @@
     },
     {
       "standNumber": 62,
-      "standAddress": "Lime Street",
-      "contractName": "Dublin",
+      "address": "Lime Street",
+      "contract_name": "Dublin",
       "standName": "LIME STREET",
       "standBanking": false,
       "standGeoLocation": {
@@ -1528,8 +1528,8 @@
     },
     {
       "standNumber": 5,
-      "standAddress": "Charlemont Street",
-      "contractName": "Dublin",
+      "address": "Charlemont Street",
+      "contract_name": "Dublin",
       "standName": "CHARLEMONT PLACE",
       "standBanking": false,
       "standGeoLocation": {
@@ -1545,8 +1545,8 @@
     },
     {
       "standNumber": 97,
-      "standAddress": "Kilmainham Gaol",
-      "contractName": "Dublin",
+      "address": "Kilmainham Gaol",
+      "contract_name": "Dublin",
       "standName": "KILMAINHAM GAOL",
       "standBanking": true,
       "standGeoLocation": {
@@ -1562,8 +1562,8 @@
     },
     {
       "standNumber": 61,
-      "standAddress": "Hardwicke Place",
-      "contractName": "Dublin",
+      "address": "Hardwicke Place",
+      "contract_name": "Dublin",
       "standName": "HARDWICKE PLACE",
       "standBanking": true,
       "standGeoLocation": {
@@ -1579,8 +1579,8 @@
     },
     {
       "standNumber": 77,
-      "standAddress": "Wolfe Tone Street",
-      "contractName": "Dublin",
+      "address": "Wolfe Tone Street",
+      "contract_name": "Dublin",
       "standName": "WOLFE TONE STREET",
       "standBanking": false,
       "standGeoLocation": {
@@ -1596,8 +1596,8 @@
     },
     {
       "standNumber": 73,
-      "standAddress": "Francis Street",
-      "contractName": "Dublin",
+      "address": "Francis Street",
+      "contract_name": "Dublin",
       "standName": "FRANCIS STREET",
       "standBanking": false,
       "standGeoLocation": {
@@ -1613,8 +1613,8 @@
     },
     {
       "standNumber": 4,
-      "standAddress": "Greek Street",
-      "contractName": "Dublin",
+      "address": "Greek Street",
+      "contract_name": "Dublin",
       "standName": "GREEK STREET",
       "standBanking": false,
       "standGeoLocation": {
@@ -1630,8 +1630,8 @@
     },
     {
       "standNumber": 49,
-      "standAddress": "Guild Street",
-      "contractName": "Dublin",
+      "address": "Guild Street",
+      "contract_name": "Dublin",
       "standName": "GUILD STREET",
       "standBanking": false,
       "standGeoLocation": {
@@ -1647,8 +1647,8 @@
     },
     {
       "standNumber": 19,
-      "standAddress": "Herbert Place",
-      "contractName": "Dublin",
+      "address": "Herbert Place",
+      "contract_name": "Dublin",
       "standName": "HERBERT PLACE",
       "standBanking": false,
       "standGeoLocation": {
@@ -1664,8 +1664,8 @@
     },
     {
       "standNumber": 7,
-      "standAddress": "High Street",
-      "contractName": "Dublin",
+      "address": "High Street",
+      "contract_name": "Dublin",
       "standName": "HIGH STREET",
       "standBanking": true,
       "standGeoLocation": {
@@ -1681,8 +1681,8 @@
     },
     {
       "standNumber": 60,
-      "standAddress": "North Circular Road",
-      "contractName": "Dublin",
+      "address": "North Circular Road",
+      "contract_name": "Dublin",
       "standName": "NORTH CIRCULAR ROAD",
       "standBanking": false,
       "standGeoLocation": {
@@ -1698,8 +1698,8 @@
     },
     {
       "standNumber": 102,
-      "standAddress": "Western Way",
-      "contractName": "Dublin",
+      "address": "Western Way",
+      "contract_name": "Dublin",
       "standName": "WESTERN WAY",
       "standBanking": false,
       "standGeoLocation": {
@@ -1715,8 +1715,8 @@
     },
     {
       "standNumber": 38,
-      "standAddress": "Talbot Street",
-      "contractName": "Dublin",
+      "address": "Talbot Street",
+      "contract_name": "Dublin",
       "standName": "TALBOT STREET",
       "standBanking": false,
       "standGeoLocation": {
@@ -1732,8 +1732,8 @@
     },
     {
       "standNumber": 53,
-      "standAddress": "Newman House",
-      "contractName": "Dublin",
+      "address": "Newman House",
+      "contract_name": "Dublin",
       "standName": "NEWMAN HOUSE",
       "standBanking": false,
       "standGeoLocation": {
@@ -1749,8 +1749,8 @@
     },
     {
       "standNumber": 58,
-      "standAddress": "Sir Patrick's Dun",
-      "contractName": "Dublin",
+      "address": "Sir Patrick's Dun",
+      "contract_name": "Dublin",
       "standName": "SIR PATRICK DUN'S",
       "standBanking": true,
       "standGeoLocation": {
@@ -1766,8 +1766,8 @@
     },
     {
       "standNumber": 66,
-      "standAddress": "New Central Bank",
-      "contractName": "Dublin",
+      "address": "New Central Bank",
+      "contract_name": "Dublin",
       "standName": "NEW CENTRAL BANK",
       "standBanking": false,
       "standGeoLocation": {
@@ -1783,8 +1783,8 @@
     },
     {
       "standNumber": 104,
-      "standAddress": "Grangegorman Lower (Central)",
-      "contractName": "Dublin",
+      "address": "Grangegorman Lower (Central)",
+      "contract_name": "Dublin",
       "standName": "GRANGEGORMAN LOWER (CENTRAL)",
       "standBanking": true,
       "standGeoLocation": {
@@ -1800,8 +1800,8 @@
     },
     {
       "standNumber": 101,
-      "standAddress": "King Street North",
-      "contractName": "Dublin",
+      "address": "King Street North",
+      "contract_name": "Dublin",
       "standName": "KING STREET NORTH",
       "standBanking": false,
       "standGeoLocation": {
@@ -1817,8 +1817,8 @@
     },
     {
       "standNumber": 115,
-      "standAddress": "Killarney Street",
-      "contractName": "Dublin",
+      "address": "Killarney Street",
+      "contract_name": "Dublin",
       "standName": "KILLARNEY STREET",
       "standBanking": false,
       "standGeoLocation": {
@@ -1834,8 +1834,8 @@
     },
     {
       "standNumber": 47,
-      "standAddress": "Herbert Street",
-      "contractName": "Dublin",
+      "address": "Herbert Street",
+      "contract_name": "Dublin",
       "standName": "HERBERT STREET",
       "standBanking": false,
       "standGeoLocation": {
@@ -1851,8 +1851,8 @@
     },
     {
       "standNumber": 8,
-      "standAddress": "Custom House Quay",
-      "contractName": "Dublin",
+      "address": "Custom House Quay",
+      "contract_name": "Dublin",
       "standName": "CUSTOM HOUSE QUAY",
       "standBanking": false,
       "standGeoLocation": {
@@ -1868,8 +1868,8 @@
     },
     {
       "standNumber": 27,
-      "standAddress": "Molesworth Street",
-      "contractName": "Dublin",
+      "address": "Molesworth Street",
+      "contract_name": "Dublin",
       "standName": "MOLESWORTH STREET",
       "standBanking": false,
       "standGeoLocation": {
@@ -1885,8 +1885,8 @@
     },
     {
       "standNumber": 16,
-      "standAddress": "Georges Quay",
-      "contractName": "Dublin",
+      "address": "Georges Quay",
+      "contract_name": "Dublin",
       "standName": "GEORGES QUAY",
       "standBanking": false,
       "standGeoLocation": {
@@ -1902,8 +1902,8 @@
     },
     {
       "standNumber": 96,
-      "standAddress": "Kilmainham Lane",
-      "contractName": "Dublin",
+      "address": "Kilmainham Lane",
+      "contract_name": "Dublin",
       "standName": "KILMAINHAM LANE",
       "standBanking": false,
       "standGeoLocation": {
@@ -1919,8 +1919,8 @@
     },
     {
       "standNumber": 82,
-      "standAddress": "Mount Brown",
-      "contractName": "Dublin",
+      "address": "Mount Brown",
+      "contract_name": "Dublin",
       "standName": "MOUNT BROWN",
       "standBanking": false,
       "standGeoLocation": {
@@ -1936,8 +1936,8 @@
     },
     {
       "standNumber": 76,
-      "standAddress": "Market Street South",
-      "contractName": "Dublin",
+      "address": "Market Street South",
+      "contract_name": "Dublin",
       "standName": "MARKET STREET SOUTH",
       "standBanking": false,
       "standGeoLocation": {
@@ -1953,8 +1953,8 @@
     },
     {
       "standNumber": 71,
-      "standAddress": "Kevin Street",
-      "contractName": "Dublin",
+      "address": "Kevin Street",
+      "contract_name": "Dublin",
       "standName": "KEVIN STREET",
       "standBanking": true,
       "standGeoLocation": {
@@ -1970,8 +1970,8 @@
     },
     {
       "standNumber": 79,
-      "standAddress": "Eccles Street East",
-      "contractName": "Dublin",
+      "address": "Eccles Street East",
+      "contract_name": "Dublin",
       "standName": "ECCLES STREET EAST",
       "standBanking": false,
       "standGeoLocation": {
@@ -1987,8 +1987,8 @@
     },
     {
       "standNumber": 69,
-      "standAddress": "Grand Canal Dock",
-      "contractName": "Dublin",
+      "address": "Grand Canal Dock",
+      "contract_name": "Dublin",
       "standName": "GRAND CANAL DOCK",
       "standBanking": false,
       "standGeoLocation": {
@@ -2004,8 +2004,8 @@
     },
     {
       "standNumber": 25,
-      "standAddress": "Merrion Square East",
-      "contractName": "Dublin",
+      "address": "Merrion Square East",
+      "contract_name": "Dublin",
       "standName": "MERRION SQUARE EAST",
       "standBanking": false,
       "standGeoLocation": {
@@ -2021,8 +2021,8 @@
     },
     {
       "standNumber": 51,
-      "standAddress": "York Street West",
-      "contractName": "Dublin",
+      "address": "York Street West",
+      "contract_name": "Dublin",
       "standName": "YORK STREET WEST",
       "standBanking": false,
       "standGeoLocation": {
@@ -2038,8 +2038,8 @@
     },
     {
       "standNumber": 37,
-      "standAddress": "St. Stephen's Green South",
-      "contractName": "Dublin",
+      "address": "St. Stephen's Green South",
+      "contract_name": "Dublin",
       "standName": "ST. STEPHEN'S GREEN SOUTH",
       "standBanking": true,
       "standGeoLocation": {
@@ -2055,8 +2055,8 @@
     },
     {
       "standNumber": 59,
-      "standAddress": "Denmark Street Great",
-      "contractName": "Dublin",
+      "address": "Denmark Street Great",
+      "contract_name": "Dublin",
       "standName": "DENMARK STREET GREAT",
       "standBanking": false,
       "standGeoLocation": {
@@ -2072,8 +2072,8 @@
     },
     {
       "standNumber": 95,
-      "standAddress": "Royal Hospital",
-      "contractName": "Dublin",
+      "address": "Royal Hospital",
+      "contract_name": "Dublin",
       "standName": "ROYAL HOSPITAL",
       "standBanking": true,
       "standGeoLocation": {
@@ -2089,8 +2089,8 @@
     },
     {
       "standNumber": 94,
-      "standAddress": "Heuston Station (Car Park)",
-      "contractName": "Dublin",
+      "address": "Heuston Station (Car Park)",
+      "contract_name": "Dublin",
       "standName": "HEUSTON STATION (CAR PARK)",
       "standBanking": false,
       "standGeoLocation": {
@@ -2106,8 +2106,8 @@
     },
     {
       "standNumber": 105,
-      "standAddress": "Grangegorman Lower (North)",
-      "contractName": "Dublin",
+      "address": "Grangegorman Lower (North)",
+      "contract_name": "Dublin",
       "standName": "GRANGEGORMAN LOWER (NORTH)",
       "standBanking": false,
       "standGeoLocation": {
@@ -2123,8 +2123,8 @@
     },
     {
       "standNumber": 36,
-      "standAddress": "St. Stephen's Green East",
-      "contractName": "Dublin",
+      "address": "St. Stephen's Green East",
+      "contract_name": "Dublin",
       "standName": "ST. STEPHEN'S GREEN EAST",
       "standBanking": true,
       "standGeoLocation": {
@@ -2140,8 +2140,8 @@
     },
     {
       "standNumber": 93,
-      "standAddress": "Heuston Station (Central)",
-      "contractName": "Dublin",
+      "address": "Heuston Station (Central)",
+      "contract_name": "Dublin",
       "standName": "HEUSTON STATION (CENTRAL)",
       "standBanking": false,
       "standGeoLocation": {
@@ -2157,8 +2157,8 @@
     },
     {
       "standNumber": 22,
-      "standAddress": "Townsend Street",
-      "contractName": "Dublin",
+      "address": "Townsend Street",
+      "contract_name": "Dublin",
       "standName": "TOWNSEND STREET",
       "standBanking": false,
       "standGeoLocation": {
@@ -2174,8 +2174,8 @@
     },
     {
       "standNumber": 50,
-      "standAddress": "George's Lane",
-      "contractName": "Dublin",
+      "address": "George's Lane",
+      "contract_name": "Dublin",
       "standName": "GEORGES LANE",
       "standBanking": false,
       "standGeoLocation": {
@@ -2191,8 +2191,8 @@
     },
     {
       "standNumber": 110,
-      "standAddress": "Phibsborough Road",
-      "contractName": "Dublin",
+      "address": "Phibsborough Road",
+      "contract_name": "Dublin",
       "standName": "PHIBSBOROUGH ROAD",
       "standBanking": false,
       "standGeoLocation": {
@@ -2208,8 +2208,8 @@
     },
     {
       "standNumber": 12,
-      "standAddress": "Eccles Street",
-      "contractName": "Dublin",
+      "address": "Eccles Street",
+      "contract_name": "Dublin",
       "standName": "ECCLES STREET",
       "standBanking": false,
       "standGeoLocation": {
@@ -2225,8 +2225,8 @@
     },
     {
       "standNumber": 34,
-      "standAddress": "Portobello Harbour",
-      "contractName": "Dublin",
+      "address": "Portobello Harbour",
+      "contract_name": "Dublin",
       "standName": "PORTOBELLO HARBOUR",
       "standBanking": false,
       "standGeoLocation": {
@@ -2242,8 +2242,8 @@
     },
     {
       "standNumber": 78,
-      "standAddress": "Mater Hospital",
-      "contractName": "Dublin",
+      "address": "Mater Hospital",
+      "contract_name": "Dublin",
       "standName": "MATER HOSPITAL",
       "standBanking": false,
       "standGeoLocation": {
@@ -2259,8 +2259,8 @@
     },
     {
       "standNumber": 2,
-      "standAddress": "Blessington Street",
-      "contractName": "Dublin",
+      "address": "Blessington Street",
+      "contract_name": "Dublin",
       "standName": "BLESSINGTON STREET",
       "standBanking": true,
       "standGeoLocation": {
@@ -2276,8 +2276,8 @@
     },
     {
       "standNumber": 75,
-      "standAddress": "James Street",
-      "contractName": "Dublin",
+      "address": "James Street",
+      "contract_name": "Dublin",
       "standName": "JAMES STREET",
       "standBanking": true,
       "standGeoLocation": {
@@ -2293,8 +2293,8 @@
     },
     {
       "standNumber": 111,
-      "standAddress": "Mountjoy Square East",
-      "contractName": "Dublin",
+      "address": "Mountjoy Square East",
+      "contract_name": "Dublin",
       "standName": "MOUNTJOY SQUARE EAST",
       "standBanking": true,
       "standGeoLocation": {
@@ -2310,8 +2310,8 @@
     },
     {
       "standNumber": 26,
-      "standAddress": "Merrion Square West",
-      "contractName": "Dublin",
+      "address": "Merrion Square West",
+      "contract_name": "Dublin",
       "standName": "MERRION SQUARE WEST",
       "standBanking": true,
       "standGeoLocation": {
@@ -2327,8 +2327,8 @@
     },
     {
       "standNumber": 65,
-      "standAddress": "Convention Centre",
-      "contractName": "Dublin",
+      "address": "Convention Centre",
+      "contract_name": "Dublin",
       "standName": "CONVENTION CENTRE",
       "standBanking": true,
       "standGeoLocation": {
@@ -2344,8 +2344,8 @@
     },
     {
       "standNumber": 15,
-      "standAddress": "Hardwicke Street",
-      "contractName": "Dublin",
+      "address": "Hardwicke Street",
+      "contract_name": "Dublin",
       "standName": "HARDWICKE STREET",
       "standBanking": false,
       "standGeoLocation": {
@@ -2361,8 +2361,8 @@
     },
     {
       "standNumber": 86,
-      "standAddress": "Parkgate Street",
-      "contractName": "Dublin",
+      "address": "Parkgate Street",
+      "contract_name": "Dublin",
       "standName": "PARKGATE STREET",
       "standBanking": true,
       "standGeoLocation": {
@@ -2378,8 +2378,8 @@
     },
     {
       "standNumber": 35,
-      "standAddress": "Smithfield",
-      "contractName": "Dublin",
+      "address": "Smithfield",
+      "contract_name": "Dublin",
       "standName": "SMITHFIELD",
       "standBanking": false,
       "standGeoLocation": {
@@ -2395,8 +2395,8 @@
     },
     {
       "standNumber": 10,
-      "standAddress": "Dame Street",
-      "contractName": "Dublin",
+      "address": "Dame Street",
+      "contract_name": "Dublin",
       "standName": "DAME STREET",
       "standBanking": true,
       "standGeoLocation": {
@@ -2412,8 +2412,8 @@
     },
     {
       "standNumber": 100,
-      "standAddress": "Heuston Bridge (South)",
-      "contractName": "Dublin",
+      "address": "Heuston Bridge (South)",
+      "contract_name": "Dublin",
       "standName": "HEUSTON BRIDGE (SOUTH)",
       "standBanking": false,
       "standGeoLocation": {
@@ -2429,8 +2429,8 @@
     },
     {
       "standNumber": 24,
-      "standAddress": "Cathal Brugha Street",
-      "contractName": "Dublin",
+      "address": "Cathal Brugha Street",
+      "contract_name": "Dublin",
       "standName": "CATHAL BRUGHA STREET",
       "standBanking": false,
       "standGeoLocation": {
@@ -2446,8 +2446,8 @@
     },
     {
       "standNumber": 64,
-      "standAddress": "Sandwith Street",
-      "contractName": "Dublin",
+      "address": "Sandwith Street",
+      "contract_name": "Dublin",
       "standName": "SANDWITH STREET",
       "standBanking": true,
       "standGeoLocation": {
@@ -2463,8 +2463,8 @@
     },
     {
       "standNumber": 109,
-      "standAddress": "Buckingham Street Lower",
-      "contractName": "Dublin",
+      "address": "Buckingham Street Lower",
+      "contract_name": "Dublin",
       "standName": "BUCKINGHAM STREET LOWER",
       "standBanking": false,
       "standGeoLocation": {
@@ -2480,8 +2480,8 @@
     },
     {
       "standNumber": 85,
-      "standAddress": "Rothe Abbey",
-      "contractName": "Dublin",
+      "address": "Rothe Abbey",
+      "contract_name": "Dublin",
       "standName": "ROTHE ABBEY",
       "standBanking": true,
       "standGeoLocation": {
@@ -2497,8 +2497,8 @@
     },
     {
       "standNumber": 107,
-      "standAddress": "Charleville Road",
-      "contractName": "Dublin",
+      "address": "Charleville Road",
+      "contract_name": "Dublin",
       "standName": "CHARLEVILLE ROAD",
       "standBanking": true,
       "standGeoLocation": {
@@ -2514,8 +2514,8 @@
     },
     {
       "standNumber": 33,
-      "standAddress": "Princes Street / O'Connell Street",
-      "contractName": "Dublin",
+      "address": "Princes Street / O'Connell Street",
+      "contract_name": "Dublin",
       "standName": "PRINCES STREET / O'CONNELL STREET",
       "standBanking": true,
       "standGeoLocation": {
@@ -2531,8 +2531,8 @@
     },
     {
       "standNumber": 44,
-      "standAddress": "Upper Sherrard Street",
-      "contractName": "Dublin",
+      "address": "Upper Sherrard Street",
+      "contract_name": "Dublin",
       "standName": "UPPER SHERRARD STREET",
       "standBanking": false,
       "standGeoLocation": {
@@ -2548,8 +2548,8 @@
     },
     {
       "standNumber": 89,
-      "standAddress": "Fitzwilliam Square East",
-      "contractName": "Dublin",
+      "address": "Fitzwilliam Square East",
+      "contract_name": "Dublin",
       "standName": "FITZWILLIAM SQUARE EAST",
       "standBanking": true,
       "standGeoLocation": {
@@ -2565,8 +2565,8 @@
     },
     {
       "standNumber": 57,
-      "standAddress": "Grattan Street",
-      "contractName": "Dublin",
+      "address": "Grattan Street",
+      "contract_name": "Dublin",
       "standName": "GRATTAN STREET",
       "standBanking": false,
       "standGeoLocation": {
@@ -2582,8 +2582,8 @@
     },
     {
       "standNumber": 80,
-      "standAddress": "St James Hospital (Luas)",
-      "contractName": "Dublin",
+      "address": "St James Hospital (Luas)",
+      "contract_name": "Dublin",
       "standName": "ST JAMES HOSPITAL (LUAS)",
       "standBanking": false,
       "standGeoLocation": {
@@ -2599,8 +2599,8 @@
     },
     {
       "standNumber": 41,
-      "standAddress": "Harcourt Terrace",
-      "contractName": "Dublin",
+      "address": "Harcourt Terrace",
+      "contract_name": "Dublin",
       "standName": "HARCOURT TERRACE",
       "standBanking": false,
       "standGeoLocation": {
@@ -2616,8 +2616,8 @@
     },
     {
       "standNumber": 3,
-      "standAddress": "Bolton Street",
-      "contractName": "Dublin",
+      "address": "Bolton Street",
+      "contract_name": "Dublin",
       "standName": "BOLTON STREET",
       "standBanking": false,
       "standGeoLocation": {
@@ -2633,8 +2633,8 @@
     },
     {
       "standNumber": 46,
-      "standAddress": "Strand Street Great",
-      "contractName": "Dublin",
+      "address": "Strand Street Great",
+      "contract_name": "Dublin",
       "standName": "STRAND STREET GREAT",
       "standBanking": true,
       "standGeoLocation": {
@@ -2650,8 +2650,8 @@
     },
     {
       "standNumber": 40,
-      "standAddress": "Jervis Street",
-      "contractName": "Dublin",
+      "address": "Jervis Street",
+      "contract_name": "Dublin",
       "standName": "JERVIS STREET",
       "standBanking": true,
       "standGeoLocation": {
@@ -2667,8 +2667,8 @@
     },
     {
       "standNumber": 29,
-      "standAddress": "Ormond Quay Upper",
-      "contractName": "Dublin",
+      "address": "Ormond Quay Upper",
+      "contract_name": "Dublin",
       "standName": "ORMOND QUAY UPPER",
       "standBanking": true,
       "standGeoLocation": {
@@ -2684,8 +2684,8 @@
     },
     {
       "standNumber": 70,
-      "standAddress": "Barrow Street",
-      "contractName": "Dublin",
+      "address": "Barrow Street",
+      "contract_name": "Dublin",
       "standName": "BARROW STREET",
       "standBanking": true,
       "standGeoLocation": {
@@ -2701,8 +2701,8 @@
     },
     {
       "standNumber": 103,
-      "standAddress": "Grangegorman Lower (South)",
-      "contractName": "Dublin",
+      "address": "Grangegorman Lower (South)",
+      "contract_name": "Dublin",
       "standName": "GRANGEGORMAN LOWER (SOUTH)",
       "standBanking": false,
       "standGeoLocation": {
@@ -2718,8 +2718,8 @@
     },
     {
       "standNumber": 28,
-      "standAddress": "Mountjoy Square West",
-      "contractName": "Dublin",
+      "address": "Mountjoy Square West",
+      "contract_name": "Dublin",
       "standName": "MOUNTJOY SQUARE WEST",
       "standBanking": false,
       "standGeoLocation": {
@@ -2735,8 +2735,8 @@
     },
     {
       "standNumber": 39,
-      "standAddress": "Wilton Terrace",
-      "contractName": "Dublin",
+      "address": "Wilton Terrace",
+      "contract_name": "Dublin",
       "standName": "WILTON TERRACE",
       "standBanking": true,
       "standGeoLocation": {
@@ -2752,8 +2752,8 @@
     },
     {
       "standNumber": 83,
-      "standAddress": "Emmet Road",
-      "contractName": "Dublin",
+      "address": "Emmet Road",
+      "contract_name": "Dublin",
       "standName": "EMMET ROAD",
       "standBanking": false,
       "standGeoLocation": {
@@ -2769,8 +2769,8 @@
     },
     {
       "standNumber": 92,
-      "standAddress": "Heuston Bridge (North)",
-      "contractName": "Dublin",
+      "address": "Heuston Bridge (North)",
+      "contract_name": "Dublin",
       "standName": "HEUSTON BRIDGE (NORTH)",
       "standBanking": false,
       "standGeoLocation": {
@@ -2786,8 +2786,8 @@
     },
     {
       "standNumber": 21,
-      "standAddress": "Leinster Street South",
-      "contractName": "Dublin",
+      "address": "Leinster Street South",
+      "contract_name": "Dublin",
       "standName": "LEINSTER STREET SOUTH",
       "standBanking": false,
       "standGeoLocation": {
@@ -2803,8 +2803,8 @@
     },
     {
       "standNumber": 88,
-      "standAddress": "Blackhall Place",
-      "contractName": "Dublin",
+      "address": "Blackhall Place",
+      "contract_name": "Dublin",
       "standName": "BLACKHALL PLACE",
       "standBanking": false,
       "standGeoLocation": {

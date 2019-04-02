@@ -15,9 +15,9 @@ data class BikeStandModel(
     @Json(name = "number")
     val standNumber: Int? = null,
     @Json(name = "address")
-    val standAddress: String? = null,
+    val address: String? = null,
     @Json(name = "contract_name")
-    val contractName: String? = null,
+    val contract_name: String? = null,
     @Json(name = "name")
     val standName: String? = null,
     @Json(name = "banking")
