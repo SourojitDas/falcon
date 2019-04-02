@@ -4,9 +4,9 @@ import Configuration
 import models.bikestand.parseJson
 
 
-object BikeStand {
+object BikeStand: BikeStandInterface {
 
-    fun getRealTimeStandsInfoByCity(contract: String): List<models.bikestand.BikeStandModel>? {
+    override fun getRealTimeStandsInfoByCity(contract: String): List<models.bikestand.BikeStandModel>? {
         val payload = mapOf(
             "contract" to contract,
             "apiKey" to Configuration.getBikeServiceApiKey()
@@ -15,4 +15,8 @@ object BikeStand {
         val r = khttp.get(Configuration.getBikeServiceBaseURL(), params = payload)
         return parseJson(r.text)
     }
+}
+
+interface BikeStandInterface {
+    fun getRealTimeStandsInfoByCity(contract: String): List<models.bikestand.BikeStandModel>?
 }

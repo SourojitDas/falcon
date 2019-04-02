@@ -7,13 +7,13 @@ import models.googleMaps.GoogleDirectionsModel
 import models.googleMaps.GoogleRouteModel
 import models.googleMaps.parseJson
 
-object GoogleRoute {
+object GoogleRoute: GoogleRouteInterface{
     val DrivingMode = "driving"
     val WalkingMode = "walking"
     val BicyclingMode = "bicycling"
     val TransitMode = "transit"
 
-    fun getRouteByEndpointsAndMode(
+    override fun getRouteByEndpointsAndMode(
         origin: String,
         destination: String,
         mode: String
@@ -28,7 +28,7 @@ object GoogleRoute {
         return parseJson(r.text)
     }
 
-    fun getMultiModeRoute(origin: String, destination: String): List<FalconDirectionsModel?> {
+    override fun getMultiModeRoute(origin: String, destination: String): List<FalconDirectionsModel?> {
         val res = mutableListOf<FalconDirectionsModel>()
         for (mode in listOf(DrivingMode, WalkingMode, BicyclingMode, TransitMode)) {
             val directionsFromGoogle = getRouteByEndpointsAndMode(origin, destination, mode)
@@ -47,7 +47,7 @@ object GoogleRoute {
         return res
     }
 
-    fun _updateDirectionsObject(
+    override fun _updateDirectionsObject(
         falconObj: FalconDirectionsModel,
         googleObj: GoogleDirectionsModel
     ): FalconDirectionsModel =
@@ -56,7 +56,7 @@ object GoogleRoute {
             status = googleObj.status
         }
 
-    fun _updateRouteObject(falconObj: FalconRouteModel, googleObj: GoogleRouteModel): FalconRouteModel =
+    override fun _updateRouteObject(falconObj: FalconRouteModel, googleObj: GoogleRouteModel): FalconRouteModel =
         falconObj.apply {
             bounds = googleObj.bounds
             copyrights = googleObj.copyrights
@@ -67,4 +67,17 @@ object GoogleRoute {
             waypointOrder = googleObj.waypointOrder
         }
 
+}
+interface GoogleRouteInterface{
+    fun getRouteByEndpointsAndMode(
+        origin: String,
+        destination: String,
+        mode: String
+    ): models.googleMaps.GoogleDirectionsModel?
+    fun getMultiModeRoute(origin: String, destination: String): List<FalconDirectionsModel?>
+    fun _updateDirectionsObject(
+        falconObj: FalconDirectionsModel,
+        googleObj: GoogleDirectionsModel
+    ): FalconDirectionsModel
+    fun _updateRouteObject(falconObj: FalconRouteModel, googleObj: GoogleRouteModel): FalconRouteModel
 }
