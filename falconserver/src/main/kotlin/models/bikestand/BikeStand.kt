@@ -2,21 +2,22 @@ package models.bikestand
 
 import com.beust.klaxon.Json
 import com.beust.klaxon.Klaxon
+import models.falcon.CoordinatesModel
 
 data class GeoPosition(
     @Json(name = "lng")
-    val longitude: Double? = null,
+    override val longitude: Double,
     @Json(name = "lat")
-    val latitude: Double? = null
-)
+    override val latitude: Double
+) : CoordinatesModel
 
 data class BikeStandModel(
     @Json(name = "number")
     val standNumber: Int? = null,
     @Json(name = "address")
-    val standAddress: String? = null,
+    val address: String? = null,
     @Json(name = "contract_name")
-    val contractName: String? = null,
+    val contract_name: String? = null,
     @Json(name = "name")
     val standName: String? = null,
     @Json(name = "banking")

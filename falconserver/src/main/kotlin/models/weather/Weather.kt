@@ -4,17 +4,17 @@ import com.beust.klaxon.Json
 import com.beust.klaxon.Klaxon
 
 data class Coordinates(
-        @Json(name = "lon")
-        val longitude: Float? = null,
-        @Json(name = "lat")
-        val latitude: Float? = null
-)
+    @Json(name = "lon")
+    override val longitude: Double,
+    @Json(name = "lat")
+    override val latitude: Double
+) : models.falcon.CoordinatesModel
 
 data class Rain(
-        @Json(name = "1h")
-        val lastOneHour: Int? = null,
-        @Json(name = "3h")
-        val lastThreeHour: Int? = null
+    @Json(name = "1h")
+    val lastOneHour: Float? = null,
+    @Json(name = "3h")
+    val lastThreeHour: Float? = null
 )
 
 data class WeatherInfo(

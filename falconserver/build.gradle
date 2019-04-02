@@ -21,6 +21,7 @@ dependencies {
     implementation "io.javalin:javalin:2.6.0"
     implementation "org.slf4j:slf4j-simple:1.7.25"
     implementation "com.fasterxml.jackson.core:jackson-databind:2.9.8"
+    implementation "com.fasterxml.jackson.module:jackson-module-kotlin:2.9.8"
     implementation group: 'org.mock-server', name: 'mockserver-netty', version: '5.5.1'
     implementation group: 'org.mock-server', name: 'mockserver-client-java', version: '5.5.1'
     implementation 'khttp:khttp:0.1.0'
@@ -29,10 +30,11 @@ dependencies {
     implementation 'junit:junit:4.12'
     implementation "io.mockk:mockk:1.9.1.kotlin12"
     implementation "org.mockito:mockito-core:2.+"
+    implementation "org.mockito:mockito-inline:2.+"
+    implementation "com.nhaarman.mockitokotlin2:mockito-kotlin:2.1.0"
 
     implementation 'com.google.firebase:firebase-admin:6.7.0'
-    implementation 'com.typesafe:config:1.3.2'
-}
+    implementation 'com.typesafe:config:1.3.2' }
 
 compileKotlin {
     kotlinOptions.jvmTarget = "1.8"

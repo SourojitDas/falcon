@@ -1,6 +1,5 @@
 package models.tests
 
-import models.googleMaps.parseJson
 import models.googleMaps.*
 import org.junit.Test
 
@@ -378,7 +377,7 @@ class GoogleRouteTest {
         //Still to check the response in the Google response
         //val fakeRouteWayPointOrder: List<Int> = null
         //val fakeRouteWarnings: List<String> = null
-        val fakeRoute: Route = models.googleMaps.Route(
+        val fakeRoute = models.googleMaps.GoogleRouteModel(
             bounds = fakeBound,
                                                          copyrights = fakeRouteCopyrights,
                                                          legs = fakeListLeg,
@@ -387,7 +386,7 @@ class GoogleRouteTest {
                                                          //warning = fakeRouteWarning,
                                                         // wayPointOrder = fakeRouteWayPointOrder
                                                          )
-        val fakeListRoute: List<Route> = listOf(fakeRoute)
+        val fakeListRoute: List<GoogleRouteModel> = listOf(fakeRoute)
         assert(result!!.routes!![0]?.bounds?.northEast?.latitude == fakeBound.northEast?.latitude)
         assert(result!!.routes!![0]?.bounds?.northEast?.longitude == fakeBound.northEast?.longitude)
         assert(result!!.routes!![0]?.bounds?.southWest?.latitude == fakeBound.southWest?.latitude)
