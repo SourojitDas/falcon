@@ -11,10 +11,10 @@ data class Coordinates(
 ) : models.falcon.CoordinatesModel
 
 data class Rain(
-        @Json(name = "1h")
-        val lastOneHour: Int? = null,
-        @Json(name = "3h")
-        val lastThreeHour: Int? = null
+    @Json(name = "1h")
+    val lastOneHour: Float? = null,
+    @Json(name = "3h")
+    val lastThreeHour: Float? = null
 )
 
 data class WeatherInfo(
