@@ -5,8 +5,8 @@ import models.weather.Coordinates
 import models.weather.parseJson
 
 
-object Weather {
-    fun getByCoordinates(coordinates: Coordinates): models.weather.WeatherModel? {
+object Weather: WeatherInterface{
+    override fun getByCoordinates(coordinates: Coordinates): models.weather.WeatherModel? {
         val payload = mapOf(
             "lat" to coordinates.latitude.toString(),
             "lon" to coordinates.longitude.toString(),
@@ -16,7 +16,7 @@ object Weather {
         return parseJson(r.text)
     }
 
-    fun getByCityID(cityID: String): models.weather.WeatherModel? {
+    override fun getByCityID(cityID: String): models.weather.WeatherModel? {
         val payload = mapOf(
             "id" to cityID,
             "appid" to Configuration.getWeatherServiceApiKey()
@@ -24,4 +24,9 @@ object Weather {
         val r = khttp.get(Configuration.getWeatherServiceBaseURL(), params = payload)
         return parseJson(r.text)
     }
+}
+
+interface WeatherInterface {
+    fun getByCoordinates(coordinates: Coordinates): models.weather.WeatherModel?
+    fun getByCityID(cityID: String): models.weather.WeatherModel?
 }

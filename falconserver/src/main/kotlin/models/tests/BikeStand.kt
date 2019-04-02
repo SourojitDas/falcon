@@ -31,17 +31,17 @@ class BikeTest {
     @Test
     fun `test pasrseJson success`() {
         val result = parseJson(stubbedBikeRequest)
-        assert(result!![0]?.contractName == "Lyon")
-        assert(result!![0]?.standAddress == "address of the station")
+        assert(result!![0]?.contract_name == "Lyon")
+        assert(result!![0]?.address == "address of the station")
 
         val fakeNumber = 123
         assert(result!![0].standNumber == (fakeNumber))
         val fakeContract = "Lyon"
-        assert(result!![0].contractName.equals(fakeContract))
+        assert(result!![0].contract_name.equals(fakeContract))
         val fakeName = "stations name"
         assert(result!![0].standName.equals(fakeName))
         val fakeAddress = "address of the station"
-        assert(result!![0].standAddress.equals(fakeAddress))
+        assert(result!![0].address.equals(fakeAddress))
         val fakePosition = models.bikestand.GeoPosition(latitude = 45.77420, longitude = 4.867512)
         assert(result!![0].standGeoLocation?.latitude == fakePosition.latitude)
         assert(result!![0].standGeoLocation?.longitude == fakePosition.longitude)

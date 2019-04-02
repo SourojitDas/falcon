@@ -49,16 +49,16 @@ class WeatherTest {
         assert(result?.cod == fakeCod)
         val fakeDt = 1435658272
         assert(result?.date?.equals(fakeDt)!!)
-        val fakeRain = Rain(lastThreeHour = 3)
-        assert(result?.rain?.lastThreeHour == fakeRain.lastThreeHour)
+        val fakeRain = Rain(lastThreeHour = 3.0f)
+        assert(result.rain?.lastThreeHour == fakeRain.lastThreeHour)
         val fakeWeather =
             models.weather.WeatherInfo(id = 803, main = "Clouds", description = "broken clouds", icon = "04n")
-        assert(result?.weather?.first()?.id == fakeWeather.id)
-        assert(result?.weather?.first()?.main.equals(fakeWeather.main))
-        assert(result?.weather?.first()?.description.equals(fakeWeather.description))
-        assert(result?.weather?.first()?.icon.equals(fakeWeather.icon))
+        assert(result.weather?.first()?.id == fakeWeather.id)
+        assert(result.weather?.first()?.main.equals(fakeWeather.main))
+        assert(result.weather?.first()?.description.equals(fakeWeather.description))
+        assert(result.weather?.first()?.icon.equals(fakeWeather.icon))
         val fakeBase = "cmc stations"
-        assert(result?.base.equals(fakeBase))
+        assert(result.base.equals(fakeBase))
         val fakeMain = models.weather.MainTemperature(
             temperature = 293.25F,
             pressure = 1019,
@@ -66,19 +66,19 @@ class WeatherTest {
             tempMin = 289.82F,
             tempMax = 295.37F
         )
-        assert(result?.mainTemperature?.temperature == fakeMain.temperature)
-        assert(result?.mainTemperature?.pressure == fakeMain.pressure)
-        assert(result?.mainTemperature?.tempMin == fakeMain.tempMin)
-        assert(result?.mainTemperature?.tempMax == fakeMain.tempMax)
-        assert(result?.mainTemperature?.humidity == fakeMain.humidity)
+        assert(result.mainTemperature?.temperature == fakeMain.temperature)
+        assert(result.mainTemperature?.pressure == fakeMain.pressure)
+        assert(result.mainTemperature?.tempMin == fakeMain.tempMin)
+        assert(result.mainTemperature?.tempMax == fakeMain.tempMax)
+        assert(result.mainTemperature?.humidity == fakeMain.humidity)
         val fakeWind = models.weather.Wind(speed = 5.1F, degree = 150F)
-        assert(result?.wind?.speed == fakeWind.speed)
-        assert(result?.wind?.degree == fakeWind.degree)
+        assert(result.wind?.speed == fakeWind.speed)
+        assert(result.wind?.degree == fakeWind.degree)
         val fakeCloud = models.weather.Clouds(all = 75)
-        assert(result?.clouds?.all == fakeCloud.all)
+        assert(result.clouds?.all == fakeCloud.all)
         val fakeCoord = models.weather.Coordinates(longitude = 145.77, latitude = -16.92)
-        assert(result?.coordinates?.latitude == fakeCoord.latitude)
-        assert(result?.coordinates?.latitude == fakeCoord.longitude)
+        assert(result.coordinates?.latitude == fakeCoord.latitude)
+        assert(result.coordinates?.latitude == fakeCoord.longitude)
         val fakeSystemInfo = models.weather.SystemInfo(
             type = 1,
             id = 8166,
@@ -87,12 +87,12 @@ class WeatherTest {
             sunrise = 1435610796,
             sunset = 1435650870
         )
-        assert(result?.systemInfo?.sunrise?.equals(fakeSystemInfo.sunrise)!!)
-        assert(result?.systemInfo?.sunset?.equals(fakeSystemInfo.sunset)!!)
-        assert(result?.systemInfo?.type?.equals(fakeSystemInfo.type)!!)
-        assert(result?.systemInfo?.id?.equals(fakeSystemInfo.id)!!)
-        assert(result?.systemInfo?.country.equals(fakeSystemInfo.country))
-        assert(result?.systemInfo?.message == fakeSystemInfo.message)
+        assert(result.systemInfo?.sunrise?.equals(fakeSystemInfo.sunrise)!!)
+        assert(result.systemInfo.sunset?.equals(fakeSystemInfo.sunset)!!)
+        assert(result.systemInfo.type?.equals(fakeSystemInfo.type)!!)
+        assert(result.systemInfo.id?.equals(fakeSystemInfo.id)!!)
+        assert(result.systemInfo.country.equals(fakeSystemInfo.country))
+        assert(result.systemInfo.message == fakeSystemInfo.message)
 
     }
 
@@ -107,16 +107,16 @@ class WeatherTest {
         assert(result?.cod == fakeCod)
         val fakeDt = 1435658272
         assert(result?.date?.equals(fakeDt)!!)
-        val fakeRain = Rain(lastThreeHour = 3)
-        assert(result?.rain?.lastThreeHour == fakeRain.lastThreeHour)
+        val fakeRain = Rain(lastThreeHour = 3.0f)
+        assert(result.rain?.lastThreeHour == fakeRain.lastThreeHour)
         val fakeWeather =
             models.weather.WeatherInfo(id = 803, main = "Clouds", description = "broken clouds", icon = "04n")
-        assert(result?.weather?.first()?.id == fakeWeather.id)
-        assert(result?.weather?.first()?.main.equals(fakeWeather.main))
-        assert(result?.weather?.first()?.description.equals(fakeWeather.description))
-        assert(result?.weather?.first()?.icon.equals(fakeWeather.icon))
+        assert(result.weather?.first()?.id == fakeWeather.id)
+        assert(result.weather?.first()?.main.equals(fakeWeather.main))
+        assert(result.weather?.first()?.description.equals(fakeWeather.description))
+        assert(result.weather?.first()?.icon.equals(fakeWeather.icon))
         val fakeBase = "cmc stations"
-        assert(result?.base.equals(fakeBase))
+        assert(result.base.equals(fakeBase))
         val fakeMain = models.weather.MainTemperature(
             temperature = 293.25F,
             pressure = 1019,
@@ -124,19 +124,19 @@ class WeatherTest {
             tempMin = 289.82F,
             tempMax = 295.37F
         )
-        assert(result?.mainTemperature?.temperature == fakeMain.temperature)
-        assert(result?.mainTemperature?.pressure == fakeMain.pressure)
-        assert(result?.mainTemperature?.tempMin == fakeMain.tempMin)
-        assert(result?.mainTemperature?.tempMax == fakeMain.tempMax)
-        assert(result?.mainTemperature?.humidity == fakeMain.humidity)
+        assert(result.mainTemperature?.temperature == fakeMain.temperature)
+        assert(result.mainTemperature?.pressure == fakeMain.pressure)
+        assert(result.mainTemperature?.tempMin == fakeMain.tempMin)
+        assert(result.mainTemperature?.tempMax == fakeMain.tempMax)
+        assert(result.mainTemperature?.humidity == fakeMain.humidity)
         val fakeWind = models.weather.Wind(speed = 5.1F, degree = 150F)
-        assert(result?.wind?.speed == fakeWind.speed)
-        assert(result?.wind?.degree == fakeWind.degree)
+        assert(result.wind?.speed == fakeWind.speed)
+        assert(result.wind?.degree == fakeWind.degree)
         val fakeCloud = models.weather.Clouds(all = 75)
-        assert(result?.clouds?.all == fakeCloud.all)
+        assert(result.clouds?.all == fakeCloud.all)
         val fakeCoord = models.weather.Coordinates(longitude = 145.77F as Double, latitude = -16.92F as Double)
-        assert(result?.coordinates?.latitude == fakeCoord.latitude)
-        assert(result?.coordinates?.latitude == fakeCoord.longitude)
+        assert(result.coordinates?.latitude == fakeCoord.latitude)
+        assert(result.coordinates?.latitude == fakeCoord.longitude)
         val fakeSystemInfo = models.weather.SystemInfo(
             type = 1,
             id = 8166,
@@ -145,12 +145,12 @@ class WeatherTest {
             sunrise = 1435610796,
             sunset = 1435650870
         )
-        assert(result?.systemInfo?.sunrise?.equals(fakeSystemInfo.sunrise)!!)
-        assert(result?.systemInfo?.sunset?.equals(fakeSystemInfo.sunset)!!)
-        assert(result?.systemInfo?.type?.equals(fakeSystemInfo.type)!!)
-        assert(result?.systemInfo?.id?.equals(fakeSystemInfo.id)!!)
-        assert(result?.systemInfo?.country.equals(fakeSystemInfo.country))
-        assert(result?.systemInfo?.message == fakeSystemInfo.message)
+        assert(result.systemInfo?.sunrise?.equals(fakeSystemInfo.sunrise)!!)
+        assert(result.systemInfo.sunset?.equals(fakeSystemInfo.sunset)!!)
+        assert(result.systemInfo.type?.equals(fakeSystemInfo.type)!!)
+        assert(result.systemInfo.id?.equals(fakeSystemInfo.id)!!)
+        assert(result.systemInfo.country.equals(fakeSystemInfo.country))
+        assert(result.systemInfo.message == fakeSystemInfo.message)
 
     }
 
@@ -165,16 +165,16 @@ class WeatherTest {
         assert(result?.cod == fakeCod)
         val fakeDt = 1435658277
         assert(result?.date?.equals(fakeDt)!!)
-        val fakeRain = Rain(lastThreeHour = 3)
-        assert(result?.rain?.lastThreeHour == fakeRain.lastThreeHour)
+        val fakeRain = Rain(lastThreeHour = 3.0f)
+        assert(result.rain?.lastThreeHour == fakeRain.lastThreeHour)
         val fakeWeather =
             models.weather.WeatherInfo(id = 803, main = "Clouds", description = "broken clouds", icon = "04n")
-        assert(result?.weather?.first()?.id == fakeWeather.id)
-        assert(result?.weather?.first()?.main.equals(fakeWeather.main))
-        assert(result?.weather?.first()?.description.equals(fakeWeather.description))
-        assert(result?.weather?.first()?.icon.equals(fakeWeather.icon))
+        assert(result.weather?.first()?.id == fakeWeather.id)
+        assert(result.weather?.first()?.main.equals(fakeWeather.main))
+        assert(result.weather?.first()?.description.equals(fakeWeather.description))
+        assert(result.weather?.first()?.icon.equals(fakeWeather.icon))
         val fakeBase = "cmc stations"
-        assert(result?.base.equals(fakeBase))
+        assert(result.base.equals(fakeBase))
         val fakeMain = models.weather.MainTemperature(
             temperature = 293.25F,
             pressure = 1019,
@@ -182,19 +182,19 @@ class WeatherTest {
             tempMin = 289.82F,
             tempMax = 295.37F
         )
-        assert(result?.mainTemperature?.temperature == fakeMain.temperature)
-        assert(result?.mainTemperature?.pressure == fakeMain.pressure)
-        assert(result?.mainTemperature?.tempMin == fakeMain.tempMin)
-        assert(result?.mainTemperature?.tempMax == fakeMain.tempMax)
-        assert(result?.mainTemperature?.humidity == fakeMain.humidity)
+        assert(result.mainTemperature?.temperature == fakeMain.temperature)
+        assert(result.mainTemperature?.pressure == fakeMain.pressure)
+        assert(result.mainTemperature?.tempMin == fakeMain.tempMin)
+        assert(result.mainTemperature?.tempMax == fakeMain.tempMax)
+        assert(result.mainTemperature?.humidity == fakeMain.humidity)
         val fakeWind = models.weather.Wind(speed = 5.1F, degree = 150F)
-        assert(result?.wind?.speed == fakeWind.speed)
-        assert(result?.wind?.degree == fakeWind.degree)
+        assert(result.wind?.speed == fakeWind.speed)
+        assert(result.wind?.degree == fakeWind.degree)
         val fakeCloud = models.weather.Clouds(all = 75)
-        assert(result?.clouds?.all == fakeCloud.all)
+        assert(result.clouds?.all == fakeCloud.all)
         val fakeCoord = models.weather.Coordinates(longitude = 145.77, latitude = -16.92)
-        assert(result?.coordinates?.latitude == fakeCoord.latitude)
-        assert(result?.coordinates?.latitude == fakeCoord.longitude)
+        assert(result.coordinates?.latitude == fakeCoord.latitude)
+        assert(result.coordinates?.latitude == fakeCoord.longitude)
         val fakeSystemInfo = models.weather.SystemInfo(
             type = 1,
             id = 8166,
@@ -203,12 +203,12 @@ class WeatherTest {
             sunrise = 1435610796,
             sunset = 1435650870
         )
-        assert(result?.systemInfo?.sunrise?.equals(fakeSystemInfo.sunrise)!!)
-        assert(result?.systemInfo?.sunset?.equals(fakeSystemInfo.sunset)!!)
-        assert(result?.systemInfo?.type?.equals(fakeSystemInfo.type)!!)
-        assert(result?.systemInfo?.id?.equals(fakeSystemInfo.id)!!)
-        assert(result?.systemInfo?.country.equals(fakeSystemInfo.country))
-        assert(result?.systemInfo?.message == fakeSystemInfo.message)
+        assert(result.systemInfo?.sunrise?.equals(fakeSystemInfo.sunrise)!!)
+        assert(result.systemInfo.sunset?.equals(fakeSystemInfo.sunset)!!)
+        assert(result.systemInfo.type?.equals(fakeSystemInfo.type)!!)
+        assert(result.systemInfo.id?.equals(fakeSystemInfo.id)!!)
+        assert(result.systemInfo.country.equals(fakeSystemInfo.country))
+        assert(result.systemInfo.message == fakeSystemInfo.message)
 
     }
 
@@ -222,16 +222,16 @@ class WeatherTest {
         assert(result?.cod == fakeCod)
         val fakeDt = 1435658272
         assert(result?.date?.equals(fakeDt)!!)
-        val fakeRain = Rain(lastThreeHour = 3)
-        assert(result?.rain?.lastThreeHour == fakeRain.lastThreeHour)
+        val fakeRain = Rain(lastThreeHour = 3.0f)
+        assert(result.rain?.lastThreeHour == fakeRain.lastThreeHour)
         val fakeWeather =
             models.weather.WeatherInfo(id = 803, main = "Clouds", description = "broken clouds", icon = "04n")
-        assert(result?.weather?.first()?.id == fakeWeather.id)
-        assert(result?.weather?.first()?.main.equals(fakeWeather.main))
-        assert(result?.weather?.first()?.description.equals(fakeWeather.description))
-        assert(result?.weather?.first()?.icon.equals(fakeWeather.icon))
+        assert(result.weather?.first()?.id == fakeWeather.id)
+        assert(result.weather?.first()?.main.equals(fakeWeather.main))
+        assert(result.weather?.first()?.description.equals(fakeWeather.description))
+        assert(result.weather?.first()?.icon.equals(fakeWeather.icon))
         val fakeBase = "cmc stations"
-        assert(result?.base.equals(fakeBase))
+        assert(result.base.equals(fakeBase))
         val fakeMain = models.weather.MainTemperature(
             temperature = 293.25F,
             pressure = 1019,
@@ -239,19 +239,19 @@ class WeatherTest {
             tempMin = 289.82F,
             tempMax = 295.37F
         )
-        assert(result?.mainTemperature?.temperature == fakeMain.temperature)
-        assert(result?.mainTemperature?.pressure == fakeMain.pressure)
-        assert(result?.mainTemperature?.tempMin == fakeMain.tempMin)
-        assert(result?.mainTemperature?.tempMax == fakeMain.tempMax)
-        assert(result?.mainTemperature?.humidity == fakeMain.humidity)
+        assert(result.mainTemperature?.temperature == fakeMain.temperature)
+        assert(result.mainTemperature?.pressure == fakeMain.pressure)
+        assert(result.mainTemperature?.tempMin == fakeMain.tempMin)
+        assert(result.mainTemperature?.tempMax == fakeMain.tempMax)
+        assert(result.mainTemperature?.humidity == fakeMain.humidity)
         val fakeWind = models.weather.Wind(speed = 5.1F, degree = 150F)
-        assert(result?.wind?.speed == fakeWind.speed)
-        assert(result?.wind?.degree == fakeWind.degree)
+        assert(result.wind?.speed == fakeWind.speed)
+        assert(result.wind?.degree == fakeWind.degree)
         val fakeCloud = models.weather.Clouds(all = 75)
-        assert(result?.clouds?.all == fakeCloud.all)
+        assert(result.clouds?.all == fakeCloud.all)
         val fakeCoord = models.weather.Coordinates(longitude = 145.77, latitude = -16.92)
-        assert(result?.coordinates?.latitude == fakeCoord.latitude)
-        assert(result?.coordinates?.latitude == fakeCoord.longitude)
+        assert(result.coordinates?.latitude == fakeCoord.latitude)
+        assert(result.coordinates?.latitude == fakeCoord.longitude)
         val fakeSystemInfo = models.weather.SystemInfo(
             type = 1,
             id = 8166,
@@ -260,12 +260,12 @@ class WeatherTest {
             sunrise = 1435610796,
             sunset = 1435650870
         )
-        assert(result?.systemInfo?.sunrise?.equals(fakeSystemInfo.sunrise)!!)
-        assert(result?.systemInfo?.sunset?.equals(fakeSystemInfo.sunset)!!)
-        assert(result?.systemInfo?.type?.equals(fakeSystemInfo.type)!!)
-        assert(result?.systemInfo?.id?.equals(fakeSystemInfo.id)!!)
-        assert(result?.systemInfo?.country.equals(fakeSystemInfo.country))
-        assert(result?.systemInfo?.message == fakeSystemInfo.message)
+        assert(result.systemInfo?.sunrise?.equals(fakeSystemInfo.sunrise)!!)
+        assert(result.systemInfo.sunset?.equals(fakeSystemInfo.sunset)!!)
+        assert(result.systemInfo.type?.equals(fakeSystemInfo.type)!!)
+        assert(result.systemInfo.id?.equals(fakeSystemInfo.id)!!)
+        assert(result.systemInfo.country.equals(fakeSystemInfo.country))
+        assert(result.systemInfo.message == fakeSystemInfo.message)
 
     }
 
@@ -279,16 +279,16 @@ class WeatherTest {
         assert(result?.cod == fakeCod)
         val fakeDt = 1435658272
         assert(result?.date?.equals(fakeDt)!!)
-        val fakeRain = Rain(lastThreeHour = 3)
-        assert(result?.rain?.lastThreeHour == fakeRain.lastThreeHour)
+        val fakeRain = Rain(lastThreeHour = 3.0f)
+        assert(result.rain?.lastThreeHour == fakeRain.lastThreeHour)
         val fakeWeather =
             models.weather.WeatherInfo(id = 803, main = "Clouds", description = "broken clouds", icon = "04n")
-        assert(result?.weather?.first()?.id == fakeWeather.id)
-        assert(result?.weather?.first()?.main.equals(fakeWeather.main))
-        assert(result?.weather?.first()?.description.equals(fakeWeather.description))
-        assert(result?.weather?.first()?.icon.equals(fakeWeather.icon))
+        assert(result.weather?.first()?.id == fakeWeather.id)
+        assert(result.weather?.first()?.main.equals(fakeWeather.main))
+        assert(result.weather?.first()?.description.equals(fakeWeather.description))
+        assert(result.weather?.first()?.icon.equals(fakeWeather.icon))
         val fakeBase = "cmc stations"
-        assert(result?.base.equals(fakeBase))
+        assert(result.base.equals(fakeBase))
         val fakeMain = models.weather.MainTemperature(
             temperature = 23.25F,
             pressure = 1019,
@@ -296,19 +296,19 @@ class WeatherTest {
             tempMin = 289.82F,
             tempMax = 295.37F
         )
-        assert(result?.mainTemperature?.temperature == fakeMain.temperature)
-        assert(result?.mainTemperature?.pressure == fakeMain.pressure)
-        assert(result?.mainTemperature?.tempMin == fakeMain.tempMin)
-        assert(result?.mainTemperature?.tempMax == fakeMain.tempMax)
-        assert(result?.mainTemperature?.humidity == fakeMain.humidity)
+        assert(result.mainTemperature?.temperature == fakeMain.temperature)
+        assert(result.mainTemperature?.pressure == fakeMain.pressure)
+        assert(result.mainTemperature?.tempMin == fakeMain.tempMin)
+        assert(result.mainTemperature?.tempMax == fakeMain.tempMax)
+        assert(result.mainTemperature?.humidity == fakeMain.humidity)
         val fakeWind = models.weather.Wind(speed = 5.1F, degree = 150F)
-        assert(result?.wind?.speed == fakeWind.speed)
-        assert(result?.wind?.degree == fakeWind.degree)
+        assert(result.wind?.speed == fakeWind.speed)
+        assert(result.wind?.degree == fakeWind.degree)
         val fakeCloud = models.weather.Clouds(all = 75)
-        assert(result?.clouds?.all == fakeCloud.all)
+        assert(result.clouds?.all == fakeCloud.all)
         val fakeCoord = models.weather.Coordinates(longitude = 145.77, latitude = -16.92)
-        assert(result?.coordinates?.latitude == fakeCoord.latitude)
-        assert(result?.coordinates?.latitude == fakeCoord.longitude)
+        assert(result.coordinates?.latitude == fakeCoord.latitude)
+        assert(result.coordinates?.latitude == fakeCoord.longitude)
         val fakeSystemInfo = models.weather.SystemInfo(
             type = 1,
             id = 8166,
@@ -317,12 +317,12 @@ class WeatherTest {
             sunrise = 1435610796,
             sunset = 1435650870
         )
-        assert(result?.systemInfo?.sunrise?.equals(fakeSystemInfo.sunrise)!!)
-        assert(result?.systemInfo?.sunset?.equals(fakeSystemInfo.sunset)!!)
-        assert(result?.systemInfo?.type?.equals(fakeSystemInfo.type)!!)
-        assert(result?.systemInfo?.id?.equals(fakeSystemInfo.id)!!)
-        assert(result?.systemInfo?.country.equals(fakeSystemInfo.country))
-        assert(result?.systemInfo?.message == fakeSystemInfo.message)
+        assert(result.systemInfo?.sunrise?.equals(fakeSystemInfo.sunrise)!!)
+        assert(result.systemInfo.sunset?.equals(fakeSystemInfo.sunset)!!)
+        assert(result.systemInfo.type?.equals(fakeSystemInfo.type)!!)
+        assert(result.systemInfo.id?.equals(fakeSystemInfo.id)!!)
+        assert(result.systemInfo.country.equals(fakeSystemInfo.country))
+        assert(result.systemInfo.message == fakeSystemInfo.message)
 
     }
 }
