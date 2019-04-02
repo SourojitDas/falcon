@@ -1,20 +1,21 @@
 package ie.tcd.scss.ase.interfaces
 
-import ie.tcd.scss.ase.poko.BikeResponse
-import ie.tcd.scss.ase.poko.RouteResponse
+import ie.tcd.scss.ase.dataclasses.BikeResponse
+import ie.tcd.scss.ase.dataclasses.RouteBody
+import ie.tcd.scss.ase.dataclasses.RouteResponse
 import retrofit2.Call
-import retrofit2.http.GET
-import retrofit2.http.Header
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface RetroFitAPIClient {
 
     @GET("vls/v1/stations")
-    fun getBikeData(@Query("contract") city: String,
-                    @Query ("apiKey") apiKey: String): Call<List<BikeResponse>>
+    fun getBikeData(
+        @Query("contract") city: String,
+        @Query("apiKey") apiKey: String
+    ): Call<List<BikeResponse>>
 
-    @GET("route")
-    fun getRouteDetails(@Header("authorization") authKey:String):Call<RouteResponse>
+    @POST("route")
+    fun getRouteDetails(@Body body: RouteBody, @Header("authorization") authKey: String): Call<RouteResponse>
 
 
 }

@@ -3,7 +3,7 @@ package ie.tcd.scss.ase
 import android.content.Context
 import android.content.SharedPreferences
 import org.junit.Test
-import ie.tcd.scss.ase.poko.SharedPreferenceDataClass
+import ie.tcd.scss.ase.dataclasses.SharedPreferenceDataClass
 import ie.tcd.scss.ase.utilities.SharedPreferenceHelper
 import org.junit.runner.RunWith
 import org.junit.Assert.*

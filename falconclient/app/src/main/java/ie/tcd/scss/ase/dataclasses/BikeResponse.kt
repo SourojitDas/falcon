@@ -1,4 +1,4 @@
-package ie.tcd.scss.ase.poko
+package ie.tcd.scss.ase.dataclasses
 
 import com.google.gson.annotations.SerializedName
 
