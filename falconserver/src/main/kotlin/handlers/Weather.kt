@@ -1,13 +1,20 @@
 package handlers
 
 import io.javalin.Context
-import models.weather.WeatherModel
+import models.falcon.RequestBody
+import models.weather.Coordinates
 import services.Weather
 
 object WeatherController {
     fun getWeatherByCoordinates(ctx: Context) {
-        val weatherService = Weather()
-        val res = weatherService.getByCoordinates(35, 139)
+        val body = ctx.body<RequestBody>()
+        val res = Weather.getByCoordinates(body.origin as Coordinates)
+        ctx.json(res!!)
+    }
+
+    fun getWeatherByCityID(ctx: Context) {
+        val body = ctx.body<RequestBody>()
+        val res = Weather.getByCityID(body.cityID)
         ctx.json(res!!)
     }
 }
