@@ -63,7 +63,7 @@ class SharedPreferenceHelper(context:Context) {
     }
 
     fun getPreference(key: String): String {
-        return sharedPreferences.getString(key, "")
+        return sharedPreferences.getString(key, "") as String
     }
 
     fun containPreference(key: String): Boolean {

@@ -13,6 +13,7 @@ import android.support.design.button.MaterialButton
 import android.support.design.widget.Snackbar
 import android.support.v4.app.ActivityCompat
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.CardView
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
@@ -37,11 +38,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.gson.Gson
 import com.google.maps.android.PolyUtil
 import ie.tcd.scss.ase.R
+import ie.tcd.scss.ase.dataclasses.*
 import ie.tcd.scss.ase.interfaces.RetroFitAPIClient
-import ie.tcd.scss.ase.dataclasses.Coordinates
-import ie.tcd.scss.ase.dataclasses.Preferences
-import ie.tcd.scss.ase.dataclasses.RouteBody
-import ie.tcd.scss.ase.dataclasses.RouteResponse
 import ie.tcd.scss.ase.rest.RetrofitBuilder
 import ie.tcd.scss.ase.utilities.SharedPreferenceHelper
 import retrofit2.Call
@@ -50,7 +48,9 @@ import retrofit2.Response
 import java.io.IOException
 import java.util.*
 
-class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
+class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener, View.OnClickListener {
+
+
     override fun onMarkerClick(p0: Marker?) = false
 
     private lateinit var map: GoogleMap
@@ -65,6 +65,16 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
     private lateinit var directionSearchButton: MaterialButton
     private lateinit var sourceLatLng: LatLng
     private lateinit var destinationLatLng: LatLng
+
+    private lateinit var cardMultiMode: CardView
+    private lateinit var cardDrive: CardView
+    private lateinit var cardTransit: CardView
+    private lateinit var cardWalk: CardView
+    private lateinit var cardCycle: CardView
+
+    private lateinit var routeResponse: RouteResponse
+
+    private var modeOfTransport = "multimode"
 
 
     // 1
@@ -84,6 +94,18 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         setContentView(R.layout.activity_maps)
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
 
+        cardCycle = findViewById(R.id.card_bike)
+        cardWalk = findViewById(R.id.card_walk)
+        cardTransit = findViewById(R.id.card_transit)
+        cardDrive = findViewById(R.id.card_car)
+        cardMultiMode = findViewById(R.id.card_multimode)
+
+        cardMultiMode.setOnClickListener(this)
+        cardCycle.setOnClickListener(this)
+        cardWalk.setOnClickListener(this)
+        cardTransit.setOnClickListener(this)
+        cardDrive.setOnClickListener(this)
+
         sharedPreferenceHelper = SharedPreferenceHelper(applicationContext)
 
         if (!Places.isInitialized()) {
@@ -102,7 +124,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
             override fun onLocationResult(p0: LocationResult) {
                 super.onLocationResult(p0)
 
-                if(::lastLocation.isInitialized && lastLocation != p0.lastLocation) {
+                if (::lastLocation.isInitialized && lastLocation != p0.lastLocation) {
                     lastLocation = p0.lastLocation
 //                Log.d("LAST LOCATION", lastLocation.latitude.toString())
 //                if (::map.isInitialized) {
@@ -221,7 +243,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
 
         var routeBody = RouteBody(preferedMode, orgin, destination)
 
-        Log.d("Call Test","Request : "+Gson().toJson(routeBody) +"\ntoken : Bearer "+token)
+        Log.d("Call Test", "Request : " + Gson().toJson(routeBody) + "\ntoken : Bearer " + token)
 
         var routeResponseCall = retroFitAPIClient.getRouteDetails(routeBody, "Bearer " + (token as String))
 
@@ -246,7 +268,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
 //                    Log.d("RESPONESE ", response.body()!!.geocodeMembers!![0]?.geocoderStatus)
 //                    Log.d("RESPONSE STRING : ", Gson().toJson(response.body()))
                     Toast.makeText(applicationContext, "GOT RESPONSE", Toast.LENGTH_LONG).show()
-                    drawRoute(response.body() as RouteResponse)
+                    routeResponse = response.body() as RouteResponse
+                    drawMultipleRoute(response.body() as RouteResponse)
                 } else {
                     Log.d("RETROFIT : ", response.errorBody()?.string())
                     Snackbar.make(
@@ -450,6 +473,61 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         }
     }
 
+    override fun onClick(v: View?) {
+
+        if (v?.id == cardCycle.id) {
+            modeOfTransport = "cycle"
+            cardCycle.setCardBackgroundColor(getColor(android.R.color.holo_blue_dark))
+            cardDrive.setCardBackgroundColor(getColor(android.R.color.holo_blue_bright))
+            cardTransit.setCardBackgroundColor(getColor(android.R.color.holo_blue_bright))
+            cardMultiMode.setCardBackgroundColor(getColor(android.R.color.holo_blue_bright))
+            cardWalk.setCardBackgroundColor(getColor(android.R.color.holo_blue_bright))
+            if (::routeResponse.isInitialized) {
+                drawMultipleRoute(routeResponse)
+            }
+        } else if (v?.id == cardDrive.id) {
+            modeOfTransport = "drive"
+            cardDrive.setCardBackgroundColor(getColor(android.R.color.holo_blue_dark))
+            cardCycle.setCardBackgroundColor(getColor(android.R.color.holo_blue_bright))
+            cardTransit.setCardBackgroundColor(getColor(android.R.color.holo_blue_bright))
+            cardMultiMode.setCardBackgroundColor(getColor(android.R.color.holo_blue_bright))
+            cardWalk.setCardBackgroundColor(getColor(android.R.color.holo_blue_bright))
+            if (::routeResponse.isInitialized) {
+                drawMultipleRoute(routeResponse)
+            }
+        } else if (v?.id == cardMultiMode.id) {
+            modeOfTransport = "multimode"
+            cardMultiMode.setCardBackgroundColor(getColor(android.R.color.holo_blue_dark))
+            cardDrive.setCardBackgroundColor(getColor(android.R.color.holo_blue_bright))
+            cardTransit.setCardBackgroundColor(getColor(android.R.color.holo_blue_bright))
+            cardCycle.setCardBackgroundColor(getColor(android.R.color.holo_blue_bright))
+            cardWalk.setCardBackgroundColor(getColor(android.R.color.holo_blue_bright))
+            if (::routeResponse.isInitialized) {
+                drawMultipleRoute(routeResponse)
+            }
+        } else if (v?.id == cardTransit.id) {
+            modeOfTransport = "transit"
+            cardTransit.setCardBackgroundColor(getColor(android.R.color.holo_blue_dark))
+            cardDrive.setCardBackgroundColor(getColor(android.R.color.holo_blue_bright))
+            cardCycle.setCardBackgroundColor(getColor(android.R.color.holo_blue_bright))
+            cardMultiMode.setCardBackgroundColor(getColor(android.R.color.holo_blue_bright))
+            cardWalk.setCardBackgroundColor(getColor(android.R.color.holo_blue_bright))
+            if (::routeResponse.isInitialized) {
+                drawMultipleRoute(routeResponse)
+            }
+        } else if (v?.id == cardWalk.id) {
+            modeOfTransport = "walk"
+            cardWalk.setCardBackgroundColor(getColor(android.R.color.holo_blue_dark))
+            cardDrive.setCardBackgroundColor(getColor(android.R.color.holo_blue_bright))
+            cardTransit.setCardBackgroundColor(getColor(android.R.color.holo_blue_bright))
+            cardMultiMode.setCardBackgroundColor(getColor(android.R.color.holo_blue_bright))
+            cardCycle.setCardBackgroundColor(getColor(android.R.color.holo_blue_bright))
+            if (::routeResponse.isInitialized) {
+                drawMultipleRoute(routeResponse)
+            }
+        }
+    }
+
 
     private fun loadPlacePicker() {
         val builder = PlacePicker.IntentBuilder()
@@ -477,40 +555,151 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         return super.onOptionsItemSelected(item)
     }
 
-
+    /**
     private fun drawRoute(response: RouteResponse) {
+
+    moveCamera(sourceLatLng)
+
+    val path: MutableList<List<LatLng>> = ArrayList()
+    val routes = response.routes!!
+    val legs = routes[0]?.legs!!
+    val steps = legs[0]?.steps!!
+
+    for (i in 0 until steps.size) {
+    val points = steps[i]?.polyline?.points!!
+    path.add(PolyUtil.decode(points))
+    }
+
+    for (i in 0 until path.size) {
+    var polyline = PolylineOptions().jointType(JointType.ROUND)
+    val pattern = Arrays.asList(
+    Dot(), Gap(20f), Dash(30f), Gap(20f)
+    )
+    val pattern1 = Arrays.asList(
+    Dot(), Gap(0f)
+    )
+    var size = 30f
+    var mapColor = Color.BLUE
+
+
+    //            polyline.pattern(PATTERN_POLYLINE_DOTTED)
+    polyline.color(mapColor)
+    polyline.width(size)
+
+
+    this.map.addPolyline(polyline.addAll(path[i]).geodesic(true))
+    }
+    } */
+
+
+    private fun drawMultipleRoute(response: RouteResponse) {
 
         moveCamera(sourceLatLng)
 
-        val path: MutableList<List<LatLng>> = ArrayList()
-        val routes = response.routes!!
-        val legs = routes[0]?.legs!!
-        val steps = legs[0]?.steps!!
+        val routes = response.routes as List<RoutesItem>
 
-        for (i in 0 until steps.size) {
-            val points = steps[i]?.polyline?.points!!
-            path.add(PolyUtil.decode(points))
+        routes.forEach { route ->
+            if (route.mode == "driving" && modeOfTransport == "drive") {
+                val legs = route.legs as List<LegsItem>
+                drawRouteFromLegs(legs)
+            } else if (route.mode == "transit" && modeOfTransport == "transit") {
+                val legs = route.legs as List<LegsItem>
+                drawRouteFromLegs(legs)
+            } else if (route.mode == "bicycling" && modeOfTransport == "cycle") {
+                val legs = route.legs as List<LegsItem>
+                drawRouteFromLegs(legs)
+            } else if (route.mode == "walking" && modeOfTransport == "walk") {
+                val legs = route.legs as List<LegsItem>
+                drawRouteFromLegs(legs)
+            } else if(route.mode == "walking" && modeOfTransport == "multimode"){
+                val legs = route.legs as List<LegsItem>
+                drawRouteFromLegs(legs)
+            }
         }
 
-        for (i in 0 until path.size) {
+
+    }
+
+    private fun drawRouteFromLegs(legs: List<LegsItem>) {
+
+        val pathWalk: MutableList<List<LatLng>> = ArrayList()
+        val pathTransit: MutableList<List<LatLng>> = ArrayList()
+        val pathCycle: MutableList<List<LatLng>> = ArrayList()
+        val pathDriving: MutableList<List<LatLng>> = ArrayList()
+
+        map.clear()
+
+        legs.forEach { leg ->
+
+            val steps = leg.steps as List<StepsItem>
+
+            steps.forEach { step ->
+                val point = step.polyline?.points
+                if (step.travelMode == "BICYCLING") {
+                    pathCycle.add(PolyUtil.decode(point))
+                } else if (step.travelMode == "WALKING") {
+                    pathWalk.add(PolyUtil.decode(point))
+                } else if (step.travelMode == "DRIVING") {
+                    pathDriving.add(PolyUtil.decode(point))
+                } else if (step.travelMode == "TRANSIT") {
+                    pathTransit.add(PolyUtil.decode(point))
+                }
+            }
+
+        }
+
+        pathCycle.forEach {
             var polyline = PolylineOptions().jointType(JointType.ROUND)
             val pattern = Arrays.asList(
                 Dot(), Gap(20f), Dash(30f), Gap(20f)
             )
-            val pattern1 = Arrays.asList(
-                Dot(), Gap(0f)
-            )
             var size = 30f
-            var mapColor = Color.BLUE
-
-
-//            polyline.pattern(PATTERN_POLYLINE_DOTTED)
+            var mapColor = Color.GREEN
+            polyline.pattern(pattern)
             polyline.color(mapColor)
             polyline.width(size)
 
 
-            this.map.addPolyline(polyline.addAll(path[i]).geodesic(true))
+            this.map.addPolyline(polyline.addAll(it).geodesic(true))
         }
+
+        pathWalk.forEach {
+            var polyline = PolylineOptions().jointType(JointType.ROUND)
+            val pattern = Arrays.asList(
+                Dot(), Gap(20f)
+            )
+            var size = 30f
+            var mapColor = Color.GREEN
+            polyline.pattern(pattern)
+            polyline.color(mapColor)
+            polyline.width(size)
+
+
+            this.map.addPolyline(polyline.addAll(it).geodesic(true))
+        }
+
+        pathDriving.forEach {
+            var polyline = PolylineOptions().jointType(JointType.ROUND)
+            var size = 30f
+            var mapColor = Color.BLUE
+            polyline.color(mapColor)
+            polyline.width(size)
+
+            this.map.addPolyline(polyline.addAll(it).geodesic(true))
+        }
+
+        pathTransit.forEach {
+            var polyline = PolylineOptions().jointType(JointType.ROUND)
+            var size = 30f
+            var mapColor = Color.GREEN
+            polyline.color(mapColor)
+            polyline.width(size)
+
+            this.map.addPolyline(polyline.addAll(it).geodesic(true))
+        }
+
+        moveCamera(sourceLatLng)
+
     }
 
     private fun moveCamera(sourceLatLng: LatLng) {

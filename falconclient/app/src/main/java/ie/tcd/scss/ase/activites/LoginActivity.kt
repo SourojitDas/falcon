@@ -93,7 +93,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener, OnCompleteListe
             //    Log.d("UID", firebaseAuth.currentUser?.uid as String)
 
             if (account != null) {
-                val user = firebaseAuth.currentUser
+//                val user = firebaseAuth.currentUser
                 dataList.add(SharedPreferenceDataClass(getString(R.string.name), account?.displayName as String))
                 dataList.add(SharedPreferenceDataClass(getString(R.string.firebase_id), account?.id as String))
                 dataList.add(SharedPreferenceDataClass(getString(R.string.email), account?.email as String))
@@ -170,7 +170,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener, OnCompleteListe
     }
 
     override fun onComplete(task: Task<AuthResult>) {
-        val result = task.result
+//        val result = task.result
         if (task.isSuccessful) {
             val user = firebaseAuth.currentUser
             user?.getIdToken(true)?.addOnCompleteListener {
