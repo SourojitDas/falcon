@@ -1,9 +1,10 @@
 package services
 
+import Configuration
 import models.bikestand.parseJson
 
 
-class BikeStand {
+object BikeStand {
 
     fun getRealTimeStandsInfoByCity(contract: String): List<models.bikestand.BikeStandModel>? {
         val payload = mapOf(
