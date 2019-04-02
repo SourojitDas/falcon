@@ -17,6 +17,36 @@ class EventsTest {
     fun `test pasrseJson success`() {
         val result = parseJson(stubbedEventsResponse)
         assert(result!!.count == 20)
+        assert(result.overflow ?: true)
+        assert(result.next == "https://api.predicthq.com/v1/events/?country=US&offset=10&q=jazz")
+        assert(result.resultMembers!![0].relevance == 6.237084)
+        assert(result.resultMembers!![0].id == "3XvBD7uefSpdSwjCxA")
+        assert(result.resultMembers!![0].title == "Jazz")
+        //assert(result!!.resultMembers!![0].description == "Harlem, 1926. The city overflows with Jazz. Folks move with musicality, and speak rhythms, and in the heart of it all is Violet. Her husband\xe2\x80\x99s affair with a beautiful young woman sets off a series of violent events and unforgivable acts. Adapted from Toni Morrison\xe2\x80\x99s stunning novel and musically underscored by Bay Area jazz musician Marcus Shelby\xe2\x80\x94Jazz is a theatrical composition. Peeling back, layered accounts and alternating perspectives expose ultimately sympathetic characters, who\xe2\x80\x94like the growing New York neighborhood and the winding woods of their youth\xe2\x80\x94reveal their own rhythms.")
+        assert(result.resultMembers!![0].category == "performing-arts")
+        assert(result.resultMembers!![0].labels!![0] == "performing-arts")
+        assert(result.resultMembers!![0].rank == 11)
+        assert(result.resultMembers!![0].localRank == 33)
+        assert(result.resultMembers!![0].duration == 0)
+        assert(result.resultMembers!![0].start == "2019-04-29T02:30:00Z")
+        assert(result.resultMembers!![0].end == "2019-04-29T02:30:00Z")
+        assert(result.resultMembers!![0].updated == "2019-03-22T05:45:02Z")
+        assert(result.resultMembers!![0].firstSeen == "2019-03-22T05:39:54Z")
+        assert(result.resultMembers!![0].timezone == "America/Los_Angeles")
+        assert(result.resultMembers!![0].location!![0] == -122.535998)
+        assert(result.resultMembers!![0].scope == "locality")
+        assert(result.resultMembers!![0].country == "US")
+        //assert(result!!.resultMembers!![0].placeHierarchies!![0] == "6295630")
+
+
+
+
+
+
+
+
+
+
 
     }
 
