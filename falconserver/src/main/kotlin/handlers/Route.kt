@@ -35,13 +35,18 @@ object GoogleRouteController {
         val cityName = data.cityName
         val userPreferences = data.preferences!!
 
-        val multiModeDirections: List<models.falcon.FalconDirectionsModel?> = GoogleRoute.getMultiModeRoute(
-            "${origin.latitude},${origin.longitude}",
-            "${destination.latitude},${destination.longitude}"
-        )
+//        val multiModeDirections: List<models.falcon.FalconDirectionsModel?> = GoogleRoute.getMultiModeRoute(
+//            "${origin.latitude},${origin.longitude}",
+//            "${destination.latitude},${destination.longitude}"
+//        )
+
+
+        val bikeStands = BikeStand.getRealTimeStandsInfoByCity(cityName)
+
+        val multiModeDirections =  GoogleRoute.getCustomRoute(origin,destination,bikeStands)
 
         val weather = Weather.getByCityID(cityID)
-        val bikeStands = BikeStand.getRealTimeStandsInfoByCity(cityName)
+
 
         val res: FalconDirectionsModel? = FalconDirectionsModel()
         res?.routes = mutableListOf()

@@ -17,6 +17,8 @@ repositories {
 }
 
 dependencies {
+
+    compile group: 'ch.hsr', name: 'geohash', version: '1.3.0'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     implementation "io.javalin:javalin:2.6.0"
     implementation "org.slf4j:slf4j-simple:1.7.25"
