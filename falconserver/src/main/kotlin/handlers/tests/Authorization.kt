@@ -19,7 +19,6 @@ class AuthorizationTest {
         val mockFirebaseAuthService = mock<FirebaseAuthInterface>()
         whenever(mockFirebaseAuthService.isTokenValid(fakeToken)).thenReturn(true)
         val result = Authorization.isUserAuthenticated(fakeToken, mockFirebaseAuthService)
-
         assertTrue(result)
     }
 
@@ -169,7 +168,7 @@ class AuthorizationTest {
         val mockContext = mock<Context> {
             on { header("Authorization") } doReturn "Bearer 5678"
         }
-        println(mockContext.header("Authorization"))
+//        println(mockContext.header("Authorization"))
         val result = Authorization.extractToken(mockContext)
         assertEquals(result, "5678")
     }
