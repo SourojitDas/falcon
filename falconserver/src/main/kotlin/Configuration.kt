@@ -8,6 +8,8 @@ object Configuration {
     private val BikeServiceBaseURLPath = "bike_service.base_url"
     private val GoogleMapsServiceBaseURLPath = "map_service.base_url"
     private val GoogleMapsServiceApiKeyPath = "map_service.api_key"
+    private val EventsServiceBaseURLPath = "events_service.base_url"
+    private val EventsServiceApiKeyPath = "events_service.api_key"
 
     private var configFile = ConfigFactory.load("config/application")
 
@@ -35,5 +37,12 @@ object Configuration {
         return configFile.getString(GoogleMapsServiceApiKeyPath)
     }
 
+    fun getEventsServiceBaseURL(): String {
+        return configFile.getString(EventsServiceBaseURLPath)
+    }
+
+    fun getEventsServiceApiKey(): String {
+        return configFile.getString(EventsServiceApiKeyPath)
+    }
 
 }

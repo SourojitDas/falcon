@@ -47,7 +47,7 @@ data class Result(
     @Json(name = "timezone")
     val timezone: String? = null,
     @Json(name = "location")
-    val location: List<Int>? = null,
+    val location: List<Double>? = null,
     @Json(name = "scope")
     val scope: String? = null,
     @Json(name = "country")
