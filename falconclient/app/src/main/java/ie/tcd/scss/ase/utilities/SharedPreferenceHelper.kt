@@ -2,7 +2,7 @@ package ie.tcd.scss.ase.utilities
 
 import android.content.Context
 import ie.tcd.scss.ase.R
-import ie.tcd.scss.ase.poko.SharedPreferenceDataClass
+import ie.tcd.scss.ase.dataclasses.SharedPreferenceDataClass
 
 class SharedPreferenceHelper(context:Context) {
 
@@ -63,7 +63,7 @@ class SharedPreferenceHelper(context:Context) {
     }
 
     fun getPreference(key: String): String {
-        return sharedPreferences.getString(key, "")
+        return sharedPreferences.getString(key, "") as String
     }
 
     fun containPreference(key: String): Boolean {

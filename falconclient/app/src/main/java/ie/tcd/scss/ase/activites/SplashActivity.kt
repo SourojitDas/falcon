@@ -3,7 +3,6 @@ package ie.tcd.scss.ase.activites
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import ie.tcd.scss.ase.MapsActivity
 import ie.tcd.scss.ase.R
 import ie.tcd.scss.ase.utilities.SharedPreferenceHelper
 
