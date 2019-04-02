@@ -1,7 +1,7 @@
 package ie.tcd.scss.ase.interfaces
 
-import ie.tcd.scss.ase.poko.PreferedMode
+import ie.tcd.scss.ase.dataclasses.Preferences
 
 interface ModePreferenceInterface {
-    fun selectedPrefernceMode(list:ArrayList<PreferedMode>)
+    fun selectedPrefernceMode(list:ArrayList<Preferences>)
 }
