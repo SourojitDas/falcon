@@ -1,6 +1,7 @@
 package handlers
 
 import io.javalin.Context
+import models.falcon.Coordinates
 import models.falcon.FalconDirectionsModel
 import models.falcon.RequestBody
 import services.*
@@ -29,20 +30,21 @@ object GoogleRouteController {
     private fun constructCustomRoute(data: RequestBody, weatherInterface: WeatherInterface,
                                      bikeStandInterface: BikeStandInterface,
                                      googleRouteInterface: GoogleRouteInterface, eventInterface: EventInterface): models.falcon.FalconDirectionsModel {
-        val destination = data.destination
+        val destination = data.destination as Coordinates
         val origin = data.origin!!
         val cityID = data.cityID
         val cityName = data.cityName
         val countryName = "IE"
         val userPreferences = data.preferences!!
 
-        val multiModeDirections: List<models.falcon.FalconDirectionsModel?> = googleRouteInterface.getMultiModeRoute(
-            "${origin.latitude},${origin.longitude}",
-            "${destination?.latitude},${destination?.longitude}"
-        )
+//        val multiModeDirections: List<models.falcon.FalconDirectionsModel?> = googleRouteInterface.getMultiModeRoute(
+//            "${origin.latitude},${origin.longitude}",
+//            "${destination?.latitude},${destination?.longitude}"
+//        )
 
         val weather = weatherInterface.getByCityID(cityID)
         val bikeStands = bikeStandInterface.getRealTimeStandsInfoByCity(cityName)
+        val multiModeDirections =  GoogleRoute.getCustomRoute(origin,destination,bikeStands)
         val events = eventInterface.getRealTimeEventsInfoByPlace(countryName)
 
         val res: FalconDirectionsModel? = FalconDirectionsModel()
