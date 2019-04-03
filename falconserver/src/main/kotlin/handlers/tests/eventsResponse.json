@@ -1,0 +1,367 @@
+{
+  "count": 20,
+  "overflow": true,
+  "next": "https://api.predicthq.com/v1/events/?country=IE&offset=10",
+  "previous": null,
+  "results": [
+    {
+      "relevance": 1,
+      "id": "RVDQjYXkWYTrYxJaWf",
+      "title": "Laughter Lines Dublin Comedy Show",
+      "description": "Laughter Lines Dublin create quick-witted sketches, scenes and songs from whatever suggestions are thrown at them by the audience to create a show that's always fast, feel-good and always unpredictable funny. In addition to our weekly residency in The Duke, Laughter Lines regularly perform in other venues around the city. They also write and shoot their own original comedy sketches. In 2018 we had a sell out show in Edinburgh, with an amazing reception from our audiences.",
+      "category": "performing-arts",
+      "labels": [
+        "concert",
+        "entertainment",
+        "music",
+        "performing-arts"
+      ],
+      "rank": 0,
+      "local_rank": 0,
+      "duration": 5400,
+      "start": "2019-05-01T19:30:00Z",
+      "end": "2019-05-01T21:00:00Z",
+      "updated": "2019-03-11T13:16:52Z",
+      "first_seen": "2019-03-11T13:16:34Z",
+      "timezone": "Europe/Dublin",
+      "location": [
+        -6.2588,
+        53.342
+      ],
+      "scope": "locality",
+      "country": "IE",
+      "place_hierarchies": [
+        [
+          "6295630",
+          "6255148",
+          "2963597",
+          "7838915"
+        ]
+      ],
+      "state": "active"
+    },
+    {
+      "relevance": 1,
+      "id": "ynqQ3CzTFEGUSVEgRJ",
+      "title": "Kaleidoscope presents \"Little Jerusalem\"",
+      "description": "The penultimate event of the Kaleidoscope series' 10th season is presented in association with the Irish Jewish Museum. Located on Walworth Rd, the museum, which opened in 1985, is a close neighbour of the Bello Bar and representative of the history of the Portobello area. In the first half of the 20th century, Portobello saw an influx of Jews, refugees from pogroms in Eastern Europe, which gave it the name \"Little Jerusalem\". This Kaleidoscope performance features a special guest performance by UK musicians, Polina and Merlin Shepherd. Boasting virtuosity in vocals, piano and clarinet, the duo will present a stunning array of Klezmer music of Russia and Eastern Europe. The evening will also feature music by two Jewish composers- renaissance Italian, Salamone Rossi and contemporary Irish saxophonist and composer Nick Roth, who will also perform in his own 2010 quintet for bass clarinet (on this occasion on baritone saxophone) and string quartet. \nThis event is funded by the Arts Council of Ireland and Dublin City Council. \nTicket holders will be entitled to a complimentary pass to visit the Irish Jewish Musuem, a unique Portobello experience for a week after this event. \nRegrettably this venue is not wheelchair accessible.",
+      "category": "concerts",
+      "labels": [
+        "concert",
+        "music"
+      ],
+      "rank": 0,
+      "local_rank": 0,
+      "duration": 7200,
+      "start": "2019-05-01T19:30:00Z",
+      "end": "2019-05-01T21:30:00Z",
+      "updated": "2019-04-01T19:33:39Z",
+      "first_seen": "2019-03-11T12:55:16Z",
+      "timezone": "Europe/Dublin",
+      "location": [
+        -6.265199,
+        53.330697
+      ],
+      "scope": "locality",
+      "country": "IE",
+      "place_hierarchies": [
+        [
+          "6295630",
+          "6255148",
+          "2963597",
+          "7870000"
+        ]
+      ],
+      "state": "active"
+    },
+    {
+      "relevance": 1,
+      "id": "Cf9KwTmtRomaaRPAuj",
+      "title": "Light A Penny Candle",
+      "description": "Latcomers will only be admitted after 1st Act.",
+      "category": "performing-arts",
+      "labels": [
+        "performing-arts"
+      ],
+      "rank": 51,
+      "local_rank": 61,
+      "duration": 0,
+      "start": "2019-05-01T18:30:00Z",
+      "end": "2019-05-01T18:30:00Z",
+      "updated": "2019-03-16T07:30:31Z",
+      "first_seen": "2019-03-16T07:30:07Z",
+      "timezone": "Europe/Dublin",
+      "location": [
+        -6.261575,
+        53.340461
+      ],
+      "scope": "locality",
+      "country": "IE",
+      "place_hierarchies": [
+        [
+          "6295630",
+          "6255148",
+          "2963597",
+          "7838915"
+        ]
+      ],
+      "state": "active"
+    },
+    {
+      "relevance": 1,
+      "id": "LtTnwTicXcHbkqZ2bf",
+      "title": "Pepperland",
+      "description": "",
+      "category": "concerts",
+      "labels": [
+        "concert",
+        "music"
+      ],
+      "rank": 56,
+      "local_rank": 68,
+      "duration": 0,
+      "start": "2019-05-01T18:30:00Z",
+      "end": "2019-05-01T18:30:00Z",
+      "updated": "2019-03-16T07:36:03Z",
+      "first_seen": "2019-03-16T07:35:49Z",
+      "timezone": "Europe/Dublin",
+      "location": [
+        -6.239989,
+        53.344207
+      ],
+      "scope": "locality",
+      "country": "IE",
+      "place_hierarchies": [
+        [
+          "6295630",
+          "6255148",
+          "2963597",
+          "7521314",
+          "7778677",
+          "2964574"
+        ]
+      ],
+      "state": "active"
+    },
+    {
+      "relevance": 1,
+      "id": "bfxTS3BvU8U8m6pJss",
+      "title": "Jesters 2019 @ Sin É",
+      "description": "Free in Funnyness on Tuesdays & Wednesdays with 18-20 comics doing 5's",
+      "category": "performing-arts",
+      "labels": [
+        "concert",
+        "entertainment",
+        "music",
+        "performing-arts"
+      ],
+      "rank": 0,
+      "local_rank": 0,
+      "duration": 9000,
+      "start": "2019-05-01T18:30:00Z",
+      "end": "2019-05-01T21:00:00Z",
+      "updated": "2019-03-11T13:20:24Z",
+      "first_seen": "2019-03-11T13:20:09Z",
+      "timezone": "Europe/Dublin",
+      "location": [
+        -6.269505,
+        53.346035
+      ],
+      "scope": "locality",
+      "country": "IE",
+      "place_hierarchies": [
+        [
+          "6295630",
+          "6255148",
+          "2963597",
+          "7838915"
+        ]
+      ],
+      "state": "active"
+    },
+    {
+      "relevance": 1,
+      "id": "wcHXVG5tTLg9EXjzyY",
+      "title": "pepperland",
+      "description": "",
+      "category": "concerts",
+      "labels": [
+        "concert",
+        "music"
+      ],
+      "rank": 0,
+      "local_rank": 0,
+      "duration": 0,
+      "start": "2019-05-01T18:30:00Z",
+      "end": "2019-05-01T18:30:00Z",
+      "updated": "2018-11-22T02:24:20Z",
+      "first_seen": "2018-11-22T02:22:17Z",
+      "timezone": "Europe/Dublin",
+      "location": [
+        -6.238981,
+        53.341614
+      ],
+      "scope": "locality",
+      "country": "IE",
+      "place_hierarchies": [
+        [
+          "6295630",
+          "6255148",
+          "2963597",
+          "7521314",
+          "7778677",
+          "2964574"
+        ]
+      ],
+      "state": "active"
+    },
+    {
+      "relevance": 1,
+      "id": "PPhnpGs9o9WvZ3X25g",
+      "title": "Lip Sync Battle with DialEmma",
+      "description": "We are very excited to announce that two of our very favourite show girls, Ruby Noir and DialEmma will be joining the Drop Dead Twice family to bring you some mid-week fun.Cabaret Doyenne DialEmma will be leading our Lip Sync Battle on the first Weds of every month.Meanwhile, Pin-Up Chanteuse, Ruby Noir, will be leading Guilty Pleasures Karaoke on the fourth Weds of every month.Entry is free, there will be shots for everyone who takes part on the night and spot prizes for the best performance of the evening.If you haven't had the privilege of seeing these two do their thang you can find them at Drop Dead Twice as part of the The Bon Bon Room on stage with the rest of their troupe UnderCURRENT, passing on their style smarts at Brush Out Bombshells or listen to their pop culture podcast Giving Me Life.",
+      "category": "concerts",
+      "labels": [
+        "concert",
+        "music"
+      ],
+      "rank": 34,
+      "local_rank": 43,
+      "duration": 16200,
+      "start": "2019-05-01T18:00:00Z",
+      "end": "2019-05-01T22:30:00Z",
+      "updated": "2019-03-14T00:08:53Z",
+      "first_seen": "2019-03-11T13:18:20Z",
+      "timezone": "Europe/Dublin",
+      "location": [
+        -6.27529,
+        53.34231
+      ],
+      "scope": "locality",
+      "country": "IE",
+      "place_hierarchies": [
+        [
+          "6295630",
+          "6255148",
+          "2963597",
+          "7838915"
+        ]
+      ],
+      "state": "active"
+    },
+    {
+      "relevance": 1,
+      "id": "CSEhXNcQkztXSELNGx",
+      "title": "Blaenavon",
+      "description": "",
+      "category": "concerts",
+      "labels": [
+        "concert",
+        "music"
+      ],
+      "rank": 72,
+      "local_rank": 81,
+      "duration": 0,
+      "start": "2019-05-01T18:00:00Z",
+      "end": "2019-05-01T18:00:00Z",
+      "updated": "2019-03-24T18:20:00Z",
+      "first_seen": "2019-03-11T13:14:16Z",
+      "timezone": "Europe/Dublin",
+      "location": [
+        -6.263477,
+        53.346901
+      ],
+      "scope": "locality",
+      "country": "IE",
+      "place_hierarchies": [
+        [
+          "6295630",
+          "6255148",
+          "2963597",
+          "7838915"
+        ]
+      ],
+      "state": "active"
+    },
+    {
+      "relevance": 1,
+      "id": "yDJ2SN78HgfNX3gHKM",
+      "title": "Dutch Applied Universities: Gateways to Employment (Tullamore)",
+      "description": "In response to the increasing interest of Irish students in taking up the many opportunities to study, through English, in the Netherlands, eight of the Dutch Universities of Applied Sciences (UAS) are visiting Dublin in April. These universities offer programmes in:\nPhysiotherapyGame DesignBusinessLawITEngineeringArt & DesignHotel ManagementGlobal DevelopmentMusicMusic & Media ManagementSports ManagementTeaching\nand many more\nThe Dutch Gateway to Employment event is in the evening, commencing at 19.00. The evening comprises the following elements:\n19.00 - 19.30 Video clips concerning Dutch Education19.30 – 20.45 Presentations on Studying in the Netherlands (inc Q & A session with universities and Irish students currently studying in the Netherlands)20.45 – 22.00 Opportunity to engage deeper with universities in a 1:1 in a mini-exhibition\nSome of the top Dutch Universities of Applied Sciences will be attending, including- Hanze UAS, Groningen- Avans UAS- Breda UAS- Windesheim UAS- InHolland UAS- Stenden UAS- Fontys UAS\nProgrammes in the UAS are overtly employment-focused with a much more practical, hands-on, project-based style than the more academic (albeit excellent) programmes at research universities. The UAS programmes usually include one or two internships. Irish students on these programmes are enjoying an approach to education that, though less academic and more practical, is still very high in quality. Commentators in Higher Education, suggest that these programmes are a great match to the needs and preferred learning styles of Irish students.Entry requirements are reasonable – 6 passes at Leaving Cert (2 at H4 or 2 at H5): reflecting students’ right to an education in mainland Europe and sidestepping the need to obsess about Leaving Cert points. Importantly, students with a relevant QQI/FETAC Level 5 qualification qualify for degree programmes at UAS.Tuition fees are low: Eur 2083 p.a., with a long-term interest-free loans from the Dutch government, to pay these fees. There are other loans/grants available for living expenses. Also, if you qualify for a SUSI Maintenance Grant, you can take it with you. This all ensures that it is often less expensive to study in the Netherlands, than in Ireland.So, if you are interested in a programme that directly prepares you for the employment markets of the 21st century, programmes which you have the right to join and can afford to attend, it is certainly worth considering the Universities of Applied Sciences.",
+      "category": "conferences",
+      "labels": [
+        "conference",
+        "education",
+        "family"
+      ],
+      "rank": 0,
+      "local_rank": 0,
+      "duration": 9000,
+      "start": "2019-05-01T18:00:00Z",
+      "end": "2019-05-01T20:30:00Z",
+      "updated": "2019-04-01T18:01:23Z",
+      "first_seen": "2019-03-11T13:21:56Z",
+      "timezone": "Europe/Dublin",
+      "location": [
+        -7.492101,
+        53.270128
+      ],
+      "scope": "locality",
+      "country": "IE",
+      "place_hierarchies": [
+        [
+          "6295630",
+          "6255148",
+          "2963597",
+          "7521314",
+          "2962187",
+          "2961086"
+        ]
+      ],
+      "state": "active"
+    },
+    {
+      "relevance": 1,
+      "id": "7Vnj6mjG5ocUfaCv6k",
+      "title": "Blaenavon",
+      "description": "",
+      "category": "concerts",
+      "labels": [
+        "concert",
+        "music"
+      ],
+      "rank": 0,
+      "local_rank": 0,
+      "duration": 0,
+      "start": "2019-05-01T18:00:00Z",
+      "end": "2019-05-01T18:00:00Z",
+      "updated": "2019-01-23T09:48:17Z",
+      "first_seen": "2019-01-23T09:47:06Z",
+      "timezone": "Europe/Dublin",
+      "location": [
+        -6.328291,
+        53.343734
+      ],
+      "scope": "locality",
+      "country": "IE",
+      "place_hierarchies": [
+        [
+          "6295630",
+          "6255148",
+          "2963597",
+          "7521314",
+          "7778677",
+          "2964574"
+        ],
+        [
+          "6295630",
+          "6255148",
+          "2963597",
+          "7521314",
+          "2965525"
+        ]
+      ],
+      "state": "active"
+    }
+  ]
+}
