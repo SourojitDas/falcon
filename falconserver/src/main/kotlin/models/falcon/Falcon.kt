@@ -1,6 +1,7 @@
 package models.falcon
 
 import models.bikestand.BikeStandModel
+import models.events.EventsModel
 import models.googleMaps.*
 import models.weather.WeatherModel
 
@@ -9,7 +10,8 @@ data class FalconDirectionsModel(
     var routes: MutableList<FalconRouteModel>? = null,
     var status: String? = null,
     var weather: WeatherModel? = null,
-    var bikeStands: List<BikeStandModel>? = null
+    var bikeStands: List<BikeStandModel>? = null,
+    var events: EventsModel? = null
 )
 
 data class FalconRouteModel(

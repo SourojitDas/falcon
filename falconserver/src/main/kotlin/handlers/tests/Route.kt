@@ -4,14 +4,12 @@ import com.beust.klaxon.Klaxon
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
 import models.bikestand.BikeStandModel
+import models.events.EventsModel
 import models.falcon.FalconDirectionsModel
 import models.googleMaps.GoogleDirectionsModel
 import models.weather.WeatherModel
 import org.junit.Test
-import services.BikeStand
-import services.BikeStandInterface
-import services.GoogleRouteInterface
-import services.WeatherInterface
+import services.*
 import java.io.File
 import java.nio.charset.Charset
 
@@ -66,5 +64,15 @@ class Route {
         whenever(mockGoogleRouteService.getMultiModeRoute("53.3436935,-6.259189499999999",
             "53.3415983,-6.2542983")).thenReturn(parsedData)
         assert(parsedData?.get(0)?.routes?.get(0)?.mode=="driving")
+    }
+
+    @Test
+    fun `test event is in Dublin`(){
+        val path = System.getProperty("user.dir")
+        val fileData = File(path+"/src/main/kotlin/handlers/tests/eventsResponse.json").readText(Charset.defaultCharset())
+        val parsedData = Klaxon().parse<EventsModel>(fileData)
+        val mockEventsService = mock<EventInterface>()
+        whenever(mockEventsService.getRealTimeEventsInfoByPlace("IE")).thenReturn(parsedData)
+        assert(parsedData?.resultMembers?.get(0)?.timezone!!.contains("Dublin"))
     }
 }
