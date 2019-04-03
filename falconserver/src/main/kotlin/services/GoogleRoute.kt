@@ -2,6 +2,7 @@ package services
 
 import Configuration
 import ch.hsr.geohash.GeoHash
+import handlers.HeuristicCalculation
 import models.bikestand.BikeStandModel
 import models.falcon.Coordinates
 import models.falcon.FalconDirectionsModel
@@ -78,40 +79,41 @@ object GoogleRoute {
     fun getCustomRoute(origin: Coordinates, destination: Coordinates, bikeStands: List<BikeStandModel>?): List<FalconDirectionsModel?> {
 
 
-        var res = mutableListOf<FalconDirectionsModel>()
-
-        res = getMultiModeRoute("${origin.latitude},${origin.longitude}",
+        var res = getMultiModeRoute("${origin.latitude},${origin.longitude}",
                 "${destination.latitude},${destination.longitude}").toMutableList() as MutableList<FalconDirectionsModel>
 
-//        val geoHashOrgin_Eight = GeoHash.withCharacterPrecision(origin.latitude, origin.longitude, 8)
-//        val geoHashOrgin_Seven = GeoHash.withCharacterPrecision(origin.latitude, origin.longitude, 7)
-//        val geoHashOrgin_Six = GeoHash.withCharacterPrecision(origin.latitude, origin.longitude, 6)
-//        val geoHashOrgin_Five = GeoHash.withCharacterPrecision(origin.latitude, origin.longitude, 5)
+        var foundGeoHashOrigin: Boolean = false
+        var foundGeoHash = false
 
-//        var geoHashOrgin: List<GeoHash> = arrayListOf()
-//        var geoHashDestination: List<GeoHash> = arrayListOf()
-//
-//        for (i in 8 downTo 5) {
-//            geoHashOrgin.plus(GeoHash.withCharacterPrecision(origin.latitude, origin.longitude, i))
-//            geoHashDestination.plus(GeoHash.withCharacterPrecision(destination.latitude, destination.longitude, i))
-//        }
 
-        var found_geoHashOrigin: Boolean = false
-        var found_geoHash = false
         for (j in 8 downTo 5) {
             for (i in bikeStands!!.indices) {
 
-                val geoHash = GeoHash.withCharacterPrecision(bikeStands.get(i).standGeoLocation!!.latitude, bikeStands[i].standGeoLocation!!.longitude, j)
+                val geoHash = GeoHash.withCharacterPrecision(bikeStands[i].standGeoLocation!!.latitude, bikeStands[i].standGeoLocation!!.longitude, j)
                 val geoHashOrgin = GeoHash.withCharacterPrecision(origin.latitude, origin.longitude, j)
 
-                if (geoHash.equals(geoHashOrgin)) {
-                    found_geoHashOrigin = true
-                    bikeStandOrgin = bikeStands[i]
-                    break
+                if (geoHash == geoHashOrgin) {
+                    if (foundGeoHashOrigin) {
+
+                        val firstBikeStandCoordiante = Coordinates(bikeStandOrgin.standGeoLocation!!.latitude, bikeStandOrgin.standGeoLocation!!.longitude)
+                        val secondBikeStandCoordiante = Coordinates(bikeStands[i].standGeoLocation!!.latitude, bikeStands[i].standGeoLocation!!.longitude)
+
+                        val firstDistance = HeuristicCalculation.getHaversineDistance(origin, firstBikeStandCoordiante)
+                        val secondDistance = HeuristicCalculation.getHaversineDistance(origin, secondBikeStandCoordiante)
+
+                        if (secondDistance < firstDistance) {
+                            bikeStandOrgin = bikeStands[i]
+                        }
+
+                    } else {
+                        foundGeoHashOrigin = true
+                        bikeStandOrgin = bikeStands[i]
+                        continue
+                    }
                 }
             }
 
-            if (found_geoHashOrigin) {
+            if (foundGeoHashOrigin) {
                 break
             }
         }
@@ -122,21 +124,76 @@ object GoogleRoute {
                 val geoHash = GeoHash.withCharacterPrecision(bikeStands.get(i).standGeoLocation!!.latitude, bikeStands[i].standGeoLocation!!.longitude, j)
                 val geoHashDestination = GeoHash.withCharacterPrecision(destination.latitude, destination.longitude, j)
 
-                if (geoHash.equals(geoHashDestination)) {
-                    found_geoHash = true
-                    bikeStandDestination = bikeStands[i]
-                    break
+                if (geoHash == geoHashDestination) {
+                    if (foundGeoHash) {
+
+                        val firstBikeStandCoordiante = Coordinates(bikeStandDestination.standGeoLocation!!.latitude, bikeStandDestination.standGeoLocation!!.longitude)
+                        val secondBikeStandCoordiante = Coordinates(bikeStands[i].standGeoLocation!!.latitude, bikeStands[i].standGeoLocation!!.longitude)
+
+                        val firstDistance = HeuristicCalculation.getHaversineDistance(destination, firstBikeStandCoordiante)
+                        val secondDistance = HeuristicCalculation.getHaversineDistance(destination, secondBikeStandCoordiante)
+
+                        if (secondDistance < firstDistance) {
+                            bikeStandDestination = bikeStands[i]
+                        }
+
+                    } else {
+                        foundGeoHash = true
+                        bikeStandDestination = bikeStands[i]
+                    }
                 }
             }
 
-            if (found_geoHash) {
+            if (foundGeoHash) {
                 break
             }
         }
 
 //        var resmodel = FalconDirectionsModel()
 
-        if (::bikeStandOrgin.isInitialized && ::bikeStandDestination.isInitialized && found_geoHash && found_geoHashOrigin) {
+        if (!foundGeoHash) {
+
+
+            for (j in 8 downTo 5) {
+
+                for (i in bikeStands!!.indices) {
+
+                    val geoHash = GeoHash.withCharacterPrecision(bikeStands.get(i).standGeoLocation!!.latitude, bikeStands[i].standGeoLocation!!.longitude, j)
+                    val neighbors = geoHash.adjacent
+
+                    for (k in 0..(neighbors.size-1)) {
+                        val geoHashNeighbour = neighbors[k]
+                        val geoHashDestination = GeoHash.withCharacterPrecision(destination.latitude, destination.longitude, j)
+
+                        if (geoHashNeighbour == geoHashDestination) {
+                            if (foundGeoHash) {
+
+                                val firstBikeStandCoordiante = Coordinates(bikeStandDestination.standGeoLocation!!.latitude, bikeStandDestination.standGeoLocation!!.longitude)
+                                val secondBikeStandCoordiante = Coordinates(bikeStands[i].standGeoLocation!!.latitude, bikeStands[i].standGeoLocation!!.longitude)
+
+                                val firstDistance = HeuristicCalculation.getHaversineDistance(destination, firstBikeStandCoordiante)
+                                val secondDistance = HeuristicCalculation.getHaversineDistance(destination, secondBikeStandCoordiante)
+
+                                if (secondDistance < firstDistance) {
+                                    bikeStandDestination = bikeStands[i]
+                                }
+
+                            } else {
+                                foundGeoHash = true
+                                bikeStandDestination = bikeStands[i]
+                            }
+                        }
+                    }
+                }
+
+                if (foundGeoHash) {
+                    break
+                }
+            }
+
+        }
+
+        if (::bikeStandOrgin.isInitialized && ::bikeStandDestination.isInitialized && foundGeoHash && foundGeoHashOrigin) {
 
             val directionsFromGoogleOrigin = getRouteByEndpointsAndMode("${origin.latitude},${origin.longitude}",
                     "${bikeStandOrgin.standGeoLocation?.latitude},${bikeStandOrgin.standGeoLocation?.longitude}", "walking")
@@ -151,15 +208,15 @@ object GoogleRoute {
 
             var modifiedDirectionsObjectCycling = FalconDirectionsModel()
             modifiedDirectionsObjectCycling = _updateDirectionsObject(
-                modifiedDirectionsObjectCycling,
-                directionsFromGoogleOrigin
+                    modifiedDirectionsObjectCycling,
+                    directionsFromGoogleOrigin
             )
             modifiedDirectionsObjectCycling.routes = mutableListOf()
 
             var modifiedDirectionsObjectDesitination = FalconDirectionsModel()
             modifiedDirectionsObjectDesitination = _updateDirectionsObject(
-                modifiedDirectionsObjectDesitination,
-                directionsFromGoogleOrigin
+                    modifiedDirectionsObjectDesitination,
+                    directionsFromGoogleOrigin
             )
             modifiedDirectionsObjectDesitination.routes = mutableListOf()
 
@@ -199,15 +256,15 @@ object GoogleRoute {
 
 interface GoogleRouteInterface {
     fun getRouteByEndpointsAndMode(
-        origin: String,
-        destination: String,
-        mode: String
+            origin: String,
+            destination: String,
+            mode: String
     ): models.googleMaps.GoogleDirectionsModel?
 
     fun getMultiModeRoute(origin: String, destination: String): List<FalconDirectionsModel?>
     fun _updateDirectionsObject(
-        falconObj: FalconDirectionsModel,
-        googleObj: GoogleDirectionsModel
+            falconObj: FalconDirectionsModel,
+            googleObj: GoogleDirectionsModel
     ): FalconDirectionsModel
 
     fun _updateRouteObject(falconObj: FalconRouteModel, googleObj: GoogleRouteModel): FalconRouteModel
