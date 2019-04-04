@@ -611,13 +611,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
             } else if (route.mode == "walking" && modeOfTransport == "walk") {
                 val legs = route.legs as List<LegsItem>
                 drawRouteFromLegs(legs)
-            } else if(route.mode == "walking" && modeOfTransport == "multimode"){
+            } else if(route.mode == "multimode" && modeOfTransport == "multimode"){
                 val legs = route.legs as List<LegsItem>
                 drawRouteFromLegs(legs)
             }
         }
-
-
     }
 
     private fun drawRouteFromLegs(legs: List<LegsItem>) {
