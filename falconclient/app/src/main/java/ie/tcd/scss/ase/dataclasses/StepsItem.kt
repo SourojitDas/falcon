@@ -5,6 +5,7 @@ data class StepsItem(
 	val htmlInstructions: String? = null,
 	val distance: Distance? = null,
 	val startLocation: StartLocation? = null,
+	var blocked: Boolean = false,
 	val endLocation: EndLocation? = null,
 	val polyline: Polyline? = null,
 	val maneuver: Any? = null,

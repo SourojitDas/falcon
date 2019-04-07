@@ -24,13 +24,16 @@ class SplashActivity : AppCompatActivity() {
                         if(sharedPreferenceHelper.containPreference(getString(R.string.pref_saved))){
                             val intent = Intent(applicationContext, MapsActivity::class.java)
                             startActivity(intent)
+                            finish()
                         }else {
                             val intent = Intent(applicationContext, PreferencesActivity::class.java)
                             startActivity(intent)
+                            finish()
                         }
                     } else {
                         val intent = Intent(applicationContext, LoginActivity::class.java)
                         startActivity(intent)
+                        finish()
                     }
                 } catch (e: Exception) {
                     e.printStackTrace()
