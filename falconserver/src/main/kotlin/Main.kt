@@ -1,11 +1,12 @@
-import io.javalin.Javalin
-import handlers.*
-import io.javalin.security.SecurityUtil.roles
-import com.google.firebase.FirebaseApp
 import com.google.auth.oauth2.GoogleCredentials
+import com.google.firebase.FirebaseApp
 import com.google.firebase.FirebaseOptions
-import java.io.File
-import java.io.FileInputStream
+import handlers.ApiRole
+import handlers.Authorization
+import handlers.GoogleRouteController
+import handlers.PingController
+import io.javalin.Javalin
+import io.javalin.security.SecurityUtil.roles
 
 
 fun main(/*args: Array<String>*/) {
@@ -19,6 +20,7 @@ fun main(/*args: Array<String>*/) {
 fun bootstrapRoutes(server: Javalin) {
 //    server.get("/weather", WeatherController::getWeatherByCoordinates, roles(ApiRole.USER_READ))
 //    server.get("/bikestand", BikeStandController::getRealTimeStandsInfoByCity, roles(ApiRole.USER_READ))
+    server.get("/___p_i_n_g", PingController::pong, roles(ApiRole.USER_READ))
     server.post("/route", GoogleRouteController::getRouteByOriginAndDestination, roles(ApiRole.USER_READ))
 }
 

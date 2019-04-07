@@ -5,11 +5,15 @@ services:
     restart: always
     ports:
       - "8080:7000"
+    environment:
+      - PARENT_HOSTNAME=${HOSTNAME}
   falcon-server-n2:
     build: .
     restart: always
     ports:
       - "8081:7000"
+    environment:
+      - PARENT_HOSTNAME=${HOSTNAME}
   falcon-haproxy:
     build: haproxy
     restart: always
