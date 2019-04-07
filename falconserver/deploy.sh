@@ -2,7 +2,7 @@
 
 git pull
 
-./gradle jar
+gradle jar
 
 export HOSTNAME=$HOSTNAME
 
