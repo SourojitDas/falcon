@@ -39,10 +39,10 @@ class LocationHardwareEssentials {
         builder.setMessage(
             "Location Service or GPS is not enabled. Please turn on GPS or Location service to have full access to the " +
                     "application.")
-        builder.setNeutralButton("OK") { dialog, which ->
+        builder.setNeutralButton("OK") { dialog, _ ->
             dialog.dismiss()
         }
-        builder.setPositiveButton("GO TO SETTINGS") { dialog, which ->
+        builder.setPositiveButton("GO TO SETTINGS") { dialog, _ ->
             ContextCompat.startActivity(context, Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS), null)
             dialog.dismiss()
         }
