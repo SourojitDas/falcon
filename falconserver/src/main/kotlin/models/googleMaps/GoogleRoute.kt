@@ -21,7 +21,7 @@ data class GeocodedWayoints(
     @Json(name = "types")
     val types: List<String>? = null
 
-    )
+)
 
 
 interface RouteModel {
@@ -70,9 +70,6 @@ data class Bounds(
 )
 
 
-
-
-
 data class Leg(
 
     @Json(name = "distance")
@@ -84,7 +81,7 @@ data class Leg(
     @Json(name = "start_location")
     val startLocation: Coordinates? = null,
     @Json(name = "steps")
-    val steps: List<Step>? = null,
+    var steps: List<Step>? = null,
     @Json(name = "end_address")
     val endAddress: String? = null,
     @Json(name = "start_address")
@@ -114,8 +111,6 @@ data class Duration(
 )
 
 
-
-
 data class Polyline(
 
     @Json(name = "points")
@@ -139,7 +134,9 @@ data class Step(
     @Json(name = "travel_mode")
     val travelMode: String? = null,
     @Json(name = "maneuver")
-    val maneuver: String? = null
+    val maneuver: String? = null,
+    @Json(name = "blocked")
+    var blocked: Boolean = false
 )
 
 

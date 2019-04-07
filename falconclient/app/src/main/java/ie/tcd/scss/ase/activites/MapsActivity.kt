@@ -1,6 +1,9 @@
 package ie.tcd.scss.ase.activites
 
 import android.app.Activity
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.Context
 import android.content.Intent
 import android.content.IntentSender
 import android.content.pm.PackageManager
@@ -8,10 +11,13 @@ import android.graphics.Color
 import android.location.Address
 import android.location.Geocoder
 import android.location.Location
+import android.os.Build
 import android.os.Bundle
 import android.support.design.button.MaterialButton
 import android.support.design.widget.Snackbar
 import android.support.v4.app.ActivityCompat
+import android.support.v4.app.NotificationCompat
+import android.support.v4.app.NotificationCompat.BigTextStyle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.CardView
 import android.util.Log
@@ -71,6 +77,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
     private lateinit var cardTransit: CardView
     private lateinit var cardWalk: CardView
     private lateinit var cardCycle: CardView
+
+    private val CHANNEL_ID = "default_falcon_channel"
 
     private lateinit var routeResponse: RouteResponse
 
@@ -270,6 +278,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
                     Toast.makeText(applicationContext, "GOT RESPONSE", Toast.LENGTH_LONG).show()
                     routeResponse = response.body() as RouteResponse
                     drawMultipleRoute(response.body() as RouteResponse)
+                    showWeatherAlert(routeResponse.weather)
                 } else {
                     Log.d("RETROFIT : ", response.errorBody()?.string())
                     Snackbar.make(
@@ -289,15 +298,66 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
 
     }
 
+    private fun showWeatherAlert(weather: Weather?) {
+
+        val temperature = "Temperature : " + (weather?.mainTemperature?.temperature?.minus(273.15)) + " C"
+        val wind = "Wind Speed : " + weather?.wind?.speed + " Km/h"
+
+        var snow = "Chance of Snow : 0 %"
+        var rain = "Chance of Rain : 0%"
+        if (weather?.snow != null) {
+
+            snow = "Chance of Snow : " + (weather?.snow) + "%"
+
+        }
+        if (weather?.rain != null) {
+
+            rain = "Chance of Rain : " + (weather?.rain) + "%"
+
+        }
+
+        val body = temperature + System.lineSeparator() +
+                wind + System.lineSeparator() +
+                rain + System.lineSeparator() +
+                snow
+
+        val bigStyle = NotificationCompat.BigTextStyle()
+        bigStyle.setBigContentTitle("Weather Alert")
+        bigStyle.bigText(body)
+        bigStyle.setSummaryText(temperature)
+        createNotificationChannel()
+        val notificationBuilder = NotificationCompat.Builder(this, CHANNEL_ID)
+            .setSmallIcon(R.mipmap.ic_launcher)
+            .setContentTitle("Weather Alert")
+            .setStyle(bigStyle)
+            .setContentText(body)
+            .setAutoCancel(true)
+
+//        val notificationBuilder = NotificationCompat.Builder(this,CHANNEL_ID).setStyle(bigStyle)
+
+        val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        notificationManager.notify(0, notificationBuilder.build())
+
+    }
+
+    private fun createNotificationChannel() {
+        // Create the NotificationChannel, but only on API 26+ because
+        // the NotificationChannel class is new and not in the support library
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val name = getString(R.string.channel_name)
+            val descriptionText = getString(R.string.channel_description)
+            val importance = NotificationManager.IMPORTANCE_DEFAULT
+            val channel = NotificationChannel(CHANNEL_ID, name, importance).apply {
+                description = descriptionText
+            }
+            // Register the channel with the system
+            val notificationManager: NotificationManager =
+                getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(channel)
+        }
+    }
+
     override fun onMapReady(googleMap: GoogleMap) {
-//        map = googleMap
-//
-//        val dublin = LatLng(53.3498, 6.2603)
-//        map.addMarker(MarkerOptions().position(dublin).title("Marker in Dublin"))
-//        map.moveCamera(CameraUpdateFactory.newLatLngZoom(dublin, 12.0f))
-//        map.uiSettings.isZoomControlsEnabled = true
-//        map.setOnMarkerClickListener(this)
-//        setUpMap()
 
         map = googleMap
 
@@ -589,12 +649,14 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
 
     this.map.addPolyline(polyline.addAll(path[i]).geodesic(true))
     }
-    } */
+    }
+
+     */
 
 
     private fun drawMultipleRoute(response: RouteResponse) {
 
-        moveCamera(sourceLatLng)
+//        moveCamera(sourceLatLng)
 
         val routes = response.routes as List<RoutesItem>
 
@@ -611,7 +673,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
             } else if (route.mode == "walking" && modeOfTransport == "walk") {
                 val legs = route.legs as List<LegsItem>
                 drawRouteFromLegs(legs)
-            } else if(route.mode == "multimode" && modeOfTransport == "multimode"){
+            } else if (route.mode == "multimode" && modeOfTransport == "multimode") {
                 val legs = route.legs as List<LegsItem>
                 drawRouteFromLegs(legs)
             }
@@ -624,6 +686,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         val pathTransit: MutableList<List<LatLng>> = ArrayList()
         val pathCycle: MutableList<List<LatLng>> = ArrayList()
         val pathDriving: MutableList<List<LatLng>> = ArrayList()
+        val pathBlocked: MutableList<List<LatLng>> = ArrayList()
 
         map.clear()
 
@@ -638,7 +701,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
                 } else if (step.travelMode == "WALKING") {
                     pathWalk.add(PolyUtil.decode(point))
                 } else if (step.travelMode == "DRIVING") {
-                    pathDriving.add(PolyUtil.decode(point))
+                    if (step.blocked) {
+                        pathBlocked.add(PolyUtil.decode(point))
+                    } else {
+                        pathDriving.add(PolyUtil.decode(point))
+                    }
                 } else if (step.travelMode == "TRANSIT") {
                     pathTransit.add(PolyUtil.decode(point))
                 }
@@ -649,7 +716,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         pathCycle.forEach {
             var polyline = PolylineOptions().jointType(JointType.ROUND)
             val pattern = Arrays.asList(
-                Dot(), Gap(20f), Dash(30f), Gap(20f)
+                Dot(), Gap(20f), Dash(60f), Gap(20f)
             )
             var size = 30f
             var mapColor = Color.GREEN
@@ -686,10 +753,21 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
             this.map.addPolyline(polyline.addAll(it).geodesic(true))
         }
 
+        pathBlocked.forEach {
+            var polyline = PolylineOptions().jointType(JointType.ROUND)
+            var size = 30f
+            var mapColor = Color.RED
+            polyline.color(mapColor)
+            polyline.width(size)
+
+            this.map.addPolyline(polyline.addAll(it).geodesic(true))
+        }
+
+
         pathTransit.forEach {
             var polyline = PolylineOptions().jointType(JointType.ROUND)
             var size = 30f
-            var mapColor = Color.GREEN
+            var mapColor = Color.YELLOW
             polyline.color(mapColor)
             polyline.width(size)
 
@@ -702,7 +780,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
 
     private fun moveCamera(sourceLatLng: LatLng) {
 
-        map.moveCamera(CameraUpdateFactory.newLatLngZoom(sourceLatLng, 20.0f))
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(sourceLatLng, 15.0f))
 
     }
 

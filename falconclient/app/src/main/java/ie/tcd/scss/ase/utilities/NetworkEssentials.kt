@@ -29,10 +29,10 @@ class NetworkEssentials {
             "There is No Wifi or Network Connectivity found on your phone. Check Network Settings. " +
                     "To have full access to all features of the App please enable Network Connectivity."
         )
-        builder.setNeutralButton("OK") { dialog, which ->
+        builder.setNeutralButton("OK") { dialog, _ ->
             dialog.dismiss()
         }
-        builder.setPositiveButton("GO TO SETTINGS") { dialog, which ->
+        builder.setPositiveButton("GO TO SETTINGS") { dialog, _ ->
             ContextCompat.startActivity(context, Intent(Settings.ACTION_WIRELESS_SETTINGS), null)
             dialog.dismiss()
         }

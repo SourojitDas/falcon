@@ -5,5 +5,6 @@ data class RouteResponse(
 	val weather: Weather? = null,
 	val bikeStands: List<BikeStandsItem?>? = null,
 	val geocodeMembers: List<GeocodeMembersItem?>? = null,
+	val events: Any? = null,
 	val status: String? = null
 )

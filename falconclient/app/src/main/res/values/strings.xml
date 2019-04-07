@@ -36,4 +36,6 @@
     </string-array>
     <string name="title_activity_test">TestActivity</string>
     <string name="idtoken">firebas_id_token</string>
+    <string name="channel_name">falcon_notification_channel</string>
+    <string name="channel_description">falcon_notification_channel</string>
 </resources>

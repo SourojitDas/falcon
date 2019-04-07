@@ -2,8 +2,8 @@ package ie.tcd.scss.ase.dataclasses
 
 data class BikeStandsItem(
 	val standNumber: Int? = null,
-	val standAddress: String? = null,
 	val standBanking: Boolean? = null,
+	val address: String? = null,
 	val bonus: Boolean? = null,
 	val bikesAvailable: Int? = null,
 	val contractName: String? = null,

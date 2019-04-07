@@ -45,7 +45,7 @@ object GoogleRouteController {
         val weather = weatherInterface.getByCityID(cityID)
         val bikeStands = bikeStandInterface.getRealTimeStandsInfoByCity(cityName)
         val multiModeDirections =  GoogleRoute.getCustomRoute(origin,destination,bikeStands)
-        val events = eventInterface.getRealTimeEventsInfoByPlace(countryName)
+//        val events = eventInterface.getRealTimeEventsInfoByPlace(countryName)
 
         val res: FalconDirectionsModel? = FalconDirectionsModel()
         res?.routes = mutableListOf()
@@ -53,7 +53,7 @@ object GoogleRouteController {
         res?.status = multiModeDirections[0]?.status
         res?.weather = weather
         res?.bikeStands = bikeStands
-        res?.events = events
+//        res?.events = events
 
 
         for (routeObject in multiModeDirections) {
