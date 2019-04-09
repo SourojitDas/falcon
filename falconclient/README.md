@@ -6,4 +6,4 @@
 
 2. Run the project using Run. This will build using gradle and will take some time.
 
-NOTE: Either an emulator should be installed, or a supported Adnroid device should be connected to the development machine using USB.
+NOTE: Either an emulator should be installed, or a supported external Adnroid device should be connected to the development machine using USB. If using an external device is being used, enable USB Debugging on your device before running the app.
